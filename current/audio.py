@@ -1,4 +1,4 @@
-"""Episode sound -> music.wav (cool, sparkly marimba + ukulele loop, -6 dB under the voice) and sfx.wav.
+"""Episode sound -> music.wav (sunny, leafy marimba + ukulele loop, -6 dB under the voice) and sfx.wav.
 Run from the repo root: python3 current/audio.py"""
 import os, sys
 import numpy as np
@@ -9,13 +9,14 @@ meta, ph = episode()
 dur = meta["total_frames"] / FPS
 W = ph["words"]
 def first(w, n=0):
-    hits = [x["f0"] / FPS for x in W if "".join(c for c in x["text"].lower() if c.isalpha()).startswith(w)]
+    """start (s) of the n-th word that equals w exactly (letters only)"""
+    hits = [x["f0"] / FPS for x in W if "".join(c for c in x["text"].lower() if c.isalpha()) == w]
     return hits[n] if len(hits) > n else None
 
-# music: F-Dm-Bb-C, 104 bpm, icy bright marimba melody that climbs like a bubble rising
-music, beat = buf(dur), 60 / 104
-chords = [[174.6, 220.0, 261.6], [146.8, 174.6, 220.0], [116.5, 146.8, 174.6], [130.8, 164.8, 196.0]]
-melody = [698.5, 880.0, 1046.5, 880.0, 784.0, 698.5, 587.3, 659.3]
+# music: G-Em-C-D, 116 bpm, bouncy garden-walk marimba melody
+music, beat = buf(dur), 60 / 116
+chords = [[196.0, 246.9, 293.7], [164.8, 196.0, 246.9], [130.8, 164.8, 196.0], [146.8, 185.0, 220.0]]
+melody = [587.3, 784.0, 740.0, 659.3, 587.3, 493.9, 523.3, 587.3]
 t, k = 0.0, 0
 while t < dur:
     ch = chords[(k // 4) % 4]
@@ -27,11 +28,12 @@ music *= db(-6)
 n = int(0.8 * SR)
 music[-n:] *= np.linspace(1, 0, n)[:, None]
 
-# sfx: boing as the ice drops in / pops up, pops on titles, sparkles on freezing + reveals (each <= -12 dBFS)
+# sfx on titles + on-screen actions (each <= -12 dBFS)
 sfx = buf(dur)
-cues = [("es", 0, boing(db(-16))), ("mengapung", 0, pop(db(-14))), ("butiran", 0, pop(db(-14))), ("membeku", 0, sparkle(db(-16))),
-        ("bergandengan", 0, pop(db(-14))), ("ruang", 0, sparkle(db(-17))), ("ringan", 0, pop(db(-14))), ("makanya", 0, boing(db(-16))),
-        ("mengapung", 1, sparkle(db(-16))), ("esnya", 0, sparkle(db(-18))), ("keren", 0, sparkle(db(-16)))]
+cues = [("hijau", 0, pop(db(-14))), ("hijau", 1, sparkle(db(-17))), ("intip", 0, boing(db(-16))), ("klorofil", 0, pop(db(-14))),
+        ("koki", 0, pop(db(-15))), ("menangkap", 0, sparkle(db(-17))), ("banyak", 0, pop(db(-14))), ("merah", 2, pop(db(-16))),
+        ("biru", 2, pop(db(-16))), ("makanan", 0, sparkle(db(-16))), ("dipantulkan", 0, boing(db(-15))), ("tembok", 0, boing(db(-16))),
+        ("mata", 0, sparkle(db(-17))), ("keren", 0, sparkle(db(-16)))]
 for w, i, fx in cues:
     s = first(w, i)
     if s is not None:
