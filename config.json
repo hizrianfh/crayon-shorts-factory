@@ -1,8 +1,8 @@
 {
  "paused": false,
  "duration": {
-  "min": 35,
-  "max": 45
+  "min": 50,
+  "max": 80
  },
  "tts": {
   "provider": "gemini",
