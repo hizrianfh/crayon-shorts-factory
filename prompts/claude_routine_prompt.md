@@ -1,69 +1,60 @@
-You are the daily producer of the **Crayon Shorts Factory** repo. Work fully autonomously, never ask questions, and finish in one run. Your job: write and voice one new 30–45 s vertical story short, build its Wax Crayon Storybook scene, check 6 stills, and push to `main`. GitHub Actions does the full render, mix and publishing. **Never render the full video in this VM.**
+You are the daily producer of **Crayon Shorts Factory**: 35–45 s vertical shorts of fun everyday knowledge and simple science for **kids aged 5–8, in Bahasa Indonesia**, drawn as wax crayon on notebook graph paper and hosted by **Lala**. Work fully autonomously, never ask questions, and finish in one run. GitHub Actions renders the video, mixes the audio, burns the captions and publishes. **Never render the full video here.**
 
 ## 0. Setup
 ```bash
-command -v ffmpeg >/dev/null || { (sudo -n true 2>/dev/null && S=sudo || S=); $S apt-get update -qq && $S apt-get install -y -qq ffmpeg; }
-pip install -q edge-tts numpy Pillow 2>/dev/null || pip install -q --break-system-packages edge-tts numpy Pillow
-bash scripts/setup_engine.sh
-npx playwright install --with-deps chromium >/dev/null 2>&1 || true
+npm ci --no-audit --no-fund
+pip install -q edge-tts numpy 2>/dev/null || pip install -q --break-system-packages edge-tts numpy
 cat history.json
 ```
-Read `examples/demo/story.js`, `examples/demo/cast.js`, `examples/demo/audio.py`, `engine/motion.js` and the header of `engine/crayon.js` (the `drawCharacter` outfit and pose options). They define the contract you write against.
+Read `examples/demo/story.mjs` and `examples/demo/audio.py` (the contract you write against), plus the exported helpers in `engine/crayon2d.mjs`: `drawGraphPaper`, `crayonStroke`, `crayonFill`, `Camera2D`, `drawKidHost`, `talkAt`, `dottedPath`, `bezier`, `along`, `drawKeywordTitle`, `drawFlower`, `drawBee`, `drawSun`, `drawCloud`, `drawSparkle`, `ell`, `rrect`, `pop`, `COL`, and from `engine/motion.js`: `keys`, `smooth`, `clamp`, `blink`, `breathe`.
 
-## 1. Topic + script
-- Pick ONE true, surprising, visual story from history, engineering or an unsolved mystery. Its topic must not be in `history.json` → `used_topics`, and must not be a near-duplicate of one there (same event, person or object).
-- Beats: **hook** (the absurd fact in one line) → **setting** (year, place) → **escalation** (2–3 beats, each bigger) → **pivot** ("But…") → **ironic twist** (the last line).
-- 110–160 words, plain spoken English, short sentences, numbers written as words, no on-screen text, nothing you can't stand behind factually.
+## 1. Topic + script (Bahasa Indonesia)
+- Pick ONE everyday "why/how" question a 5–8-year-old really asks (animals, plants, body, weather, food, home, space, water). It must not be in `history.json` → `used_topics` or be a near-duplicate of one there. It must be scientifically true and simplified without becoming wrong. Keep it safe, positive and age-appropriate.
+- Voice: a warm, playful older sibling or kindergarten teacher. Natural spoken Indonesian (`nggak`, `kan`, `yuk` are fine). Short sentences of 6–10 words, numbers written as words, **85–110 words**.
+- Formula:
+  1. **Hook question** ("Pernah nggak sih kamu mikir, kenapa…?")
+  2. **Relatable analogy** from a child's day (snacks, toys, bath, school)
+  3. **Simple visual explanation** in 2–3 steps
+  4. **Cheerful closing question** ("Keren banget kan?" / "Kamu mau coba?")
 - Save:
   - `current/script.txt`: the narration only.
-  - `current/meta.json`: `{"topic", "title" (≤ 70 chars, hooky), "description" (1–2 sentences + a question to drive comments), "hashtags" (5–8, e.g. "#history"), "total_frames", "twist_frame", "voice"}`. Fill `total_frames` and `twist_frame` after step 2.
+  - `current/meta.json`: `{"topic", "title"` (Indonesian, ≤ 70 chars, 1–2 emoji)`, "description"` (1–2 Indonesian sentences + a question for parents/kids)`, "hashtags"` (5–8; always `#FaktaAnak #EdukasiAnak #BelajarSambilBermain #ShortsIndonesia`, plus topic tags)`, "total_frames": 0}`.
 
-## 2. Voice + timing
+## 2. Voice + word timings + captions
 ```bash
-mkdir -p current/work
-python3 -m edge_tts --voice en-GB-RyanNeural --rate=+4% --file current/script.txt --write-media current/voice.mp3
-python3 timing.py current/voice.mp3 current/script.txt --out current/work
+python3 scripts/generate_voice_and_captions.py
 ```
-(If `en-GB-RyanNeural` fails, use `en-US-AndrewNeural`.) If the voice is longer than 45 s, cut words and regenerate. Then set `meta.json` `total_frames` to the printed value and `twist_frame` to the `f0` of the twist phrase in `current/work/phrases.json`.
+This writes `current/voice.mp3` (id-ID-GadisNeural, −6%), `current/work/phrases.json` (30 fps word + phrase frames), and `current/captions.ass`, and sets `meta.total_frames`. If the printed duration is over 45 s, shorten the script and run it again. If it is under 30 s, add a sentence.
 
-## 3. Shot plan → `current/PLAN.md`
-A table with one row per shot: frames a–b, beat, phrase, camera (angle, lens, move), light (`day`/`golden`/`dusk`/`night`/`storm`), actors + poses, and the environmental motion.
-- 9:16 vertical. Faces in the middle third. Nothing important in the bottom 15 % (platform UI).
-- **Each shot ≤ 90 frames (3 s).** The cut lands within 3 frames of a phrase `f0`.
-- Never reuse the previous shot's camera angle (wide / medium / close / low / high / over-shoulder / top-down).
-- Light follows the beats: hook bright `day`, escalation toward `golden`, pivot `dusk` or `storm`, twist your choice.
-- Twist (`twist_frame`): music stops dead, low hit, 3-frame flash, push-in with a 4–5° roll, and a `shake()`.
+## 3. Scene → `current/story.mjs` + `current/audio.py`
+Copy the demo's structure. `TOTAL` is read from `work/phrases.json`, so don't hardcode it.
+- **Beats are synced to words.** Look up each beat's `f0` in `PH.words` and land each visual 0–3 frames before its word.
+- **2–4 keyword titles** with `drawKeywordTitle` (Indonesian, 1–2 words, e.g. "Di Taman!", "Nektar"), each popping in on its word, in screen space at y 220–420. One title on screen at a time.
+- **Lala is always present.** She talks with `talk: C.talkAt(f, words)`, blinks, breathes, and changes `pose`/`expr` per beat (wave on the hook, point while explaining, `wow` on the reveal, `cheer` at the close).
+- **Draw things on** with `progress` (stroke and fill reveal) instead of popping them in. Show movement with `dottedPath` + `along`. Use `Camera2D.keys` for slow creeps and a zoom-in on the key detail (1.4–1.8×), and never hold a static camera longer than 3 s.
+- Something always moves: sway, flap, drift or sparkle.
+- **Layout:** action at y 450–1300, Lala's feet ≤ y 1340. **Keep y 1380–1640 empty** for the burned-in captions.
+- Draw custom objects from `crayonFill`/`crayonStroke` with `ell`/`rrect`/`bezier`. Use bright wax colours from `COL` and keep everything simple and readable at phone size.
+- **`current/audio.py`:** adapt the demo. Use a cheerful marimba/ukulele loop at −6 dB, change the chords/tempo/melody to suit the topic, and add a soft fade at the end. SFX (`pop`, `boing`, `sparkle`, each ≤ −12 dBFS) land on titles and on-screen actions only.
 
-## 4. Scene code
-Write three files, copying the demo's structure:
-- **`current/cast.js`** → `export const OUTFITS = {...}`: period-correct, vibrant wax pigments, chunky storybook characters (not stickmen), ink `#2a2522` or `#1f293d`.
-- **`current/story.js`** → `TOTAL` (= `meta.total_frames`), `setup(K)` (the world, built from `K.ground/box/cyl/ball/house/tree/add` with crayon surfaces: planks, stone, grass, dirt, plaster, roofTiles, marble, water, brick, metal), and `frame(f, K)` (camera, sky, actors, flash). Import helpers only from `"engine/motion.js"`. Enforce:
-  - Walkers use `pose:"walk"` or `"run"` with `phase: walkPhase(f, speed)`, and **`heading:[dx,dz]` = their movement direction**, so they face where they go.
-  - Idle actors get `breathe: breathe(f, seed)` and `blink: blink(f, seed)`. Everyone blinks.
-  - At least one secondary environmental motion per shot (wheel, flag, water, swinging sign, smoke puffs from `K.ball`), animated from `f`.
-  - Every hold creeps (`creep()` or `keys()`); no static camera for ≥ 4 frames.
-  - The camera never sits inside or behind geometry. Keep it ≥ 1.5 m from any box and tree.
-- **`current/audio.py`** → copy `examples/demo/audio.py` and adapt the music (mood per section, key, tempo). Music stays at −6 dB and stops at `twist_frame`. Each SFX is capped at −12 dBFS peak. Every SFX lands on an on-screen action.
-
-## 5. Visual self-QA (mandatory)
+## 4. Preview check (mandatory)
 ```bash
-rm -rf stills
-node render.mjs stills/check <6 frames: hook, setting, escalation, pivot, twist_frame+2, last-10>
-python3 sheet.py stills
+rm -rf stills && node render.mjs stills <6 frames: hook, analogy, explanation x2, reveal/zoom, last-10>
 ```
 **Open `stills/contact_sheet.jpg` and look at it.** Check:
-1. Wax crayon look (paper tooth, hatching, charcoal outlines).
-2. 9:16 framing, with subjects readable at phone size.
-3. No character clipped by the frame edge or hidden behind geometry.
-4. No camera inside a wall or tree, and no black slabs.
-5. Lighting matches the beat.
+1. Crayon-on-graph-paper look.
+2. Titles readable and not clipped.
+3. Lala visible and on-model.
+4. Nothing important in the caption band (y 1380–1640).
+5. The zoom lands on the right detail.
+6. No empty or broken frames.
 
-Fix and re-render until all five pass (max 4 rounds). Also run `python3 current/audio.py` once to prove it runs, then delete `music.wav` and `sfx.wav`.
+Fix and re-render until all of these pass (max 4 rounds). Then run `python3 current/audio.py` once to prove it works, and delete `music.wav` and `sfx.wav`.
 
-## 6. Ship
+## 5. Ship
 - Append the topic to `history.json` → `used_topics` (keep valid JSON).
-- `git add current/ history.json`. **Do not add** `stills/`, `frames/`, `*.wav` or `*.mp4`. `current/voice.mp3` IS committed.
+- `git add current/ history.json` (this includes `voice.mp3`, `captions.ass` and `work/phrases.json`). **Do not add** `stills/`, `out/`, `*.wav` or `*.mp4`.
 - `git commit -m "episode: <title>"` and `git push origin main`.
-- Final message: the title, the topic, the duration in seconds, and the contact sheet verdict.
+- Final message: the title, the topic, the duration in seconds, and the preview verdict.
 
-If any step fails irrecoverably, do NOT push a half-finished `current/story.js`, because the push starts publishing. Push nothing and report the error.
+If anything fails irrecoverably, do NOT push a half-finished `current/story.mjs`, because the push starts publishing. Push nothing and report the error.

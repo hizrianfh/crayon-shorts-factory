@@ -1,9 +1,7 @@
 {
-  "topic": "demo (template only)",
-  "title": "Demo Crayon Short",
-  "description": "Template episode for the crayon engine.",
-  "hashtags": ["#history", "#shorts"],
-  "total_frames": 240,
-  "twist_frame": 180,
-  "voice": "en-GB-RyanNeural"
+ "topic": "demo: kenapa lebah suka bunga (template only)",
+ "title": "Kenapa Lebah Suka Bunga? 🐝🌸",
+ "description": "Lala ajak kamu ke taman! Tebak dulu yuk, kenapa lebah suka sekali bunga?",
+ "hashtags": ["#FaktaAnak", "#EdukasiAnak", "#BelajarSambilBermain", "#ShortsIndonesia"],
+ "total_frames": 0
 }

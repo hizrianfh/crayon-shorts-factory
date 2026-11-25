@@ -1,7 +1,7 @@
 """Publish out/<name>.mp4 with current/meta.json to TikTok + YouTube Shorts (standard library only).
 
 env: PUBLISHER_API_KEY (required), PUBLISHER_PROVIDER = zernio (default) | scheduleandchill,
-     VIDEO (default out/crayon_short.mp4), DRY_RUN=1 to print the request without sending,
+     VIDEO (default out/final.mp4), DRY_RUN=1 to print the request without sending,
      TIKTOK_PRIVACY (default PUBLIC_TO_EVERYONE; must be a level TikTok allows for the account).
 """
 import json, os, sys, urllib.error, urllib.request
@@ -49,7 +49,7 @@ def zernio(key, meta, video, dry):
             body["platforms"].append({"platform": "tiktok", "accountId": a["_id"]})
         elif a.get("platform") == "youtube":
             body["platforms"].append({"platform": "youtube", "accountId": a["_id"], "platformSpecificData": {
-                "title": meta["title"][:100], "visibility": "public", "madeForKids": False, "categoryId": "27"}})
+                "title": meta["title"][:100], "visibility": "public", "madeForKids": True, "categoryId": "27"}})
     if not body["platforms"]:
         sys.exit("no TikTok or YouTube account connected in Zernio")
     _, pre = call("POST", f"{ZERNIO}/media/presign", key,
@@ -67,7 +67,7 @@ def main():
     meta = json.load(open("current/meta.json", encoding="utf-8"))
     for k in ("title", "description", "hashtags"):
         assert meta.get(k), f"meta.json missing {k}"
-    video = os.environ.get("VIDEO", "out/crayon_short.mp4")
+    video = os.environ.get("VIDEO", "out/final.mp4")
     dry = os.environ.get("DRY_RUN") == "1"
     if not dry and not os.path.isfile(video):
         sys.exit(f"{video} not found")
