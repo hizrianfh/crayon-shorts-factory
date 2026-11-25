@@ -81,18 +81,32 @@
       <section class="card" aria-labelledby="prodH">
         <h2 id="prodH">Production</h2>
         <div class="switch"><input type="checkbox" id="paused"><label for="paused" style="margin:0">Pause daily episodes</label></div>
+        <label for="extra">Extra instructions for the writer <span class="hint">tone, style, things to include or avoid</span></label>
+        <textarea id="extra" placeholder="e.g. Tambahkan satu tebak-tebakan lucu di tengah video."></textarea>
         <label>Video length <span class="hint" id="wordsHint"></span></label>
         <div class="row">
           <div><label for="dmin" class="hint" style="margin:0">Min seconds</label><input type="number" id="dmin" min="15" max="170" step="1"></div>
           <div><label for="dmax" class="hint" style="margin:0">Max seconds</label><input type="number" id="dmax" min="20" max="175" step="1"></div>
         </div>
-        <div class="row">
-          <div><label for="voice">Voice</label><select id="voice">
-            <option value="id-ID-GadisNeural">Gadis (female)</option><option value="id-ID-ArdiNeural">Ardi (male)</option></select></div>
-          <div><label for="rate">Speaking speed</label><select id="rate"></select></div>
+      </section>
+
+      <section class="card" aria-labelledby="ttsH">
+        <h2 id="ttsH">Narration voice</h2>
+        <label for="provider">Text-to-speech engine</label>
+        <select id="provider">
+          <option value="gemini">Gemini 3.8 Flash TTS (most natural, needs GEMINI_API_KEY)</option>
+          <option value="edge">Microsoft Edge TTS (free, exact word timing)</option></select>
+        <div id="geminiBox">
+          <label for="gvoice">Gemini voice</label><select id="gvoice"></select>
+          <label for="style">Speaking style <span class="hint">how the narrator should sound (speed, mood, energy)</span></label>
+          <textarea id="style"></textarea>
+          <p class="hint">If the Gemini call fails on a given day, that episode uses the Edge voice below so the day isn't lost.</p>
         </div>
-        <label for="extra">Extra instructions for the writer <span class="hint">tone, style, things to include or avoid</span></label>
-        <textarea id="extra" placeholder="e.g. Tambahkan satu tebak-tebakan lucu di tengah video."></textarea>
+        <div class="row">
+          <div><label for="voice">Edge voice</label><select id="voice">
+            <option value="id-ID-GadisNeural">Gadis (female)</option><option value="id-ID-ArdiNeural">Ardi (male)</option></select></div>
+          <div><label for="rate">Edge speaking speed</label><select id="rate"></select></div>
+        </div>
       </section>
 
       <section class="card" aria-labelledby="queueH">
@@ -156,6 +170,9 @@ const store = { get() { try { return localStorage.getItem("css_token") || ""; } 
 let token = store.get(), cfg = null, sha = null;
 
 $("repoLabel").textContent = REPO;
+const GEMINI_VOICES = "Zephyr Bright|Puck Upbeat|Charon Informative|Kore Firm|Fenrir Excitable|Leda Youthful|Orus Firm|Aoede Breezy|Callirrhoe Easy-going|Autonoe Bright|Enceladus Breathy|Iapetus Clear|Umbriel Easy-going|Algieba Smooth|Despina Smooth|Erinome Clear|Algenib Gravelly|Rasalgethi Informative|Laomedeia Upbeat|Achernar Soft|Alnilam Firm|Schedar Even|Gacrux Mature|Pulcherrima Forward|Achird Friendly|Zubenelgenubi Casual|Vindemiatrix Gentle|Sadachbia Lively|Sadaltager Knowledgeable|Sulafat Warm";
+for (const v of GEMINI_VOICES.split("|")) { const [n, d] = v.split(" "); $("gvoice").add(new Option(`${n} (${d})`, n)); }
+const TTS_DEFAULTS = { provider: "gemini", gemini_model: "gemini-3.8-flash-tts", gemini_voice: "Leda", style: "", edge_voice: "id-ID-GadisNeural", edge_rate: "-6%" };
 for (let r = -15; r <= 15; r += 3) { const v = (r >= 0 ? "+" : "") + r + "%"; $("rate").add(new Option(r === 0 ? "Normal" : v, v)); }
 
 async function gh(path, opts = {}) {
@@ -175,8 +192,11 @@ function render() {
   $("statePill").textContent = cfg.paused ? "Paused" : "Running daily";
   $("statePill").classList.toggle("paused", !!cfg.paused);
   $("dmin").value = cfg.duration.min; $("dmax").value = cfg.duration.max;
-  $("voice").value = cfg.voice; $("rate").value = cfg.rate;
-  if ($("rate").value !== cfg.rate) { $("rate").add(new Option(cfg.rate, cfg.rate)); $("rate").value = cfg.rate; }
+  const t = cfg.tts = { ...TTS_DEFAULTS, ...(cfg.tts || {}) };
+  $("provider").value = t.provider; $("gvoice").value = t.gemini_voice; $("style").value = t.style;
+  $("voice").value = t.edge_voice; $("rate").value = t.edge_rate;
+  if ($("rate").value !== t.edge_rate) { $("rate").add(new Option(t.edge_rate, t.edge_rate)); $("rate").value = t.edge_rate; }
+  $("geminiBox").hidden = t.provider !== "gemini";
   $("extra").value = cfg.extra_instructions || "";
   const p = cfg.publish;
   $("pubOn").checked = p.enabled; $("pubTt").checked = p.tiktok; $("pubYt").checked = p.youtube; $("kids").checked = p.made_for_kids; $("privacy").value = p.tiktok_privacy;
@@ -206,7 +226,8 @@ function collect() {
   if (!(min >= 15 && max <= 175 && min + 5 <= max)) throw new Error("Length: min ≥ 15 s, max ≤ 175 s, and max at least 5 s above min.");
   if (!$("pubTt").checked && !$("pubYt").checked && $("pubOn").checked) throw new Error("Turn on TikTok or YouTube, or turn publishing off.");
   if (!cfg.categories.length && !cfg.topic_queue.length) throw new Error("Keep at least one category or one queued topic.");
-  return { ...cfg, paused: $("paused").checked, duration: { min, max }, voice: $("voice").value, rate: $("rate").value,
+  return { ...cfg, paused: $("paused").checked, duration: { min, max },
+    tts: { ...cfg.tts, provider: $("provider").value, gemini_voice: $("gvoice").value, style: $("style").value.trim().slice(0, 600), edge_voice: $("voice").value, edge_rate: $("rate").value },
     extra_instructions: $("extra").value.trim().slice(0, 1500),
     publish: { enabled: $("pubOn").checked, tiktok: $("pubTt").checked, youtube: $("pubYt").checked, made_for_kids: $("kids").checked, tiktok_privacy: $("privacy").value } };
 }
@@ -269,6 +290,7 @@ $("newTopic").onkeydown = (e) => { if (e.key === "Enter") $("addTopic").click();
 $("addCat").onclick = () => { const t = $("newCat").value.trim(); if (t && !cfg.categories.includes(t)) { cfg.categories.push(t.slice(0, 40)); $("newCat").value = ""; render(); } };
 $("newCat").onkeydown = (e) => { if (e.key === "Enter") $("addCat").click(); };
 $("dmin").oninput = $("dmax").oninput = wordsHint;
+$("provider").onchange = () => { $("geminiBox").hidden = $("provider").value !== "gemini"; };
 $("paused").onchange = () => { $("statePill").textContent = $("paused").checked ? "Paused (unsaved)" : "Running (unsaved)"; };
 $("save").onclick = save;
 $("reload").onclick = load;

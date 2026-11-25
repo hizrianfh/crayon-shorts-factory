@@ -1,14 +1,27 @@
-"""Indonesian narration + word timings + kid captions, from one edge-tts call.
+"""Indonesian narration + word timings + kid captions.
 
-    python3 scripts/generate_voice_and_captions.py [--ep current] [--voice id-ID-GadisNeural] [--rate=-6%]
+    python3 scripts/generate_voice_and_captions.py [--ep current]
 
-Reads <ep>/script.txt. Writes <ep>/voice.mp3, <ep>/work/phrases.json (30 fps word + phrase frames),
-<ep>/captions.ass (2-3 words per chunk, active word in yellow), and sets total_frames in <ep>/meta.json if present.
-Voice, rate and the allowed duration come from config.json (the dashboard). Exits with code 3 if the narration
-is outside config duration.min..max, printing how many words to add or cut.
+Reads <ep>/script.txt and config.json "tts" (set from the dashboard):
+  provider "gemini": Gemini TTS (GEMINI_API_KEY from the environment or a gitignored .env) -> <ep>/voice.wav.
+                     Gemini gives no timestamps, so word timings come from scripts/align_audio.py.
+                     Falls back to edge-tts if the key is missing or the API call fails.
+  provider "edge":   edge-tts with exact WordBoundary timings -> <ep>/voice.mp3.
+Writes <ep>/work/phrases.json (30 fps word + phrase frames), <ep>/captions.ass (2-3 words per chunk, active word in
+yellow) and total_frames in <ep>/meta.json. Exits with code 3 if the video would be outside config duration.min..max,
+printing how many words to add or cut.
 """
-import argparse, asyncio, json, math, os, re
-import edge_tts
+import argparse, asyncio, base64, io, json, math, os, re, sys, urllib.error, urllib.request, wave
+import numpy as np
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from align_audio import align_tokens
+
+GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/interactions"
+TTS_DEFAULTS = {"provider": "gemini", "gemini_model": "gemini-3.8-flash-tts", "gemini_voice": "Leda",
+                "style": "Warm, cheerful older sister telling a fun science story to five-year-old kids in Indonesian. "
+                         "Speak slowly, clearly and playfully, with real curiosity on the questions.",
+                "edge_voice": "id-ID-GadisNeural", "edge_rate": "-6%"}
 
 FPS = 30
 TAIL = 0.8  # seconds of picture after the last word
@@ -35,6 +48,7 @@ def norm(s):
 
 
 async def tts(text, voice, rate, mp3):
+    import edge_tts
     com = edge_tts.Communicate(text, voice, rate=rate, boundary="WordBoundary")
     words = []
     with open(mp3, "wb") as f:
@@ -63,6 +77,76 @@ def align(tokens, words):
     return out
 
 
+def gemini_key():
+    if os.environ.get("GEMINI_API_KEY"):
+        return os.environ["GEMINI_API_KEY"].strip()
+    if os.path.exists(".env"):
+        for line in open(".env", encoding="utf-8"):
+            k, _, v = line.partition("=")
+            if k.strip() == "GEMINI_API_KEY":
+                return v.strip().strip('"').strip("'")
+    return ""
+
+
+def find_audio(obj):
+    """first {"type": "audio", "data": <base64>} anywhere in the Interactions API response"""
+    if isinstance(obj, dict):
+        if obj.get("type") == "audio" and obj.get("data"):
+            return obj["data"]
+        obj = list(obj.values())
+    if isinstance(obj, list):
+        for v in obj:
+            d = find_audio(v)
+            if d:
+                return d
+    return None
+
+
+def gemini_tts(text, t, key, wav_path):
+    """Gemini TTS -> WAV file; returns (float mono samples, sample rate)"""
+    body = {"model": t["gemini_model"],
+            "input": [{"type": "user_input", "content": [{"type": "text", "text": text,
+                       "annotations": [{"type": "speech_metadata", "style": t["style"]}]}]}],
+            "response_format": {"type": "audio"},
+            "generation_config": {"speech_config": [{"voice": t["gemini_voice"]}]}}
+    req = urllib.request.Request(GEMINI_URL, data=json.dumps(body).encode(), method="POST",
+                                 headers={"x-goog-api-key": key, "Content-Type": "application/json"})
+    try:
+        with urllib.request.urlopen(req, timeout=180) as r:
+            res = json.loads(r.read())
+    except urllib.error.HTTPError as e:
+        raise RuntimeError(f"Gemini TTS HTTP {e.code}: {e.read().decode()[:400]}")
+    b64 = find_audio(res)
+    if not b64:
+        raise RuntimeError(f"Gemini TTS response had no audio: {json.dumps(res)[:400]}")
+    raw = base64.b64decode(b64)
+    if raw[:4] != b"RIFF":  # documented: unary responses are WAV 24 kHz mono 16-bit; wrap raw PCM just in case
+        buf = io.BytesIO()
+        with wave.open(buf, "wb") as w:
+            w.setnchannels(1); w.setsampwidth(2); w.setframerate(24000); w.writeframes(raw)
+        raw = buf.getvalue()
+    with open(wav_path, "wb") as f:
+        f.write(raw)
+    with wave.open(wav_path) as w:
+        sr, ch, n = w.getframerate(), w.getnchannels(), w.getnframes()
+        x = np.frombuffer(w.readframes(n), np.int16).astype(np.float32) / 32768
+    return (x.reshape(-1, ch).mean(1) if ch > 1 else x), sr
+
+
+def edge_tokens(text, tokens, t, mp3):
+    words = asyncio.run(tts(text, t["edge_voice"], t["edge_rate"], mp3))
+    assert words, "edge-tts returned no WordBoundary events"
+    tok_word = align(tokens, words)
+    toks = []
+    for i, tk in enumerate(tokens):  # token timing = span of the tts words it owns
+        mine = [j for j, k in enumerate(tok_word) if k == tok_word[i]]
+        first = mine.index(i)
+        w = words[tok_word[i]]
+        dur = (w["end"] - w["start"]) / len(mine)  # tokens sharing one tts word split its time
+        toks.append({"text": tk, "start": w["start"] + dur * first, "end": w["start"] + dur * (first + 1)})
+    return toks
+
+
 def ts(s):
     cs = int(round(s * 100))
     return f"{cs // 360000}:{cs // 6000 % 60:02d}:{cs // 100 % 60:02d}.{cs % 100:02d}"
@@ -80,25 +164,33 @@ def chunks_of(n):
 def main():
     cfg = json.load(open("config.json", encoding="utf-8")) if os.path.exists("config.json") else {}
     limits = cfg.get("duration", {"min": 35, "max": 45})
+    t = {**TTS_DEFAULTS, **cfg.get("tts", {})}
     ap = argparse.ArgumentParser()
     ap.add_argument("--ep", default="current")
-    ap.add_argument("--voice", default=cfg.get("voice", "id-ID-GadisNeural"))
-    ap.add_argument("--rate", default=cfg.get("rate", "-6%"))
+    ap.add_argument("--provider", default=t["provider"], choices=["gemini", "edge"])
     a = ap.parse_args()
     text = " ".join(open(os.path.join(a.ep, "script.txt"), encoding="utf-8").read().split())
-    words = asyncio.run(tts(text, a.voice, a.rate, os.path.join(a.ep, "voice.mp3")))
-    assert words, "edge-tts returned no WordBoundary events"
-
     tokens = text.split()
-    tok_word = align(tokens, words)
-    # token timing = span of the tts words it owns
-    toks = []
-    for i, t in enumerate(tokens):
-        mine = [j for j, k in enumerate(tok_word) if k == tok_word[i]]
-        first = mine.index(i)
-        w = words[tok_word[i]]
-        dur = (w["end"] - w["start"]) / len(mine)  # tokens sharing one tts word split its time
-        toks.append({"text": t, "start": w["start"] + dur * first, "end": w["start"] + dur * (first + 1)})
+    wav, mp3 = os.path.join(a.ep, "voice.wav"), os.path.join(a.ep, "voice.mp3")
+
+    used = a.provider
+    if used == "gemini":
+        key = gemini_key()
+        try:
+            if not key:
+                raise RuntimeError("GEMINI_API_KEY is not set")
+            x, sr = gemini_tts(text, t, key, wav)
+            toks = align_tokens(x, sr, tokens)
+            print(f"voice: Gemini {t['gemini_model']} / {t['gemini_voice']} (timings from audio alignment)")
+        except Exception as e:  # never lose a day: fall back to edge-tts
+            print(f"WARNING: Gemini TTS failed ({e}); falling back to edge-tts {t['edge_voice']}")
+            used = "edge"
+    if used == "edge":
+        toks = edge_tokens(text, tokens, t, mp3)
+        print(f"voice: edge-tts {t['edge_voice']} {t['edge_rate']} (exact word timings)")
+    for stale in ([mp3] if used == "gemini" else [wav]):  # exactly one voice file per episode
+        if os.path.exists(stale):
+            os.remove(stale)
 
     # phrases end at punctuation
     phrases, cur = [], []

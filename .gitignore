@@ -2,6 +2,8 @@ node_modules/
 stills/
 out/
 *.wav
+!current/voice.wav
+.env
 *.mp4
 __pycache__/
-# current/voice.mp3 stays tracked: Actions must use the exact audio story.mjs and captions.ass were timed to
+# current/voice.wav (Gemini) or voice.mp3 (edge) stays tracked: Actions must use the exact audio the timings came from

@@ -12,7 +12,7 @@ cat config.json history.json
 - `topic_queue`: the owner's requested topics, in order. If it's not empty, make an episode about `topic_queue[0]`, even if a similar topic is in history. Then remove that item from the queue.
 - `categories`: when the queue is empty, pick the topic from these categories only.
 - `extra_instructions`: the owner's extra wishes for tone, content or visuals. Follow them unless they would make the content unsafe or untrue for children.
-- `voice`/`rate`/`publish` are used by the scripts. Don't change them.
+- `tts` and `publish` are used by the scripts. Don't change them.
 
 Read `examples/demo/story.mjs` and `examples/demo/audio.py` (the contract you write against), plus the exported helpers in `engine/crayon2d.mjs`: `drawGraphPaper`, `crayonStroke`, `crayonFill`, `Camera2D`, `drawKidHost`, `talkAt`, `dottedPath`, `bezier`, `along`, `drawKeywordTitle`, `drawFlower`, `drawBee`, `drawSun`, `drawCloud`, `drawSparkle`, `ell`, `rrect`, `pop`, `COL`, and from `engine/motion.js`: `keys`, `smooth`, `clamp`, `blink`, `breathe`.
 
@@ -32,7 +32,7 @@ Read `examples/demo/story.mjs` and `examples/demo/audio.py` (the contract you wr
 ```bash
 python3 scripts/generate_voice_and_captions.py
 ```
-This writes `current/voice.mp3` (voice and rate from config), `current/work/phrases.json` (30 fps word + phrase frames), and `current/captions.ass`, and sets `meta.total_frames`. If it exits with code 3 ("OUT OF RANGE"), add or cut the number of words it prints, keeping the formula intact, and run it again until it says "duration OK".
+This makes the narration with the engine in `config.tts`: Gemini 3.8 Flash TTS (`current/voice.wav`, using the `GEMINI_API_KEY` environment variable, with word timings from audio alignment) or edge-tts (`current/voice.mp3`). If Gemini fails, it falls back to edge-tts by itself; mention that fallback in your final message. It also writes `current/work/phrases.json` (30 fps word + phrase frames), and `current/captions.ass`, and sets `meta.total_frames`. If it exits with code 3 ("OUT OF RANGE"), add or cut the number of words it prints, keeping the formula intact, and run it again until it says "duration OK".
 
 ## 3. Scene → `current/story.mjs` + `current/audio.py`
 Copy the demo's structure. `TOTAL` is read from `work/phrases.json`, so don't hardcode it.
@@ -61,7 +61,7 @@ Fix and re-render until all of these pass (max 4 rounds). Then run `python3 curr
 
 ## 5. Ship
 - Append the topic to `history.json` → `used_topics` (keep valid JSON). If it came from the queue, remove it from `config.json` → `topic_queue` and change nothing else in `config.json`.
-- `git add current/ history.json config.json` (this includes `voice.mp3`, `captions.ass` and `work/phrases.json`). **Do not add** `stills/`, `out/`, `*.wav` or `*.mp4`.
+- `git add current/ history.json config.json` (this includes the voice file, `captions.ass` and `work/phrases.json`; check that `git status` shows exactly one of `current/voice.wav` / `current/voice.mp3`). **Do not add** `stills/`, `out/`, `music.wav`, `sfx.wav`, `mix.wav` or `*.mp4`.
 - `git commit -m "episode: <title>"`, then `git pull --rebase origin main`, because the owner may have edited `config.json` from the dashboard during your run. If `config.json` conflicts, keep the owner's version, remove only the topic you used from its queue, and continue the rebase. Then `git push origin main`.
 - Final message: the title, the topic, the duration in seconds, and the preview verdict.
 

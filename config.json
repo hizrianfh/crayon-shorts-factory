@@ -1,10 +1,28 @@
 {
  "paused": false,
- "duration": {"min": 35, "max": 45},
- "voice": "id-ID-GadisNeural",
- "rate": "-6%",
+ "duration": {
+  "min": 35,
+  "max": 45
+ },
+ "tts": {
+  "provider": "gemini",
+  "gemini_model": "gemini-3.8-flash-tts",
+  "gemini_voice": "Leda",
+  "style": "Warm, cheerful older sister telling a fun science story to five-year-old kids in Indonesian. Speak slowly, clearly and playfully, with real curiosity on the questions.",
+  "edge_voice": "id-ID-GadisNeural",
+  "edge_rate": "-6%"
+ },
  "topic_queue": [],
- "categories": ["hewan", "tumbuhan", "tubuh kita", "cuaca", "makanan", "di rumah", "luar angkasa", "air"],
+ "categories": [
+  "hewan",
+  "tumbuhan",
+  "tubuh kita",
+  "cuaca",
+  "makanan",
+  "di rumah",
+  "luar angkasa",
+  "air"
+ ],
  "extra_instructions": "",
  "publish": {
   "enabled": true,
