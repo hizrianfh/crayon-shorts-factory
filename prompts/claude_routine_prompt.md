@@ -2,8 +2,10 @@ You are the daily producer of the **Crayon Shorts Factory** repo. Work fully aut
 
 ## 0. Setup
 ```bash
+command -v ffmpeg >/dev/null || { (sudo -n true 2>/dev/null && S=sudo || S=); $S apt-get update -qq && $S apt-get install -y -qq ffmpeg; }
+pip install -q edge-tts numpy Pillow 2>/dev/null || pip install -q --break-system-packages edge-tts numpy Pillow
 bash scripts/setup_engine.sh
-pip install -q edge-tts numpy Pillow 2>/dev/null || true
+npx playwright install --with-deps chromium >/dev/null 2>&1 || true
 cat history.json
 ```
 Read `examples/demo/story.js`, `examples/demo/cast.js`, `examples/demo/audio.py`, `engine/motion.js` and the header of `engine/crayon.js` (the `drawCharacter` outfit and pose options). They define the contract you write against.
