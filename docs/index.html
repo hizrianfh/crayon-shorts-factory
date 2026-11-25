@@ -273,7 +273,9 @@ async function save() {
       message: "dashboard: update settings", branch: "main", sha, content: encode(JSON.stringify(next, null, 1) + "\n") }) });
     sha = r.content.sha; cfg = next; render(); say("Saved ✓ The next daily run will use these settings.", "ok");
   } catch (e) {
-    say(e.message.startsWith("409") ? "Someone else changed the settings (probably the daily run). Press Discard to reload, then redo your change." : "Save failed: " + e.message, "bad");
+    say(e.message.startsWith("409") ? "Someone else changed the settings (probably the daily run). Press Discard to reload, then redo your change."
+      : e.message.startsWith("403") ? `Token can't write here. Edit it on GitHub: Repository access → Only select repositories → ${REPO.split("/")[1]}, and Permissions → Contents: Read and write (+ Actions: Read and write). Then paste it again.`
+      : "Save failed: " + e.message, "bad");
   } finally { $("save").disabled = false; }
 }
 async function dispatch(publish) {
@@ -281,7 +283,7 @@ async function dispatch(publish) {
   if (publish && !confirm("Render the current episode again and post it publicly to the enabled platforms?")) return;
   try { await gh("/actions/workflows/render-and-publish.yml/dispatches", { method: "POST", body: JSON.stringify({ ref: "main", inputs: { publish: String(publish) } }) });
     say(publish ? "Started: render + publish." : "Started: render only. The MP4 will be in the run's artifacts.", "ok"); setTimeout(loadActivity, 4000);
-  } catch (e) { say("Couldn't start the run: " + e.message, "bad"); }
+  } catch (e) { say(e.message.startsWith("403") ? "Token can't start runs: give it Actions: Read and write on this repo." : "Couldn't start the run: " + e.message, "bad"); }
 }
 
 $("saveToken").onclick = () => { token = $("token").value.trim(); store.set(token); $("token").value = ""; say(token ? "Token saved in this browser." : "", "ok"); load(); };
