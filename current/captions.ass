@@ -11,71 +11,114 @@ Style: Kid,Fredoka,96,&H00FFFFFF,&H00FFFFFF,&H0022252A,&H5A1A1410,-1,0,0,0,100,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: 0,0:00:00.00,0:00:00.62,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Pernah{\c&HFFFFFF&} nggak sih
-Dialogue: 0,0:00:00.62,0:00:00.84,Kid,,0,0,0,,Pernah {\c&H4DE1FF&}nggak{\c&HFFFFFF&} sih
-Dialogue: 0,0:00:00.84,0:00:01.06,Kid,,0,0,0,,Pernah nggak {\c&H4DE1FF&}sih{\c&HFFFFFF&}
-Dialogue: 0,0:00:01.06,0:00:01.36,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}kamu{\c&HFFFFFF&} mikir
-Dialogue: 0,0:00:01.36,0:00:02.08,Kid,,0,0,0,,kamu {\c&H4DE1FF&}mikir{\c&HFFFFFF&}
-Dialogue: 0,0:00:02.32,0:00:02.96,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}kenapa{\c&HFFFFFF&} perut
-Dialogue: 0,0:00:02.96,0:00:03.38,Kid,,0,0,0,,kenapa {\c&H4DE1FF&}perut{\c&HFFFFFF&}
-Dialogue: 0,0:00:03.38,0:00:03.70,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}bunyi{\c&HFFFFFF&} kruyuk?
-Dialogue: 0,0:00:03.70,0:00:04.64,Kid,,0,0,0,,bunyi {\c&H4DE1FF&}kruyuk?{\c&HFFFFFF&}
-Dialogue: 0,0:00:05.20,0:00:05.62,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Coba{\c&HFFFFFF&} pencet botol
-Dialogue: 0,0:00:05.62,0:00:06.46,Kid,,0,0,0,,Coba {\c&H4DE1FF&}pencet{\c&HFFFFFF&} botol
-Dialogue: 0,0:00:06.46,0:00:06.84,Kid,,0,0,0,,Coba pencet {\c&H4DE1FF&}botol{\c&HFFFFFF&}
-Dialogue: 0,0:00:06.84,0:00:07.18,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}saus{\c&HFFFFFF&} yang
-Dialogue: 0,0:00:07.18,0:00:07.46,Kid,,0,0,0,,saus {\c&H4DE1FF&}yang{\c&HFFFFFF&}
-Dialogue: 0,0:00:07.46,0:00:07.74,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}hampir{\c&HFFFFFF&} kosong
-Dialogue: 0,0:00:07.74,0:00:08.34,Kid,,0,0,0,,hampir {\c&H4DE1FF&}kosong{\c&HFFFFFF&}
-Dialogue: 0,0:00:08.90,0:00:09.32,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Prut!{\c&HFFFFFF&}
-Dialogue: 0,0:00:09.56,0:00:09.96,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Bunyi{\c&HFFFFFF&} kan?
-Dialogue: 0,0:00:09.96,0:00:10.30,Kid,,0,0,0,,Bunyi {\c&H4DE1FF&}kan?{\c&HFFFFFF&}
-Dialogue: 0,0:00:10.80,0:00:11.06,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Perut{\c&HFFFFFF&} kita
-Dialogue: 0,0:00:11.06,0:00:11.32,Kid,,0,0,0,,Perut {\c&H4DE1FF&}kita{\c&HFFFFFF&}
-Dialogue: 0,0:00:11.32,0:00:11.58,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}juga{\c&HFFFFFF&} begitu
-Dialogue: 0,0:00:11.58,0:00:12.12,Kid,,0,0,0,,juga {\c&H4DE1FF&}begitu{\c&HFFFFFF&}
-Dialogue: 0,0:00:12.12,0:00:12.48,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}lho{\c&HFFFFFF&}
-Dialogue: 0,0:00:12.92,0:00:13.04,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Perut{\c&HFFFFFF&} suka meremas
-Dialogue: 0,0:00:13.04,0:00:13.30,Kid,,0,0,0,,Perut {\c&H4DE1FF&}suka{\c&HFFFFFF&} meremas
-Dialogue: 0,0:00:13.30,0:00:14.00,Kid,,0,0,0,,Perut suka {\c&H4DE1FF&}meremas{\c&HFFFFFF&}
-Dialogue: 0,0:00:14.28,0:00:14.64,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}untuk{\c&HFFFFFF&} mengaduk makanan
-Dialogue: 0,0:00:14.64,0:00:15.12,Kid,,0,0,0,,untuk {\c&H4DE1FF&}mengaduk{\c&HFFFFFF&} makanan
-Dialogue: 0,0:00:15.12,0:00:15.80,Kid,,0,0,0,,untuk mengaduk {\c&H4DE1FF&}makanan{\c&HFFFFFF&}
-Dialogue: 0,0:00:16.26,0:00:16.68,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Saat{\c&HFFFFFF&} perut kosong
-Dialogue: 0,0:00:16.68,0:00:16.94,Kid,,0,0,0,,Saat {\c&H4DE1FF&}perut{\c&HFFFFFF&} kosong
-Dialogue: 0,0:00:16.94,0:00:17.88,Kid,,0,0,0,,Saat perut {\c&H4DE1FF&}kosong{\c&HFFFFFF&}
-Dialogue: 0,0:00:18.18,0:00:18.54,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}isinya{\c&HFFFFFF&} cuma udara
-Dialogue: 0,0:00:18.54,0:00:18.78,Kid,,0,0,0,,isinya {\c&H4DE1FF&}cuma{\c&HFFFFFF&} udara
-Dialogue: 0,0:00:18.78,0:00:19.34,Kid,,0,0,0,,isinya cuma {\c&H4DE1FF&}udara{\c&HFFFFFF&}
-Dialogue: 0,0:00:19.34,0:00:19.60,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}dan{\c&HFFFFFF&} sedikit air
-Dialogue: 0,0:00:19.60,0:00:19.92,Kid,,0,0,0,,dan {\c&H4DE1FF&}sedikit{\c&HFFFFFF&} air
-Dialogue: 0,0:00:19.92,0:00:20.68,Kid,,0,0,0,,dan sedikit {\c&H4DE1FF&}air{\c&HFFFFFF&}
-Dialogue: 0,0:00:21.20,0:00:22.06,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Diremas{\c&HFFFFFF&}
-Dialogue: 0,0:00:22.36,0:00:22.82,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}udaranya{\c&HFFFFFF&} terdorong ke
-Dialogue: 0,0:00:22.82,0:00:23.26,Kid,,0,0,0,,udaranya {\c&H4DE1FF&}terdorong{\c&HFFFFFF&} ke
-Dialogue: 0,0:00:23.26,0:00:23.40,Kid,,0,0,0,,udaranya terdorong {\c&H4DE1FF&}ke{\c&HFFFFFF&}
-Dialogue: 0,0:00:23.40,0:00:23.54,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}sana{\c&HFFFFFF&} kemari
-Dialogue: 0,0:00:23.54,0:00:24.14,Kid,,0,0,0,,sana {\c&H4DE1FF&}kemari{\c&HFFFFFF&}
-Dialogue: 0,0:00:24.52,0:00:24.70,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}jadi{\c&HFFFFFF&} bunyi kruyuk!
-Dialogue: 0,0:00:24.70,0:00:25.22,Kid,,0,0,0,,jadi {\c&H4DE1FF&}bunyi{\c&HFFFFFF&} kruyuk!
-Dialogue: 0,0:00:25.22,0:00:26.10,Kid,,0,0,0,,jadi bunyi {\c&H4DE1FF&}kruyuk!{\c&HFFFFFF&}
-Dialogue: 0,0:00:26.68,0:00:26.98,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Kalau{\c&HFFFFFF&} perut penuh
-Dialogue: 0,0:00:26.98,0:00:27.26,Kid,,0,0,0,,Kalau {\c&H4DE1FF&}perut{\c&HFFFFFF&} penuh
-Dialogue: 0,0:00:27.26,0:00:27.94,Kid,,0,0,0,,Kalau perut {\c&H4DE1FF&}penuh{\c&HFFFFFF&}
-Dialogue: 0,0:00:28.18,0:00:28.64,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}bunyinya{\c&HFFFFFF&} teredam
-Dialogue: 0,0:00:28.64,0:00:29.08,Kid,,0,0,0,,bunyinya {\c&H4DE1FF&}teredam{\c&HFFFFFF&}
-Dialogue: 0,0:00:29.08,0:00:29.24,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}oleh{\c&HFFFFFF&} makanan
-Dialogue: 0,0:00:29.24,0:00:29.96,Kid,,0,0,0,,oleh {\c&H4DE1FF&}makanan{\c&HFFFFFF&}
-Dialogue: 0,0:00:30.60,0:00:31.78,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Jadi{\c&HFFFFFF&} kruyuk itu
-Dialogue: 0,0:00:31.78,0:00:32.10,Kid,,0,0,0,,Jadi {\c&H4DE1FF&}kruyuk{\c&HFFFFFF&} itu
-Dialogue: 0,0:00:32.10,0:00:32.36,Kid,,0,0,0,,Jadi kruyuk {\c&H4DE1FF&}itu{\c&HFFFFFF&}
-Dialogue: 0,0:00:32.36,0:00:32.72,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}tanda{\c&HFFFFFF&} waktunya makan
-Dialogue: 0,0:00:32.72,0:00:33.34,Kid,,0,0,0,,tanda {\c&H4DE1FF&}waktunya{\c&HFFFFFF&} makan
-Dialogue: 0,0:00:33.34,0:00:33.98,Kid,,0,0,0,,tanda waktunya {\c&H4DE1FF&}makan{\c&HFFFFFF&}
-Dialogue: 0,0:00:34.36,0:00:34.68,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Keren{\c&HFFFFFF&} banget kan?
-Dialogue: 0,0:00:34.68,0:00:35.08,Kid,,0,0,0,,Keren {\c&H4DE1FF&}banget{\c&HFFFFFF&} kan?
-Dialogue: 0,0:00:35.08,0:00:35.44,Kid,,0,0,0,,Keren banget {\c&H4DE1FF&}kan?{\c&HFFFFFF&}
-Dialogue: 0,0:00:35.86,0:00:36.04,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Coba{\c&HFFFFFF&} dengarkan perutmu
-Dialogue: 0,0:00:36.04,0:00:36.44,Kid,,0,0,0,,Coba {\c&H4DE1FF&}dengarkan{\c&HFFFFFF&} perutmu
-Dialogue: 0,0:00:36.44,0:00:36.70,Kid,,0,0,0,,Coba dengarkan {\c&H4DE1FF&}perutmu{\c&HFFFFFF&}
-Dialogue: 0,0:00:36.70,0:00:37.14,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}yuk!{\c&HFFFFFF&}
+Dialogue: 0,0:00:00.00,0:00:00.40,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Pernah{\c&HFFFFFF&} nggak sih
+Dialogue: 0,0:00:00.40,0:00:00.60,Kid,,0,0,0,,Pernah {\c&H4DE1FF&}nggak{\c&HFFFFFF&} sih
+Dialogue: 0,0:00:00.60,0:00:00.92,Kid,,0,0,0,,Pernah nggak {\c&H4DE1FF&}sih{\c&HFFFFFF&}
+Dialogue: 0,0:00:00.92,0:00:01.30,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}kamu{\c&HFFFFFF&} mikir
+Dialogue: 0,0:00:01.30,0:00:02.08,Kid,,0,0,0,,kamu {\c&H4DE1FF&}mikir{\c&HFFFFFF&}
+Dialogue: 0,0:00:02.24,0:00:02.94,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}kenapa{\c&HFFFFFF&} es batu
+Dialogue: 0,0:00:02.94,0:00:03.26,Kid,,0,0,0,,kenapa {\c&H4DE1FF&}es{\c&HFFFFFF&} batu
+Dialogue: 0,0:00:03.26,0:00:03.62,Kid,,0,0,0,,kenapa es {\c&H4DE1FF&}batu{\c&HFFFFFF&}
+Dialogue: 0,0:00:03.62,0:00:04.12,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}mengapung{\c&HFFFFFF&} di minumanmu?
+Dialogue: 0,0:00:04.12,0:00:04.24,Kid,,0,0,0,,mengapung {\c&H4DE1FF&}di{\c&HFFFFFF&} minumanmu?
+Dialogue: 0,0:00:04.24,0:00:05.08,Kid,,0,0,0,,mengapung di {\c&H4DE1FF&}minumanmu?{\c&HFFFFFF&}
+Dialogue: 0,0:00:05.34,0:00:05.94,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Padahal{\c&HFFFFFF&} es itu
+Dialogue: 0,0:00:05.94,0:00:06.14,Kid,,0,0,0,,Padahal {\c&H4DE1FF&}es{\c&HFFFFFF&} itu
+Dialogue: 0,0:00:06.14,0:00:06.42,Kid,,0,0,0,,Padahal es {\c&H4DE1FF&}itu{\c&HFFFFFF&}
+Dialogue: 0,0:00:06.42,0:00:06.64,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}kan{\c&HFFFFFF&} air juga
+Dialogue: 0,0:00:06.64,0:00:06.86,Kid,,0,0,0,,kan {\c&H4DE1FF&}air{\c&HFFFFFF&} juga
+Dialogue: 0,0:00:06.86,0:00:07.58,Kid,,0,0,0,,kan air {\c&H4DE1FF&}juga{\c&HFFFFFF&}
+Dialogue: 0,0:00:07.94,0:00:08.50,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Yuk{\c&HFFFFFF&}
+Dialogue: 0,0:00:08.50,0:00:08.62,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}kita{\c&HFFFFFF&} intip!
+Dialogue: 0,0:00:08.62,0:00:09.12,Kid,,0,0,0,,kita {\c&H4DE1FF&}intip!{\c&HFFFFFF&}
+Dialogue: 0,0:00:10.02,0:00:10.26,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Air{\c&HFFFFFF&} terbuat dari
+Dialogue: 0,0:00:10.26,0:00:11.32,Kid,,0,0,0,,Air {\c&H4DE1FF&}terbuat{\c&HFFFFFF&} dari
+Dialogue: 0,0:00:11.32,0:00:11.66,Kid,,0,0,0,,Air terbuat {\c&H4DE1FF&}dari{\c&HFFFFFF&}
+Dialogue: 0,0:00:11.66,0:00:12.20,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}butiran{\c&HFFFFFF&} super kecil
+Dialogue: 0,0:00:12.20,0:00:12.84,Kid,,0,0,0,,butiran {\c&H4DE1FF&}super{\c&HFFFFFF&} kecil
+Dialogue: 0,0:00:12.84,0:00:13.56,Kid,,0,0,0,,butiran super {\c&H4DE1FF&}kecil{\c&HFFFFFF&}
+Dialogue: 0,0:00:13.78,0:00:14.18,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Saking{\c&HFFFFFF&} kecilnya
+Dialogue: 0,0:00:14.18,0:00:15.12,Kid,,0,0,0,,Saking {\c&H4DE1FF&}kecilnya{\c&HFFFFFF&}
+Dialogue: 0,0:00:15.36,0:00:15.50,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}mata{\c&HFFFFFF&} kita nggak
+Dialogue: 0,0:00:15.50,0:00:15.76,Kid,,0,0,0,,mata {\c&H4DE1FF&}kita{\c&HFFFFFF&} nggak
+Dialogue: 0,0:00:15.76,0:00:15.96,Kid,,0,0,0,,mata kita {\c&H4DE1FF&}nggak{\c&HFFFFFF&}
+Dialogue: 0,0:00:15.96,0:00:16.16,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}bisa{\c&HFFFFFF&} melihatnya
+Dialogue: 0,0:00:16.16,0:00:17.00,Kid,,0,0,0,,bisa {\c&H4DE1FF&}melihatnya{\c&HFFFFFF&}
+Dialogue: 0,0:00:17.56,0:00:17.82,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Waktu{\c&HFFFFFF&} air cair
+Dialogue: 0,0:00:17.82,0:00:18.14,Kid,,0,0,0,,Waktu {\c&H4DE1FF&}air{\c&HFFFFFF&} cair
+Dialogue: 0,0:00:18.14,0:00:18.88,Kid,,0,0,0,,Waktu air {\c&H4DE1FF&}cair{\c&HFFFFFF&}
+Dialogue: 0,0:00:19.20,0:00:19.72,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}butirannya{\c&HFFFFFF&} berdesakan
+Dialogue: 0,0:00:19.72,0:00:20.58,Kid,,0,0,0,,butirannya {\c&H4DE1FF&}berdesakan{\c&HFFFFFF&}
+Dialogue: 0,0:00:20.96,0:00:21.20,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}seperti{\c&HFFFFFF&} anak-anak berebut
+Dialogue: 0,0:00:21.20,0:00:22.26,Kid,,0,0,0,,seperti {\c&H4DE1FF&}anak-anak{\c&HFFFFFF&} berebut
+Dialogue: 0,0:00:22.26,0:00:22.66,Kid,,0,0,0,,seperti anak-anak {\c&H4DE1FF&}berebut{\c&HFFFFFF&}
+Dialogue: 0,0:00:22.66,0:00:22.94,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}masuk{\c&HFFFFFF&} kelas
+Dialogue: 0,0:00:22.94,0:00:23.50,Kid,,0,0,0,,masuk {\c&H4DE1FF&}kelas{\c&HFFFFFF&}
+Dialogue: 0,0:00:23.66,0:00:24.30,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Rapat{\c&HFFFFFF&} sekali!
+Dialogue: 0,0:00:24.30,0:00:24.78,Kid,,0,0,0,,Rapat {\c&H4DE1FF&}sekali!{\c&HFFFFFF&}
+Dialogue: 0,0:00:25.44,0:00:26.12,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Tapi{\c&HFFFFFF&} waktu
+Dialogue: 0,0:00:26.12,0:00:26.94,Kid,,0,0,0,,Tapi {\c&H4DE1FF&}waktu{\c&HFFFFFF&}
+Dialogue: 0,0:00:26.94,0:00:27.30,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}air{\c&HFFFFFF&} membeku
+Dialogue: 0,0:00:27.30,0:00:28.14,Kid,,0,0,0,,air {\c&H4DE1FF&}membeku{\c&HFFFFFF&}
+Dialogue: 0,0:00:28.52,0:00:29.12,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}butirannya{\c&HFFFFFF&} bergandengan tangan
+Dialogue: 0,0:00:29.12,0:00:29.58,Kid,,0,0,0,,butirannya {\c&H4DE1FF&}bergandengan{\c&HFFFFFF&} tangan
+Dialogue: 0,0:00:29.58,0:00:29.98,Kid,,0,0,0,,butirannya bergandengan {\c&H4DE1FF&}tangan{\c&HFFFFFF&}
+Dialogue: 0,0:00:29.98,0:00:31.18,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Mereka{\c&HFFFFFF&} berdiri melingkar
+Dialogue: 0,0:00:31.18,0:00:31.60,Kid,,0,0,0,,Mereka {\c&H4DE1FF&}berdiri{\c&HFFFFFF&} melingkar
+Dialogue: 0,0:00:31.60,0:00:32.28,Kid,,0,0,0,,Mereka berdiri {\c&H4DE1FF&}melingkar{\c&HFFFFFF&}
+Dialogue: 0,0:00:32.28,0:00:32.92,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}seperti{\c&HFFFFFF&} main di
+Dialogue: 0,0:00:32.92,0:00:33.52,Kid,,0,0,0,,seperti {\c&H4DE1FF&}main{\c&HFFFFFF&} di
+Dialogue: 0,0:00:33.52,0:00:33.74,Kid,,0,0,0,,seperti main {\c&H4DE1FF&}di{\c&HFFFFFF&}
+Dialogue: 0,0:00:33.74,0:00:34.00,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}halaman{\c&HFFFFFF&} sekolah
+Dialogue: 0,0:00:34.00,0:00:34.72,Kid,,0,0,0,,halaman {\c&H4DE1FF&}sekolah{\c&HFFFFFF&}
+Dialogue: 0,0:00:35.14,0:00:35.90,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Bergandengan{\c&HFFFFFF&} begitu butuh
+Dialogue: 0,0:00:35.90,0:00:36.34,Kid,,0,0,0,,Bergandengan {\c&H4DE1FF&}begitu{\c&HFFFFFF&} butuh
+Dialogue: 0,0:00:36.34,0:00:36.72,Kid,,0,0,0,,Bergandengan begitu {\c&H4DE1FF&}butuh{\c&HFFFFFF&}
+Dialogue: 0,0:00:36.72,0:00:37.12,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}tempat{\c&HFFFFFF&} lebih luas
+Dialogue: 0,0:00:37.12,0:00:37.38,Kid,,0,0,0,,tempat {\c&H4DE1FF&}lebih{\c&HFFFFFF&} luas
+Dialogue: 0,0:00:37.38,0:00:38.12,Kid,,0,0,0,,tempat lebih {\c&H4DE1FF&}luas{\c&HFFFFFF&}
+Dialogue: 0,0:00:38.30,0:00:39.08,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Jadi{\c&HFFFFFF&} di
+Dialogue: 0,0:00:39.08,0:00:39.10,Kid,,0,0,0,,Jadi {\c&H4DE1FF&}di{\c&HFFFFFF&}
+Dialogue: 0,0:00:39.10,0:00:39.36,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}dalam{\c&HFFFFFF&} es
+Dialogue: 0,0:00:39.36,0:00:39.94,Kid,,0,0,0,,dalam {\c&H4DE1FF&}es{\c&HFFFFFF&}
+Dialogue: 0,0:00:40.26,0:00:40.36,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}ada{\c&HFFFFFF&} banyak
+Dialogue: 0,0:00:40.36,0:00:40.74,Kid,,0,0,0,,ada {\c&H4DE1FF&}banyak{\c&HFFFFFF&}
+Dialogue: 0,0:00:40.74,0:00:41.04,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}ruang{\c&HFFFFFF&} kosong
+Dialogue: 0,0:00:41.04,0:00:41.68,Kid,,0,0,0,,ruang {\c&H4DE1FF&}kosong{\c&HFFFFFF&}
+Dialogue: 0,0:00:42.18,0:00:42.54,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Es{\c&HFFFFFF&} jadi lebih
+Dialogue: 0,0:00:42.54,0:00:42.82,Kid,,0,0,0,,Es {\c&H4DE1FF&}jadi{\c&HFFFFFF&} lebih
+Dialogue: 0,0:00:42.82,0:00:43.06,Kid,,0,0,0,,Es jadi {\c&H4DE1FF&}lebih{\c&HFFFFFF&}
+Dialogue: 0,0:00:43.06,0:00:43.46,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}ringan{\c&HFFFFFF&} daripada air
+Dialogue: 0,0:00:43.46,0:00:43.92,Kid,,0,0,0,,ringan {\c&H4DE1FF&}daripada{\c&HFFFFFF&} air
+Dialogue: 0,0:00:43.92,0:00:44.16,Kid,,0,0,0,,ringan daripada {\c&H4DE1FF&}air{\c&HFFFFFF&}
+Dialogue: 0,0:00:44.16,0:00:44.34,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}yang{\c&HFFFFFF&} sama besarnya
+Dialogue: 0,0:00:44.34,0:00:44.52,Kid,,0,0,0,,yang {\c&H4DE1FF&}sama{\c&HFFFFFF&} besarnya
+Dialogue: 0,0:00:44.52,0:00:45.16,Kid,,0,0,0,,yang sama {\c&H4DE1FF&}besarnya{\c&HFFFFFF&}
+Dialogue: 0,0:00:45.70,0:00:46.28,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Makanya{\c&HFFFFFF&} es
+Dialogue: 0,0:00:46.28,0:00:47.00,Kid,,0,0,0,,Makanya {\c&H4DE1FF&}es{\c&HFFFFFF&}
+Dialogue: 0,0:00:47.00,0:00:47.50,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}batu{\c&HFFFFFF&} mengapung!
+Dialogue: 0,0:00:47.50,0:00:48.52,Kid,,0,0,0,,batu {\c&H4DE1FF&}mengapung!{\c&HFFFFFF&}
+Dialogue: 0,0:00:48.94,0:00:49.20,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Di{\c&HFFFFFF&} danau
+Dialogue: 0,0:00:49.20,0:00:49.66,Kid,,0,0,0,,Di {\c&H4DE1FF&}danau{\c&HFFFFFF&}
+Dialogue: 0,0:00:49.66,0:00:49.78,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}yang{\c&HFFFFFF&} dingin
+Dialogue: 0,0:00:49.78,0:00:50.44,Kid,,0,0,0,,yang {\c&H4DE1FF&}dingin{\c&HFFFFFF&}
+Dialogue: 0,0:00:50.70,0:00:50.84,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}esnya{\c&HFFFFFF&} juga
+Dialogue: 0,0:00:50.84,0:00:51.20,Kid,,0,0,0,,esnya {\c&H4DE1FF&}juga{\c&HFFFFFF&}
+Dialogue: 0,0:00:51.20,0:00:51.38,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}di{\c&HFFFFFF&} atas
+Dialogue: 0,0:00:51.38,0:00:52.08,Kid,,0,0,0,,di {\c&H4DE1FF&}atas{\c&HFFFFFF&}
+Dialogue: 0,0:00:52.38,0:00:53.14,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Ikan-ikan{\c&HFFFFFF&} tetap aman
+Dialogue: 0,0:00:53.14,0:00:53.42,Kid,,0,0,0,,Ikan-ikan {\c&H4DE1FF&}tetap{\c&HFFFFFF&} aman
+Dialogue: 0,0:00:53.42,0:00:53.78,Kid,,0,0,0,,Ikan-ikan tetap {\c&H4DE1FF&}aman{\c&HFFFFFF&}
+Dialogue: 0,0:00:53.78,0:00:54.20,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}berenang{\c&HFFFFFF&} di bawahnya
+Dialogue: 0,0:00:54.20,0:00:54.36,Kid,,0,0,0,,berenang {\c&H4DE1FF&}di{\c&HFFFFFF&} bawahnya
+Dialogue: 0,0:00:54.36,0:00:55.00,Kid,,0,0,0,,berenang di {\c&H4DE1FF&}bawahnya{\c&HFFFFFF&}
+Dialogue: 0,0:00:55.36,0:00:55.54,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Keren{\c&HFFFFFF&} banget kan?
+Dialogue: 0,0:00:55.54,0:00:55.90,Kid,,0,0,0,,Keren {\c&H4DE1FF&}banget{\c&HFFFFFF&} kan?
+Dialogue: 0,0:00:55.90,0:00:56.30,Kid,,0,0,0,,Keren banget {\c&H4DE1FF&}kan?{\c&HFFFFFF&}
+Dialogue: 0,0:00:56.82,0:00:57.02,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Coba{\c&HFFFFFF&} lihat es
+Dialogue: 0,0:00:57.02,0:00:57.28,Kid,,0,0,0,,Coba {\c&H4DE1FF&}lihat{\c&HFFFFFF&} es
+Dialogue: 0,0:00:57.28,0:00:57.52,Kid,,0,0,0,,Coba lihat {\c&H4DE1FF&}es{\c&HFFFFFF&}
+Dialogue: 0,0:00:57.52,0:00:57.62,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}di{\c&HFFFFFF&} gelasmu nanti
+Dialogue: 0,0:00:57.62,0:00:57.84,Kid,,0,0,0,,di {\c&H4DE1FF&}gelasmu{\c&HFFFFFF&} nanti
+Dialogue: 0,0:00:57.84,0:00:58.26,Kid,,0,0,0,,di gelasmu {\c&H4DE1FF&}nanti{\c&HFFFFFF&}
+Dialogue: 0,0:00:58.26,0:00:58.76,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}yuk!{\c&HFFFFFF&}
