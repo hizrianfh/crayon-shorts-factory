@@ -53,7 +53,8 @@
   .list li:last-child { border-bottom: 0; }
   .status { font-weight: 700; }
   .ok { color: var(--green); } .bad { color: var(--red); } .run { color: var(--blue); }
-  .savebar { position: sticky; bottom: 12px; display: flex; gap: 12px; align-items: center; justify-content: flex-end; }
+  .savebar { position: sticky; bottom: 12px; display: flex; gap: 12px; align-items: center; justify-content: flex-end; flex-wrap: wrap;
+    background: var(--card); border: 2px solid var(--ink); border-radius: 16px; padding: 10px 12px; box-shadow: 4px 4px 0 var(--ink); }
   .savebar .msg { flex: 1; text-align: right; font-weight: 600; }
   a { color: var(--blue); }
   .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
