@@ -1,0 +1,9 @@
+{
+  "topic": "demo (template only)",
+  "title": "Demo Crayon Short",
+  "description": "Template episode for the crayon engine.",
+  "hashtags": ["#history", "#shorts"],
+  "total_frames": 240,
+  "twist_frame": 180,
+  "voice": "en-GB-RyanNeural"
+}

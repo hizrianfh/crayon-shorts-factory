@@ -1,0 +1,88 @@
+name: render-and-publish
+
+on:
+  push:
+    branches: [main]
+    paths: [current/story.js]
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: Publish after rendering
+        type: boolean
+        default: true
+
+concurrency:
+  group: render-and-publish
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      ranges: ${{ steps.split.outputs.ranges }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: split
+        run: |
+          python3 - <<'EOF' >> "$GITHUB_OUTPUT"
+          import json, math
+          n = json.load(open("current/meta.json"))["total_frames"]
+          k = math.ceil(n / 4)
+          print("ranges=" + json.dumps([f"{i * k}-{min(n, (i + 1) * k) - 1}" for i in range(4) if i * k < n]))
+          EOF
+
+  render:
+    needs: prepare
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        range: ${{ fromJson(needs.prepare.outputs.ranges) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/ms-playwright
+            engine/lib
+          key: engine-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-three0.160.0
+      - run: bash scripts/setup_engine.sh
+      - run: npx playwright install-deps chromium
+      - run: node render.mjs frames "${{ matrix.range }}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: frames-${{ strategy.job-index }}
+          path: frames/
+          retention-days: 2
+          compression-level: 0
+
+  mix-and-publish:
+    needs: render
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: frames-*
+          path: frames
+          merge-multiple: true
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - run: pip install numpy Pillow
+      - run: python3 current/audio.py
+      - run: python3 mix.py current/voice.mp3 music.wav sfx.wav
+      - run: bash finish.sh crayon_short
+      - uses: actions/upload-artifact@v4
+        with:
+          name: crayon_short
+          path: out/crayon_short.mp4
+          retention-days: 14
+      - if: github.event_name == 'push' || inputs.publish
+        run: python3 publish.py
+        env:
+          PUBLISHER_API_KEY: ${{ secrets.PUBLISHER_API_KEY }}
+          PUBLISHER_PROVIDER: ${{ vars.PUBLISHER_PROVIDER }}
+          VIDEO: out/crayon_short.mp4
