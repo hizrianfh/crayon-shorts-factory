@@ -1,0 +1,78 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Kid,Fredoka,96,&H00FFFFFF,&H00FFFFFF,&H0022252A,&H5A1A1410,-1,0,0,0,100,100,1,0,1,8,5,2,90,90,420,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.10,0:00:00.66,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Pernah{\c&HFFFFFF&} nggak sih
+Dialogue: 0,0:00:00.66,0:00:00.90,Kid,,0,0,0,,Pernah {\c&H4DE1FF&}nggak{\c&HFFFFFF&} sih
+Dialogue: 0,0:00:00.90,0:00:01.11,Kid,,0,0,0,,Pernah nggak {\c&H4DE1FF&}sih{\c&HFFFFFF&}
+Dialogue: 0,0:00:01.11,0:00:01.41,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}kamu{\c&HFFFFFF&} mikir
+Dialogue: 0,0:00:01.41,0:00:02.36,Kid,,0,0,0,,kamu {\c&H4DE1FF&}mikir{\c&HFFFFFF&}
+Dialogue: 0,0:00:02.36,0:00:02.82,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}kenapa{\c&HFFFFFF&} langit
+Dialogue: 0,0:00:02.82,0:00:03.24,Kid,,0,0,0,,kenapa {\c&H4DE1FF&}langit{\c&HFFFFFF&}
+Dialogue: 0,0:00:03.24,0:00:03.71,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}warnanya{\c&HFFFFFF&} biru?
+Dialogue: 0,0:00:03.71,0:00:04.42,Kid,,0,0,0,,warnanya {\c&H4DE1FF&}biru?{\c&HFFFFFF&}
+Dialogue: 0,0:00:05.12,0:00:06.47,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Rahasianya{\c&HFFFFFF&}
+Dialogue: 0,0:00:06.65,0:00:07.11,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}sinar{\c&HFFFFFF&} matahari itu
+Dialogue: 0,0:00:07.11,0:00:07.64,Kid,,0,0,0,,sinar {\c&H4DE1FF&}matahari{\c&HFFFFFF&} itu
+Dialogue: 0,0:00:07.64,0:00:08.04,Kid,,0,0,0,,sinar matahari {\c&H4DE1FF&}itu{\c&HFFFFFF&}
+Dialogue: 0,0:00:08.04,0:00:08.53,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}kayak{\c&HFFFFFF&} kotak krayon
+Dialogue: 0,0:00:08.53,0:00:08.88,Kid,,0,0,0,,kayak {\c&H4DE1FF&}kotak{\c&HFFFFFF&} krayon
+Dialogue: 0,0:00:08.88,0:00:09.81,Kid,,0,0,0,,kayak kotak {\c&H4DE1FF&}krayon{\c&HFFFFFF&}
+Dialogue: 0,0:00:10.50,0:00:10.70,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Di{\c&HFFFFFF&} dalamnya ada
+Dialogue: 0,0:00:10.70,0:00:11.30,Kid,,0,0,0,,Di {\c&H4DE1FF&}dalamnya{\c&HFFFFFF&} ada
+Dialogue: 0,0:00:11.30,0:00:11.62,Kid,,0,0,0,,Di dalamnya {\c&H4DE1FF&}ada{\c&HFFFFFF&}
+Dialogue: 0,0:00:11.62,0:00:12.06,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}banyak{\c&HFFFFFF&} warna pelangi
+Dialogue: 0,0:00:12.06,0:00:12.39,Kid,,0,0,0,,banyak {\c&H4DE1FF&}warna{\c&HFFFFFF&} pelangi
+Dialogue: 0,0:00:12.39,0:00:13.31,Kid,,0,0,0,,banyak warna {\c&H4DE1FF&}pelangi{\c&HFFFFFF&}
+Dialogue: 0,0:00:13.53,0:00:14.36,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}merah{\c&HFFFFFF&}
+Dialogue: 0,0:00:14.58,0:00:15.53,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}kuning{\c&HFFFFFF&}
+Dialogue: 0,0:00:15.53,0:00:16.51,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}hijau{\c&HFFFFFF&}
+Dialogue: 0,0:00:16.51,0:00:17.36,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}biru!{\c&HFFFFFF&}
+Dialogue: 0,0:00:18.06,0:00:18.76,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Nah{\c&HFFFFFF&}
+Dialogue: 0,0:00:18.93,0:00:19.33,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}udara{\c&HFFFFFF&} kita punya
+Dialogue: 0,0:00:19.33,0:00:19.66,Kid,,0,0,0,,udara {\c&H4DE1FF&}kita{\c&HFFFFFF&} punya
+Dialogue: 0,0:00:19.66,0:00:20.09,Kid,,0,0,0,,udara kita {\c&H4DE1FF&}punya{\c&HFFFFFF&}
+Dialogue: 0,0:00:20.09,0:00:20.68,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}butiran{\c&HFFFFFF&} super kecil
+Dialogue: 0,0:00:20.68,0:00:21.05,Kid,,0,0,0,,butiran {\c&H4DE1FF&}super{\c&HFFFFFF&} kecil
+Dialogue: 0,0:00:21.05,0:00:21.93,Kid,,0,0,0,,butiran super {\c&H4DE1FF&}kecil{\c&HFFFFFF&}
+Dialogue: 0,0:00:22.62,0:00:23.08,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Saat{\c&HFFFFFF&} sinar menabrak
+Dialogue: 0,0:00:23.08,0:00:23.48,Kid,,0,0,0,,Saat {\c&H4DE1FF&}sinar{\c&HFFFFFF&} menabrak
+Dialogue: 0,0:00:23.48,0:00:24.00,Kid,,0,0,0,,Saat sinar {\c&H4DE1FF&}menabrak{\c&HFFFFFF&}
+Dialogue: 0,0:00:24.00,0:00:24.45,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}butiran{\c&HFFFFFF&} itu
+Dialogue: 0,0:00:24.45,0:00:25.20,Kid,,0,0,0,,butiran {\c&H4DE1FF&}itu{\c&HFFFFFF&}
+Dialogue: 0,0:00:25.38,0:00:25.78,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}warna{\c&HFFFFFF&} biru paling
+Dialogue: 0,0:00:25.78,0:00:26.14,Kid,,0,0,0,,warna {\c&H4DE1FF&}biru{\c&HFFFFFF&} paling
+Dialogue: 0,0:00:26.14,0:00:26.61,Kid,,0,0,0,,warna biru {\c&H4DE1FF&}paling{\c&HFFFFFF&}
+Dialogue: 0,0:00:26.61,0:00:27.12,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}gampang{\c&HFFFFFF&} memantul
+Dialogue: 0,0:00:27.12,0:00:28.11,Kid,,0,0,0,,gampang {\c&H4DE1FF&}memantul{\c&HFFFFFF&}
+Dialogue: 0,0:00:28.80,0:00:29.24,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Biru{\c&HFFFFFF&} terpental ke
+Dialogue: 0,0:00:29.24,0:00:29.89,Kid,,0,0,0,,Biru {\c&H4DE1FF&}terpental{\c&HFFFFFF&} ke
+Dialogue: 0,0:00:29.89,0:00:30.02,Kid,,0,0,0,,Biru terpental {\c&H4DE1FF&}ke{\c&HFFFFFF&}
+Dialogue: 0,0:00:30.02,0:00:30.38,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}sana{\c&HFFFFFF&} kemari
+Dialogue: 0,0:00:30.38,0:00:31.42,Kid,,0,0,0,,sana {\c&H4DE1FF&}kemari{\c&HFFFFFF&}
+Dialogue: 0,0:00:31.42,0:00:31.90,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}kayak{\c&HFFFFFF&} bola bekel!
+Dialogue: 0,0:00:31.90,0:00:32.20,Kid,,0,0,0,,kayak {\c&H4DE1FF&}bola{\c&HFFFFFF&} bekel!
+Dialogue: 0,0:00:32.20,0:00:33.04,Kid,,0,0,0,,kayak bola {\c&H4DE1FF&}bekel!{\c&HFFFFFF&}
+Dialogue: 0,0:00:33.73,0:00:34.17,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Jadi{\c&HFFFFFF&} biru menyebar
+Dialogue: 0,0:00:34.17,0:00:34.58,Kid,,0,0,0,,Jadi {\c&H4DE1FF&}biru{\c&HFFFFFF&} menyebar
+Dialogue: 0,0:00:34.58,0:00:35.13,Kid,,0,0,0,,Jadi biru {\c&H4DE1FF&}menyebar{\c&HFFFFFF&}
+Dialogue: 0,0:00:35.13,0:00:35.28,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}ke{\c&HFFFFFF&} seluruh langit
+Dialogue: 0,0:00:35.28,0:00:35.86,Kid,,0,0,0,,ke {\c&H4DE1FF&}seluruh{\c&HFFFFFF&} langit
+Dialogue: 0,0:00:35.86,0:00:36.51,Kid,,0,0,0,,ke seluruh {\c&H4DE1FF&}langit{\c&HFFFFFF&}
+Dialogue: 0,0:00:37.20,0:00:37.58,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Keren{\c&HFFFFFF&} banget kan?
+Dialogue: 0,0:00:37.58,0:00:37.92,Kid,,0,0,0,,Keren {\c&H4DE1FF&}banget{\c&HFFFFFF&} kan?
+Dialogue: 0,0:00:37.92,0:00:38.57,Kid,,0,0,0,,Keren banget {\c&H4DE1FF&}kan?{\c&HFFFFFF&}
+Dialogue: 0,0:00:39.27,0:00:39.77,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}Besok{\c&HFFFFFF&} coba
+Dialogue: 0,0:00:39.77,0:00:40.13,Kid,,0,0,0,,Besok {\c&H4DE1FF&}coba{\c&HFFFFFF&}
+Dialogue: 0,0:00:40.13,0:00:40.49,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}lihat{\c&HFFFFFF&} langit
+Dialogue: 0,0:00:40.49,0:00:41.31,Kid,,0,0,0,,lihat {\c&H4DE1FF&}langit{\c&HFFFFFF&}
+Dialogue: 0,0:00:41.31,0:00:41.82,Kid,,0,0,0,,{\fscx82\fscy82\t(0,90,\fscx100\fscy100)}{\c&H4DE1FF&}yuk!{\c&HFFFFFF&}
