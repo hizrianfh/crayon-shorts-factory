@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crayon Shorts Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #fbf5e6; --card: #fffdf7; --ink: #2a2522; --muted: #6f655d; --line: #e4dccb; --grid: rgba(150,155,165,.16);
+    --yellow: #ffd23f; --green: #3f9b4f; --red: #d9483b; --blue: #3a7bd5; --focus: #3a7bd5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --paper: #1d1a18; --card: #26221f; --ink: #f3ece0; --muted: #b3a899; --line: #3a342f; --grid: rgba(255,255,255,.04); --focus: #8ab8ff; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; color: var(--ink); font: 16px/1.5 Nunito, system-ui, sans-serif;
+    background: var(--paper); background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 28px 28px; }
+  main { max-width: 980px; margin: 0 auto; padding: 24px 16px 64px; }
+  h1, h2 { font-family: Fredoka, Nunito, sans-serif; font-weight: 700; margin: 0; }
+  h1 { font-size: 30px; } h2 { font-size: 20px; margin-bottom: 12px; }
+  header { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; justify-content: space-between; margin-bottom: 20px; }
+  .pill { font-family: Fredoka; font-weight: 500; padding: 4px 14px; border-radius: 99px; border: 2px solid var(--ink); background: var(--yellow); color: #2a2522; }
+  .pill.paused { background: #ffb4a8; }
+  .grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 18px; }
+  @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
+  .card { background: var(--card); border: 2px solid var(--ink); border-radius: 18px; padding: 18px; box-shadow: 4px 4px 0 var(--ink); margin-bottom: 18px; }
+  label { display: block; font-weight: 700; margin: 14px 0 6px; }
+  .hint { color: var(--muted); font-size: 14px; font-weight: 400; }
+  input[type=text], input[type=password], input[type=number], select, textarea {
+    width: 100%; font: inherit; color: var(--ink); background: var(--paper); border: 2px solid var(--line); border-radius: 10px; padding: 8px 10px; }
+  textarea { min-height: 80px; resize: vertical; }
+  :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .row > * { flex: 1 1 120px; }
+  button { font: 600 15px Nunito, sans-serif; color: #2a2522; background: var(--yellow); border: 2px solid #2a2522; border-radius: 12px; padding: 8px 14px; cursor: pointer; }
+  button.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+  button.danger { background: #ffb4a8; }
+  button:disabled { opacity: .5; cursor: not-allowed; }
+  .switch { display: flex; align-items: center; gap: 10px; margin: 8px 0; font-weight: 600; }
+  .switch input { width: 20px; height: 20px; accent-color: var(--green); }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 6px 4px 12px; border: 2px solid var(--ink); border-radius: 99px; background: var(--paper); }
+  .chip button { padding: 0 8px; border-radius: 99px; border-width: 1px; background: transparent; color: var(--ink); }
+  ol.queue { padding-left: 22px; margin: 8px 0; }
+  ol.queue li { margin: 6px 0; }
+  ol.queue .q { display: flex; gap: 6px; align-items: center; }
+  ol.queue .q span { flex: 1; }
+  ol.queue .q button { padding: 2px 8px; }
+  .list { list-style: none; padding: 0; margin: 0; }
+  .list li { padding: 8px 0; border-bottom: 1px dashed var(--line); }
+  .list li:last-child { border-bottom: 0; }
+  .status { font-weight: 700; }
+  .ok { color: var(--green); } .bad { color: var(--red); } .run { color: var(--blue); }
+  .savebar { position: sticky; bottom: 12px; display: flex; gap: 12px; align-items: center; justify-content: flex-end; }
+  .savebar .msg { flex: 1; text-align: right; font-weight: 600; }
+  a { color: var(--blue); }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div><h1>🖍️ Crayon Shorts Studio</h1><div class="hint" id="repoLabel"></div></div>
+    <span class="pill" id="statePill" role="status">Loading…</span>
+  </header>
+
+  <section class="card" id="authCard" aria-labelledby="authH">
+    <h2 id="authH">GitHub access</h2>
+    <p class="hint">Reading works without a token. To save, paste a <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">fine-grained token</a> limited to this repo with <b>Contents: read &amp; write</b> and <b>Actions: read &amp; write</b>. It's stored only in this browser.</p>
+    <div class="row">
+      <input type="password" id="token" placeholder="github_pat_…" autocomplete="off" aria-label="GitHub token">
+      <button id="saveToken" style="flex:0 0 auto">Use token</button>
+      <button id="forgetToken" class="ghost" style="flex:0 0 auto">Forget</button>
+    </div>
+  </section>
+
+  <div class="grid">
+    <div>
+      <section class="card" aria-labelledby="prodH">
+        <h2 id="prodH">Production</h2>
+        <div class="switch"><input type="checkbox" id="paused"><label for="paused" style="margin:0">Pause daily episodes</label></div>
+        <label>Video length <span class="hint" id="wordsHint"></span></label>
+        <div class="row">
+          <div><label for="dmin" class="hint" style="margin:0">Min seconds</label><input type="number" id="dmin" min="15" max="170" step="1"></div>
+          <div><label for="dmax" class="hint" style="margin:0">Max seconds</label><input type="number" id="dmax" min="20" max="175" step="1"></div>
+        </div>
+        <div class="row">
+          <div><label for="voice">Voice</label><select id="voice">
+            <option value="id-ID-GadisNeural">Gadis (female)</option><option value="id-ID-ArdiNeural">Ardi (male)</option></select></div>
+          <div><label for="rate">Speaking speed</label><select id="rate"></select></div>
+        </div>
+        <label for="extra">Extra instructions for the writer <span class="hint">tone, style, things to include or avoid</span></label>
+        <textarea id="extra" placeholder="e.g. Tambahkan satu tebak-tebakan lucu di tengah video."></textarea>
+      </section>
+
+      <section class="card" aria-labelledby="queueH">
+        <h2 id="queueH">Topic queue</h2>
+        <p class="hint">Upcoming episodes, in order. One is used per day; when the queue is empty, the writer picks from the categories.</p>
+        <ol class="queue" id="queue"></ol>
+        <div class="row"><input type="text" id="newTopic" placeholder="e.g. Kenapa langit berwarna biru?" aria-label="New topic"><button id="addTopic" style="flex:0 0 auto">Add</button></div>
+        <label>Categories</label>
+        <div class="chips" id="cats"></div>
+        <div class="row" style="margin-top:8px"><input type="text" id="newCat" placeholder="Add a category" aria-label="New category"><button id="addCat" class="ghost" style="flex:0 0 auto">Add</button></div>
+      </section>
+
+      <section class="card" aria-labelledby="pubH">
+        <h2 id="pubH">Publishing</h2>
+        <div class="switch"><input type="checkbox" id="pubOn"><label for="pubOn" style="margin:0">Publish automatically after rendering</label></div>
+        <div class="switch"><input type="checkbox" id="pubTt"><label for="pubTt" style="margin:0">TikTok</label></div>
+        <div class="switch"><input type="checkbox" id="pubYt"><label for="pubYt" style="margin:0">YouTube Shorts</label></div>
+        <div class="switch"><input type="checkbox" id="kids"><label for="kids" style="margin:0">Mark YouTube videos "made for kids" <span class="hint">(required for kids' content)</span></label></div>
+        <label for="privacy">TikTok privacy</label>
+        <select id="privacy">
+          <option value="PUBLIC_TO_EVERYONE">Public</option><option value="MUTUAL_FOLLOW_FRIENDS">Friends</option>
+          <option value="FOLLOWER_OF_CREATOR">Followers</option><option value="SELF_ONLY">Only me</option></select>
+      </section>
+    </div>
+
+    <div>
+      <section class="card" aria-labelledby="latestH">
+        <h2 id="latestH">Latest episode</h2>
+        <div id="latest" class="hint">—</div>
+        <div class="row" style="margin-top:12px">
+          <button id="rerun" class="ghost">Render &amp; publish again</button>
+          <button id="renderOnly" class="ghost">Render only (no post)</button>
+        </div>
+      </section>
+      <section class="card" aria-labelledby="runsH">
+        <h2 id="runsH">Recent runs</h2>
+        <ul class="list" id="runs"><li class="hint">—</li></ul>
+      </section>
+      <section class="card" aria-labelledby="histH">
+        <h2 id="histH">Topics used</h2>
+        <ul class="list" id="history"><li class="hint">—</li></ul>
+      </section>
+    </div>
+  </div>
+
+  <div class="savebar">
+    <span class="msg" id="msg" role="status" aria-live="polite"></span>
+    <button id="reload" class="ghost">Discard</button>
+    <button id="save">Save settings</button>
+  </div>
+</main>
+
+<script>
+const DEFAULT_REPO = "hizrianfh/crayon-shorts-factory";
+const REPO = location.hostname.endsWith(".github.io") && location.pathname.split("/")[1]
+  ? `${location.hostname.split(".")[0]}/${location.pathname.split("/")[1]}` : DEFAULT_REPO;
+const API = `https://api.github.com/repos/${REPO}`;
+const $ = (id) => document.getElementById(id);
+const store = { get() { try { return localStorage.getItem("css_token") || ""; } catch { return ""; } },
+  set(v) { try { v ? localStorage.setItem("css_token", v) : localStorage.removeItem("css_token"); } catch {} } };
+let token = store.get(), cfg = null, sha = null;
+
+$("repoLabel").textContent = REPO;
+for (let r = -15; r <= 15; r += 3) { const v = (r >= 0 ? "+" : "") + r + "%"; $("rate").add(new Option(r === 0 ? "Normal" : v, v)); }
+
+async function gh(path, opts = {}) {
+  const headers = { Accept: "application/vnd.github+json", ...(opts.body ? { "Content-Type": "application/json" } : {}) };
+  if (token) headers.Authorization = `Bearer ${token}`;
+  const res = await fetch(API + path, { ...opts, headers });
+  if (!res.ok) throw new Error(`${res.status} ${(await res.json().catch(() => ({}))).message || res.statusText}`);
+  return res.status === 204 ? null : res.json();
+}
+const decode = (b64) => new TextDecoder().decode(Uint8Array.from(atob(b64.replace(/\n/g, "")), (c) => c.charCodeAt(0)));
+const encode = (s) => { let bin = ""; for (const b of new TextEncoder().encode(s)) bin += String.fromCharCode(b); return btoa(bin); };
+const say = (t, cls = "") => { $("msg").textContent = t; $("msg").className = "msg " + cls; };
+const li = (text, cls) => { const e = document.createElement("li"); e.textContent = text; if (cls) e.className = cls; return e; };
+
+function render() {
+  $("paused").checked = !!cfg.paused;
+  $("statePill").textContent = cfg.paused ? "Paused" : "Running daily";
+  $("statePill").classList.toggle("paused", !!cfg.paused);
+  $("dmin").value = cfg.duration.min; $("dmax").value = cfg.duration.max;
+  $("voice").value = cfg.voice; $("rate").value = cfg.rate;
+  if ($("rate").value !== cfg.rate) { $("rate").add(new Option(cfg.rate, cfg.rate)); $("rate").value = cfg.rate; }
+  $("extra").value = cfg.extra_instructions || "";
+  const p = cfg.publish;
+  $("pubOn").checked = p.enabled; $("pubTt").checked = p.tiktok; $("pubYt").checked = p.youtube; $("kids").checked = p.made_for_kids; $("privacy").value = p.tiktok_privacy;
+  const q = $("queue"); q.replaceChildren();
+  cfg.topic_queue.forEach((t, i) => {
+    const item = document.createElement("li"), row = document.createElement("div"), s = document.createElement("span");
+    row.className = "q"; s.textContent = t; row.append(s);
+    for (const [lbl, fn, aria] of [["↑", () => move(i, -1), "Move up"], ["↓", () => move(i, 1), "Move down"], ["✕", () => { cfg.topic_queue.splice(i, 1); render(); }, "Remove"]]) {
+      const b = document.createElement("button"); b.className = "ghost"; b.textContent = lbl; b.setAttribute("aria-label", `${aria}: ${t}`); b.onclick = fn; row.append(b);
+    }
+    item.append(row); q.append(item);
+  });
+  if (!cfg.topic_queue.length) q.append(li("Empty: the writer chooses from the categories.", "hint"));
+  const c = $("cats"); c.replaceChildren();
+  cfg.categories.forEach((t, i) => {
+    const chip = document.createElement("span"), b = document.createElement("button");
+    chip.className = "chip"; chip.append(t); b.textContent = "✕"; b.setAttribute("aria-label", `Remove category ${t}`);
+    b.onclick = () => { cfg.categories.splice(i, 1); render(); }; chip.append(b); c.append(chip);
+  });
+  wordsHint();
+}
+function move(i, d) { const q = cfg.topic_queue, j = i + d; if (j < 0 || j >= q.length) return; [q[i], q[j]] = [q[j], q[i]]; render(); }
+function wordsHint() { const a = +$("dmin").value, b = +$("dmax").value; $("wordsHint").textContent = a && b ? `≈ ${Math.round(a * 1.8)}–${Math.round(b * 1.8)} words of narration` : ""; }
+
+function collect() {
+  const min = Math.round(+$("dmin").value), max = Math.round(+$("dmax").value);
+  if (!(min >= 15 && max <= 175 && min + 5 <= max)) throw new Error("Length: min ≥ 15 s, max ≤ 175 s, and max at least 5 s above min.");
+  if (!$("pubTt").checked && !$("pubYt").checked && $("pubOn").checked) throw new Error("Turn on TikTok or YouTube, or turn publishing off.");
+  if (!cfg.categories.length && !cfg.topic_queue.length) throw new Error("Keep at least one category or one queued topic.");
+  return { ...cfg, paused: $("paused").checked, duration: { min, max }, voice: $("voice").value, rate: $("rate").value,
+    extra_instructions: $("extra").value.trim().slice(0, 1500),
+    publish: { enabled: $("pubOn").checked, tiktok: $("pubTt").checked, youtube: $("pubYt").checked, made_for_kids: $("kids").checked, tiktok_privacy: $("privacy").value } };
+}
+
+async function load() {
+  say("Loading…");
+  try {
+    const f = await gh("/contents/config.json?ref=main");
+    cfg = JSON.parse(decode(f.content)); sha = f.sha; render(); say(token ? "" : "Read-only: add a token to save.");
+  } catch (e) { say("Couldn't load config.json: " + e.message, "bad"); }
+  loadActivity();
+}
+async function loadActivity() {
+  try {
+    const h = JSON.parse(decode((await gh("/contents/history.json?ref=main")).content)).used_topics.slice().reverse();
+    $("history").replaceChildren(...(h.length ? h.slice(0, 12).map((t) => li(t)) : [li("None yet", "hint")]));
+  } catch (e) { $("history").replaceChildren(li("Couldn't load: " + e.message, "bad")); }
+  try {
+    const m = JSON.parse(decode((await gh("/contents/current/meta.json?ref=main")).content));
+    const el = $("latest"); el.replaceChildren(); el.className = "";
+    const b = document.createElement("b"); b.textContent = m.title; const d = document.createElement("div"); d.className = "hint";
+    d.textContent = `${m.topic} · ${(m.total_frames / 30).toFixed(1)} s`; el.append(b, d);
+  } catch { $("latest").textContent = "No episode in current/ yet."; }
+  try {
+    const r = (await gh("/actions/runs?per_page=6")).workflow_runs;
+    $("runs").replaceChildren(...(r.length ? r.map((x) => {
+      const e = document.createElement("li"), a = document.createElement("a"), s = document.createElement("span");
+      a.href = x.html_url; a.target = "_blank"; a.rel = "noopener"; a.textContent = x.display_title;
+      const st = x.status === "completed" ? x.conclusion : x.status;
+      s.className = "status " + (st === "success" ? "ok" : st === "failure" || st === "cancelled" ? "bad" : "run");
+      s.textContent = ` · ${st} · ${new Date(x.created_at).toLocaleString()}`; e.append(a, s); return e;
+    }) : [li("No runs yet", "hint")]));
+  } catch (e) { $("runs").replaceChildren(li("Couldn't load: " + e.message, "bad")); }
+}
+
+async function save() {
+  if (!token) return say("Add a GitHub token first.", "bad");
+  let next; try { next = collect(); } catch (e) { return say(e.message, "bad"); }
+  $("save").disabled = true; say("Saving…");
+  try {
+    const r = await gh("/contents/config.json", { method: "PUT", body: JSON.stringify({
+      message: "dashboard: update settings", branch: "main", sha, content: encode(JSON.stringify(next, null, 1) + "\n") }) });
+    sha = r.content.sha; cfg = next; render(); say("Saved ✓ The next daily run will use these settings.", "ok");
+  } catch (e) {
+    say(e.message.startsWith("409") ? "Someone else changed the settings (probably the daily run). Press Discard to reload, then redo your change." : "Save failed: " + e.message, "bad");
+  } finally { $("save").disabled = false; }
+}
+async function dispatch(publish) {
+  if (!token) return say("Add a GitHub token first.", "bad");
+  if (publish && !confirm("Render the current episode again and post it publicly to the enabled platforms?")) return;
+  try { await gh("/actions/workflows/render-and-publish.yml/dispatches", { method: "POST", body: JSON.stringify({ ref: "main", inputs: { publish: String(publish) } }) });
+    say(publish ? "Started: render + publish." : "Started: render only. The MP4 will be in the run's artifacts.", "ok"); setTimeout(loadActivity, 4000);
+  } catch (e) { say("Couldn't start the run: " + e.message, "bad"); }
+}
+
+$("saveToken").onclick = () => { token = $("token").value.trim(); store.set(token); $("token").value = ""; say(token ? "Token saved in this browser." : "", "ok"); load(); };
+$("forgetToken").onclick = () => { token = ""; store.set(""); say("Token removed from this browser."); };
+$("addTopic").onclick = () => { const t = $("newTopic").value.trim(); if (t) { cfg.topic_queue.push(t.slice(0, 200)); $("newTopic").value = ""; render(); } };
+$("newTopic").onkeydown = (e) => { if (e.key === "Enter") $("addTopic").click(); };
+$("addCat").onclick = () => { const t = $("newCat").value.trim(); if (t && !cfg.categories.includes(t)) { cfg.categories.push(t.slice(0, 40)); $("newCat").value = ""; render(); } };
+$("newCat").onkeydown = (e) => { if (e.key === "Enter") $("addCat").click(); };
+$("dmin").oninput = $("dmax").oninput = wordsHint;
+$("paused").onchange = () => { $("statePill").textContent = $("paused").checked ? "Paused (unsaved)" : "Running (unsaved)"; };
+$("save").onclick = save;
+$("reload").onclick = load;
+$("rerun").onclick = () => dispatch(true);
+$("renderOnly").onclick = () => dispatch(false);
+load();
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+ "paused": false,
+ "duration": {"min": 35, "max": 45},
+ "voice": "id-ID-GadisNeural",
+ "rate": "-6%",
+ "topic_queue": [],
+ "categories": ["hewan", "tumbuhan", "tubuh kita", "cuaca", "makanan", "di rumah", "luar angkasa", "air"],
+ "extra_instructions": "",
+ "publish": {
+  "enabled": true,
+  "tiktok": true,
+  "youtube": true,
+  "made_for_kids": true,
+  "tiktok_privacy": "PUBLIC_TO_EVERYONE"
+ }
+}

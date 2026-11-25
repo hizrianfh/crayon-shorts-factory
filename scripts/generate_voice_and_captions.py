@@ -4,6 +4,8 @@
 
 Reads <ep>/script.txt. Writes <ep>/voice.mp3, <ep>/work/phrases.json (30 fps word + phrase frames),
 <ep>/captions.ass (2-3 words per chunk, active word in yellow), and sets total_frames in <ep>/meta.json if present.
+Voice, rate and the allowed duration come from config.json (the dashboard). Exits with code 3 if the narration
+is outside config duration.min..max, printing how many words to add or cut.
 """
 import argparse, asyncio, json, math, os, re
 import edge_tts
@@ -76,10 +78,12 @@ def chunks_of(n):
 
 
 def main():
+    cfg = json.load(open("config.json", encoding="utf-8")) if os.path.exists("config.json") else {}
+    limits = cfg.get("duration", {"min": 35, "max": 45})
     ap = argparse.ArgumentParser()
     ap.add_argument("--ep", default="current")
-    ap.add_argument("--voice", default="id-ID-GadisNeural")
-    ap.add_argument("--rate", default="-6%")
+    ap.add_argument("--voice", default=cfg.get("voice", "id-ID-GadisNeural"))
+    ap.add_argument("--rate", default=cfg.get("rate", "-6%"))
     a = ap.parse_args()
     text = " ".join(open(os.path.join(a.ep, "script.txt"), encoding="utf-8").read().split())
     words = asyncio.run(tts(text, a.voice, a.rate, os.path.join(a.ep, "voice.mp3")))
@@ -143,6 +147,15 @@ def main():
     print(f"voice {out['duration']:.2f} s, {len(toks)} words, {len(phrases)} phrases, {len(chunks)} caption chunks, total_frames={total}")
     for p in out["phrases"]:
         print(f"  {p['f0']:5d}-{p['f1']:5d}  {p['text']}")
+    length = total / FPS
+    if not limits["min"] <= length <= limits["max"]:
+        wps = len(toks) / max(out["duration"], 0.1)
+        target = (limits["min"] + limits["max"]) / 2 - TAIL
+        print(f"OUT OF RANGE: video is {length:.1f} s, config wants {limits['min']}-{limits['max']} s. "
+              f"{'Add' if length < limits['min'] else 'Cut'} about {abs(round((target - out['duration']) * wps))} words "
+              f"({wps:.2f} words/s), then run this again.")
+        raise SystemExit(3)
+    print(f"duration OK: {length:.1f} s (config {limits['min']}-{limits['max']} s)")
 
 
 if __name__ == "__main__":

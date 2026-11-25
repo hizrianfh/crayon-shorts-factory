@@ -23,6 +23,8 @@ Claude Code Routine (daily, your Claude plan)            GitHub Actions (1 job, 
 | `examples/demo/` | Reference episode ("Di Taman! … kenapa lebah suka sekali bunga?") |
 | `current/` | Today's episode, written by the routine |
 | `prompts/claude_routine_prompt.md` | The routine's instructions (the routine is told to read this file) |
+| `config.json` | Owner settings: pause, video length, voice, topic queue, categories, extra instructions, publishing switches |
+| `docs/index.html` | **Studio dashboard** (GitHub Pages) that edits `config.json` and shows runs and history |
 
 ## Local run
 Needs Node ≥ 22, Python 3 with `numpy` + `edge-tts`, and ffmpeg with libass.
@@ -32,6 +34,9 @@ cp examples/demo/* current/ && python3 scripts/generate_voice_and_captions.py
 node render.mjs stills 10,100,200
 node render.mjs video && python3 current/audio.py && python3 mix.py current/voice.mp3 music.wav sfx.wav && bash finish.sh
 ```
+
+## Dashboard
+GitHub Pages serves `docs/` at https://hizrianfh.github.io/crayon-shorts-factory/. It reads everything without a token. To save settings or start a run, paste a fine-grained token restricted to this repo with **Contents: read & write** and **Actions: read & write**; it's stored only in that browser's localStorage.
 
 ## Deployed setup
 - **Routine:** claude.ai/code/routines → "Crayon Shorts daily episode", daily 17:57 GMT+7, environment `crayon-shorts` (Full network, needed for edge-tts), no connectors.
