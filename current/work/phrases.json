@@ -1,0 +1,214 @@
+{
+ "duration": 44.9,
+ "total_frames": 1371,
+ "phrases": [
+  {
+   "i": 0,
+   "text": "In nineteen oh four,",
+   "start": 0.23,
+   "end": 1.465,
+   "f0": 7,
+   "f1": 44
+  },
+  {
+   "i": 1,
+   "text": "the Olympic marathon was won by a man who rode in a car.",
+   "start": 1.465,
+   "end": 5.946,
+   "f0": 44,
+   "f1": 178
+  },
+  {
+   "i": 2,
+   "text": "Saint Louis,",
+   "start": 5.946,
+   "end": 7.03,
+   "f0": 178,
+   "f1": 211
+  },
+  {
+   "i": 3,
+   "text": "Missouri.",
+   "start": 7.03,
+   "end": 7.526,
+   "f0": 211,
+   "f1": 226
+  },
+  {
+   "i": 4,
+   "text": "Over ninety degrees,",
+   "start": 7.526,
+   "end": 8.78,
+   "f0": 226,
+   "f1": 263
+  },
+  {
+   "i": 5,
+   "text": "dusty roads,",
+   "start": 8.78,
+   "end": 9.745,
+   "f0": 263,
+   "f1": 292
+  },
+  {
+   "i": 6,
+   "text": "one water stop.",
+   "start": 9.745,
+   "end": 11.295,
+   "f0": 292,
+   "f1": 339
+  },
+  {
+   "i": 7,
+   "text": "Fred Lorz got cramps at mile nine.",
+   "start": 11.295,
+   "end": 14.195,
+   "f0": 339,
+   "f1": 426
+  },
+  {
+   "i": 8,
+   "text": "He climbed into his manager's car,",
+   "start": 14.195,
+   "end": 16.49,
+   "f0": 426,
+   "f1": 495
+  },
+  {
+   "i": 9,
+   "text": "and rode for eleven miles,",
+   "start": 16.49,
+   "end": 18.035,
+   "f0": 495,
+   "f1": 541
+  },
+  {
+   "i": 10,
+   "text": "waving at runners.",
+   "start": 18.035,
+   "end": 19.485,
+   "f0": 541,
+   "f1": 585
+  },
+  {
+   "i": 11,
+   "text": "When the car broke down,",
+   "start": 19.485,
+   "end": 21.24,
+   "f0": 585,
+   "f1": 637
+  },
+  {
+   "i": 12,
+   "text": "he jogged into the stadium.",
+   "start": 21.24,
+   "end": 23.115,
+   "f0": 637,
+   "f1": 693
+  },
+  {
+   "i": 13,
+   "text": "First place!",
+   "start": 23.115,
+   "end": 24.86,
+   "f0": 693,
+   "f1": 746
+  },
+  {
+   "i": 14,
+   "text": "The crowd roared.",
+   "start": 24.86,
+   "end": 25.501,
+   "f0": 746,
+   "f1": 765
+  },
+  {
+   "i": 15,
+   "text": "The President's daughter was ready to crown him.",
+   "start": 25.501,
+   "end": 29.675,
+   "f0": 765,
+   "f1": 890
+  },
+  {
+   "i": 16,
+   "text": "Then someone spotted the car.",
+   "start": 29.675,
+   "end": 31.98,
+   "f0": 890,
+   "f1": 959
+  },
+  {
+   "i": 17,
+   "text": "Banned for life.",
+   "start": 31.98,
+   "end": 32.496,
+   "f0": 959,
+   "f1": 975
+  },
+  {
+   "i": 18,
+   "text": "But the real winner,",
+   "start": 32.496,
+   "end": 33.73,
+   "f0": 975,
+   "f1": 1012
+  },
+  {
+   "i": 19,
+   "text": "Thomas Hicks,",
+   "start": 33.73,
+   "end": 35.155,
+   "f0": 1012,
+   "f1": 1055
+  },
+  {
+   "i": 20,
+   "text": "wasn't clean either.",
+   "start": 35.155,
+   "end": 36.01,
+   "f0": 1055,
+   "f1": 1080
+  },
+  {
+   "i": 21,
+   "text": "His trainers kept him running on brandy,",
+   "start": 36.01,
+   "end": 39.915,
+   "f0": 1080,
+   "f1": 1197
+  },
+  {
+   "i": 22,
+   "text": "egg whites,",
+   "start": 39.915,
+   "end": 40.77,
+   "f0": 1197,
+   "f1": 1223
+  },
+  {
+   "i": 23,
+   "text": "and rat poison.",
+   "start": 40.77,
+   "end": 41.446,
+   "f0": 1223,
+   "f1": 1243
+  },
+  {
+   "i": 24,
+   "text": "And back then,",
+   "start": 41.446,
+   "end": 42.17,
+   "f0": 1243,
+   "f1": 1265
+  },
+  {
+   "i": 25,
+   "text": "there was no rule against it.",
+   "start": 42.17,
+   "end": 44.68,
+   "f0": 1265,
+   "f1": 1340
+  }
+ ]
+}
