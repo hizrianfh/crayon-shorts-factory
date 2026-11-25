@@ -41,7 +41,7 @@ GitHub Pages serves `docs/` at https://hizrianfh.github.io/crayon-shorts-factory
 
 ## Deployed setup
 - **Gemini key:** set `GEMINI_API_KEY` as an environment variable of the claude.ai cloud environment `crayon-shorts`. Locally, put it in `.env` (gitignored). Without it, Step A falls back to edge-tts. Free-tier Gemini requests may be used by Google to improve its products.
-- **Routine:** claude.ai/code/routines → "Crayon Shorts daily episode", daily 17:57 GMT+7, environment `crayon-shorts` (Full network, needed for edge-tts), no connectors.
+- **Routine:** claude.ai/code/routines → "Crayon Shorts daily episode", twice daily at 06:17 and 18:17 WIB (cron `CRON_TZ=Asia/Jakarta 17 6,18 * * *`), environment `crayon-shorts` (Full network, needed for edge-tts), no connectors.
 - **GitHub → Settings → Secrets and variables → Actions:** secret `PUBLISHER_API_KEY` (Zernio `sk_…`) and variable `PUBLISHER_PROVIDER=zernio`.
 - **Schedule & Chill:** not implemented. Its API could not be reached on 2026-11-25, and `publish.py` exits with a clear error if selected.
 - **Kids' content:** `publish.py` marks YouTube uploads `madeForKids: true`, as YouTube/COPPA require for content aimed at children. This turns off comments and personalised ads on those videos.
