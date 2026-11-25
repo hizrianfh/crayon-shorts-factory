@@ -1,11 +1,12 @@
 // Demo episode: the contract every current/story.mjs follows.
-//   export const TOTAL               -> total frames (read from work/phrases.json, so it always matches the voice)
-//   export function frame(g, f, ctx) -> draw frame f. ctx.C = engine (engine/crayon2d.mjs), ctx.words / ctx.phrases =
-//                                        narration timings (f0/f1 frames), ctx.wordAt(f) / ctx.phraseAt(f).
+//   export const TOTAL               -> total frames (read from work/words.json, so it always matches the voice)
+//   export function frame(g, f, ctx) -> draw frame f. ctx.C = engine (engine/crayon2d.mjs), ctx.words / ctx.phrases /
+//                                        ctx.chunks = narration timings measured by Whisper (f0/f1 frames, same as
+//                                        subtitles.srt), ctx.wordAt(f) / ctx.phraseAt(f).
 // Layout (1080x1920): keyword titles y 220-420, action y 450-1300, Lala feet <= y 1340,
 // keep y 1380-1640 clear for the burned-in captions.
 import fs from "node:fs";
-const PH = JSON.parse(fs.readFileSync(new URL("./work/phrases.json", import.meta.url), "utf8"));
+const PH = JSON.parse(fs.readFileSync(new URL("./work/words.json", import.meta.url), "utf8"));
 export const TOTAL = PH.total_frames;
 
 // first frame of the first word that starts with `w` (case-insensitive), for syncing beats to narration

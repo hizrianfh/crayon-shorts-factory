@@ -1,9 +1,9 @@
 """Final mix: python3 mix.py current/voice.mp3 music.wav sfx.wav [-> mix.wav]
 
 Voice unchanged; music ducked 6 dB under speech (from the voice envelope); SFX added; soft limiter.
-Length = total_frames / 30 from current/meta.json. Loudness (-14 LUFS) is set by finish.sh.
+Length = total_frames / 30 from $EP/meta.json (default current). Loudness (-14 LUFS) is set by finish.sh.
 """
-import json, subprocess, sys, wave
+import json, os, subprocess, sys, wave
 import numpy as np
 
 SR = 48000
@@ -22,7 +22,7 @@ def fit(x, n):
 def main():
     voice_p, music_p, sfx_p = sys.argv[1:4]
     out = sys.argv[4] if len(sys.argv) > 4 else "mix.wav"
-    total = json.load(open("current/meta.json"))["total_frames"]
+    total = json.load(open(os.path.join(os.environ.get("EP", "current"), "meta.json")))["total_frames"]
     n = int(total / 30 * SR)
     v, m, s = (fit(read_any(p), n) for p in (voice_p, music_p, sfx_p))
     # duck: voice rms per 10 ms, held 150 ms, smoothed -> up to -6 dB on music

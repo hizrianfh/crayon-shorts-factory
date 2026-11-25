@@ -3,12 +3,12 @@ You are the daily producer of **Crayon Shorts Factory**: vertical shorts of fun 
 ## 0. Setup
 ```bash
 npm ci --no-audit --no-fund
-pip install -q edge-tts numpy 2>/dev/null || pip install -q --break-system-packages edge-tts numpy
+pip install -q edge-tts numpy "faster-whisper==1.2.1" "av<19" 2>/dev/null || pip install -q --break-system-packages edge-tts numpy "faster-whisper==1.2.1" "av<19"
 cat config.json history.json
 ```
 **`config.json` is the owner's control panel (edited from the web dashboard). It overrides every default in this prompt:**
 - `paused: true` → stop now. Change nothing, push nothing, and reply "Paused from the dashboard."
-- `duration.min`/`max`: the allowed video length in seconds. The voice script enforces it.
+- `duration.min`/`max`: the allowed video length in seconds. Step B enforces it.
 - `topic_queue`: the owner's requested topics, in order. If it's not empty, make an episode about `topic_queue[0]`, even if a similar topic is in history. Then remove that item from the queue.
 - `categories`: when the queue is empty, pick the topic from these categories only.
 - `extra_instructions`: the owner's extra wishes for tone, content or visuals. Follow them unless they would make the content unsafe or untrue for children.
@@ -28,15 +28,20 @@ Read `examples/demo/story.mjs` and `examples/demo/audio.py` (the contract you wr
   - `current/script.txt`: the narration only.
   - `current/meta.json`: `{"topic", "title"` (Indonesian, ≤ 70 chars, 1–2 emoji)`, "description"` (1–2 Indonesian sentences + a question for parents/kids)`, "hashtags"` (5–8; always `#FaktaAnak #EdukasiAnak #BelajarSambilBermain #ShortsIndonesia`, plus topic tags)`, "total_frames": 0}`.
 
-## 2. Voice + word timings + captions
+## 2. Voice → SRT (always in this order, never skip or reorder)
 ```bash
-python3 scripts/generate_voice_and_captions.py
+python3 scripts/generate_voice.py      # Step A: current/voice.mp3 (engine from config.tts)
+python3 scripts/transcribe_srt.py      # Step B: Whisper measures the real timings of that exact file
 ```
-This makes the narration with the engine in `config.tts`: Gemini 3.8 Flash TTS (`current/voice.wav`, using the `GEMINI_API_KEY` environment variable, with word timings from audio alignment) or edge-tts (`current/voice.mp3`). If Gemini fails, it falls back to edge-tts by itself; mention that fallback in your final message. It also writes `current/work/phrases.json` (30 fps word + phrase frames), and `current/captions.ass`, and sets `meta.total_frames`. If it exits with code 3 ("OUT OF RANGE"), add or cut the number of words it prints, keeping the formula intact, and run it again until it says "duration OK".
+- **Step A** narrates `current/script.txt` with Gemini 3.8 Flash TTS (`GEMINI_API_KEY` env var, tone from `config.tts.style`). If Gemini fails, it falls back to edge-tts by itself; mention that fallback in your final message.
+- **Step B** runs faster-whisper (base, Indonesian, word timestamps) on `current/voice.mp3`. It writes `current/subtitles.srt` (2–3 word chunks), `current/work/words.json` (per-word and per-chunk seconds + 30 fps frames) and `current/captions.ass`, and sets `meta.total_frames`. The caption words always come from `script.txt`; only the timing comes from Whisper.
+- If Step B exits with code 3 ("OUT OF RANGE"), edit `script.txt` by the number of words it prints, keeping the formula intact, then run **both A and B again**. If it reports a low match share, run A and B again once.
+- Whenever you change `script.txt` or `voice.mp3`, run Step B again. Timings must always come from the final audio.
+- **Then open and read `current/subtitles.srt`.** It's the timeline you animate to. Plan every beat from its timestamps before writing any scene code.
 
 ## 3. Scene → `current/story.mjs` + `current/audio.py`
-Copy the demo's structure. `TOTAL` is read from `work/phrases.json`, so don't hardcode it.
-- **Beats are synced to words.** Look up each beat's `f0` in `PH.words` and land each visual 0–3 frames before its word.
+Copy the demo's structure. `TOTAL` is read from `work/words.json`, so don't hardcode it.
+- **Every beat is timed from Step B.** Every scene change, draw-on reveal, camera move or zoom, and keyword pop-in starts from a word's `f0` in `PH.words` (or a chunk's `f0` in `PH.chunks`, the same timings as `subtitles.srt`), landing 0–3 frames before the word. Never guess or hardcode frame numbers.
 - **2–4 keyword titles** with `drawKeywordTitle` (Indonesian, 1–2 words, e.g. "Di Taman!", "Nektar"), each popping in on its word, in screen space at y 220–420. One title on screen at a time.
 - **Lala is always present.** She talks with `talk: C.talkAt(f, words)`, blinks, breathes, and changes `pose`/`expr` per beat (wave on the hook, point while explaining, `wow` on the reveal, `cheer` at the close).
 - **Draw things on** with `progress` (stroke and fill reveal) instead of popping them in. Show movement with `dottedPath` + `along`. Use `Camera2D.keys` for slow creeps and a zoom-in on the key detail (1.4–1.8×), and never hold a static camera longer than 3 s.
@@ -61,7 +66,7 @@ Fix and re-render until all of these pass (max 4 rounds). Then run `python3 curr
 
 ## 5. Ship
 - Append the topic to `history.json` → `used_topics` (keep valid JSON). If it came from the queue, remove it from `config.json` → `topic_queue` and change nothing else in `config.json`.
-- `git add current/ history.json config.json` (this includes the voice file, `captions.ass` and `work/phrases.json`; check that `git status` shows exactly one of `current/voice.wav` / `current/voice.mp3`). **Do not add** `stills/`, `out/`, `music.wav`, `sfx.wav`, `mix.wav` or `*.mp4`.
+- `git add current/ history.json config.json` (this includes `voice.mp3`, `subtitles.srt`, `captions.ass` and `work/words.json`). **Do not add** `stills/`, `out/`, `music.wav`, `sfx.wav`, `mix.wav` or `*.mp4`.
 - `git commit -m "episode: <title>"`, then `git pull --rebase origin main`, because the owner may have edited `config.json` from the dashboard during your run. If `config.json` conflicts, keep the owner's version, remove only the topic you used from its queue, and continue the rebase. Then `git push origin main`.
 - Final message: the title, the topic, the duration in seconds, and the preview verdict.
 

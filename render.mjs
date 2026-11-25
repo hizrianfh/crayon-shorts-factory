@@ -2,7 +2,7 @@
 //   node render.mjs video                 -> out/silent.mp4 (whole episode, no audio)
 //   node render.mjs stills 0,60,120       -> stills/f_<n>.png + stills/contact_sheet.jpg
 // EP env = episode folder (default current). The story is <EP>/story.mjs:
-//   export const TOTAL; export function frame(g, f, ctx)   ctx = { C (engine), W, H, FPS, words, phrases, wordAt(f), phraseAt(f) }
+//   export const TOTAL; export function frame(g, f, ctx)   ctx = { C (engine), W, H, FPS, words, phrases, chunks, wordAt(f), phraseAt(f) }
 import fs from "node:fs";
 import path from "node:path";
 import { spawn } from "node:child_process";
@@ -15,15 +15,16 @@ const [mode, spec] = process.argv.slice(2);
 if (!["video", "stills"].includes(mode) || (mode === "stills" && !spec)) { console.error('usage: node render.mjs video | node render.mjs stills 0,60,120'); process.exit(2); }
 const EP = path.resolve(ROOT, process.env.EP || "current");
 const story = await import(pathToFileURL(path.join(EP, "story.mjs")).href);
-const phPath = path.join(EP, "work", "phrases.json");
-const ph = fs.existsSync(phPath) ? JSON.parse(fs.readFileSync(phPath, "utf8")) : { words: [], phrases: [] };
+// Step B output; phrases.json = episodes made before the Whisper step
+const phPath = ["words.json", "phrases.json"].map((f) => path.join(EP, "work", f)).find((f) => fs.existsSync(f));
+const ph = phPath ? JSON.parse(fs.readFileSync(phPath, "utf8")) : { words: [], phrases: [], chunks: [] };
 const metaPath = path.join(EP, "meta.json");
 if (fs.existsSync(metaPath)) {
   const mt = JSON.parse(fs.readFileSync(metaPath, "utf8")).total_frames;
   if (mt !== story.TOTAL) { console.error(`story.mjs TOTAL=${story.TOTAL} but meta.json total_frames=${mt}`); process.exit(1); }
 }
 const find = (list, f) => list.find((x) => f >= x.f0 && f < x.f1) ?? null;
-const ctx = { C, W: C.W, H: C.H, FPS: 30, words: ph.words, phrases: ph.phrases, wordAt: (f) => find(ph.words, f), phraseAt: (f) => find(ph.phrases, f) };
+const ctx = { C, W: C.W, H: C.H, FPS: 30, words: ph.words, phrases: ph.phrases, chunks: ph.chunks ?? [], wordAt: (f) => find(ph.words, f), phraseAt: (f) => find(ph.phrases, f) };
 
 const canvas = createCanvas(C.W, C.H), g = canvas.getContext("2d");
 const draw = (f) => {

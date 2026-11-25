@@ -30,7 +30,7 @@ jobs:
       - run: pip install numpy
       - run: node render.mjs video
       - run: python3 current/audio.py
-      - run: python3 mix.py "$(ls current/voice.wav current/voice.mp3 2>/dev/null | head -1)" music.wav sfx.wav
+      - run: python3 mix.py current/voice.mp3 music.wav sfx.wav
       - run: bash finish.sh final
       - uses: actions/upload-artifact@v4
         with:

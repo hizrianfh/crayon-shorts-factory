@@ -98,7 +98,10 @@ def write_wav(path, x):
 
 
 def episode():
-    """meta.json + phrases.json of the current episode"""
-    meta = json.load(open("current/meta.json"))
-    ph = json.load(open("current/work/phrases.json"))
+    """meta.json + Step B timings (work/words.json; phrases.json for older episodes) of the episode in $EP (default current)"""
+    import os
+    ep = os.environ.get("EP", "current")
+    meta = json.load(open(f"{ep}/meta.json", encoding="utf-8"))
+    w = f"{ep}/work/words.json"
+    ph = json.load(open(w if os.path.exists(w) else f"{ep}/work/phrases.json", encoding="utf-8"))
     return meta, ph
