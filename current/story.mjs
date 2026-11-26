@@ -1,6 +1,6 @@
-// Episode: Kenapa daun warnanya hijau? — inside the leaf live tiny green "chefs" (klorofil) that catch sunlight.
-// Sunlight looks white but holds many colours; klorofil loves red + blue and uses them to cook the leaf's food
-// (from water via the roots + air). Green isn't wanted much, so it bounces off (like a ball off a wall) into our eyes.
+// Episode: Kenapa bentuk bulan berubah-ubah? — the moon has no light of its own; it reflects sunlight.
+// The sun always lights half of it (like a ball next to a lamp). As the moon travels around the earth
+// (about four weeks per lap) we see its lit half from different directions: sabit, separuh, purnama.
 import fs from "node:fs";
 const PH = JSON.parse(fs.readFileSync(new URL("./work/words.json", import.meta.url), "utf8"));
 export const TOTAL = PH.total_frames;
@@ -9,407 +9,338 @@ const norm = (s) => s.toLowerCase().replace(/[^a-z]/g, "");
 // f0 of the n-th word (0-based) that equals `w` exactly (after stripping punctuation)
 const at = (w, n = 0, d = 0) => (PH.words.filter((x) => norm(x.text) === w)[n]?.f0 ?? d);
 
-const T_KENAPA = at("kenapa", 0, 59), T_HIJAU0 = at("hijau", 0, 116), T_BUKAN = at("bukan", 0, 143), T_MERAH1 = at("merah", 0, 154);
-const T_BIRU1 = at("biru", 0, 188), T_HIJAU1 = at("hijau", 1, 222), T_YUK = at("yuk", 0, 252), T_INTIP = at("intip", 0, 268);
-const T_DI = at("di", 0, 304), T_ZAT = at("zat", 0, 346), T_KLOROFIL = at("klorofil", 0, 383), T_KLOROFIL2 = at("klorofil", 1, 422);
-const T_KOKI = at("koki", 0, 468), T_DAPUR = at("dapur", 0, 498), T_TUGAS = at("tugasnya", 0, 532), T_MENANGKAP = at("menangkap", 0, 547);
-const T_CAHAYA = at("cahaya", 1, 599), T_PUTIH = at("putih", 0, 655), T_PADAHAL = at("padahal", 0, 687), T_BANYAK = at("banyak", 0, 710);
-const T_MERAH2 = at("merah", 1, 760), T_KUNING = at("kuning", 0, 790), T_HIJAU3 = at("hijau", 3, 820), T_BIRU2 = at("biru", 1, 851);
-const T_KLOROFIL3 = at("klorofil", 2, 865), T_SUKA = at("suka", 0, 907), T_MERAH3 = at("merah", 2, 939), T_BIRU3 = at("biru", 2, 953);
-const T_WARNA_ITU = at("warna", 2, 983), T_DIPAKAI = at("dipakai", 0, 1009), T_MEMASAK = at("memasak", 0, 1039), T_MAKANAN = at("makanan", 0, 1050);
-const T_AIR = at("air", 0, 1105), T_AKAR = at("akar", 0, 1132), T_UDARA = at("udara", 0, 1162), T_TAPI2 = at("tapi", 1, 1195);
-const T_HIJAU4 = at("hijau", 4, 1218), T_DISUKAI = at("disukai", 0, 1241), T_DIPANTULKAN = at("dipantulkan", 0, 1288), T_BOLA = at("bola", 0, 1330);
-const T_TEMBOK = at("tembok", 0, 1364), T_CAHAYA3 = at("cahaya", 2, 1395), T_MATA = at("mata", 0, 1435), T_MAKANYA = at("makanya", 0, 1468);
-const T_HIJAU6 = at("hijau", 6, 1495), T_KEREN = at("keren", 0, 1525), T_COBA = at("coba", 0, 1564);
+const T_KENAPA = at("kenapa", 0, 61), T_BENTUK = at("bentuk", 0, 101), T_KADANG = at("kadang", 0, 164), T_BULAT = at("bulat", 0, 187);
+const T_TIPIS = at("tipis", 0, 244), T_PISANG = at("pisang", 0, 274), T_YUK = at("yuk", 0, 312), T_TAHU = at("tahu", 0, 332);
+const T_ITU = at("itu", 0, 376), T_SENDIRI = at("sendiri", 0, 419), T_BULAN2 = at("bulan", 2, 464), T_TERANG0 = at("terang", 0, 486);
+const T_MEMANTUL = at("memantulkan", 0, 513), T_MATAHARI0 = at("matahari", 0, 548), T_MATAHARI1 = at("matahari", 1, 597);
+const T_MENYINARI = at("menyinari", 0, 640), T_SEPARUH0 = at("separuh", 0, 656), T_SEPARUHNYA = at("separuhnya", 0, 698), T_GELAP = at("gelap", 0, 718);
+const T_COBA = at("coba", 0, 754), T_BOLA = at("bola", 0, 781), T_LAMPU0 = at("lampu", 0, 803), T_SISI = at("sisi", 0, 832);
+const T_TERANG1 = at("terang", 1, 875), T_NAH = at("nah", 0, 884), T_BULAN4 = at("bulan", 4, 931), T_MENGELILINGI = at("mengelilingi", 0, 970);
+const T_BUMI = at("bumi", 0, 989), T_SATU = at("satu", 0, 1011), T_EMPAT = at("empat", 0, 1063), T_SAMBIL = at("sambil", 0, 1103);
+const T_MELIHAT = at("melihat", 0, 1157), T_ARAH = at("arah", 0, 1195), T_KALAU0 = at("kalau", 0, 1237), T_SEDIKIT = at("sedikit", 0, 1258);
+const T_SABIT = at("sabit", 0, 1319), T_KALAU1 = at("kalau", 1, 1352), T_SETENGAH = at("setengah", 0, 1373), T_SEPARUH1 = at("separuh", 1, 1424);
+const T_KALAU2 = at("kalau", 2, 1457), T_MENGHADAP1 = at("menghadap", 1, 1505), T_PURNAMA = at("purnama", 0, 1571);
+const T_JADI = at("jadi", 2, 1609), T_BERUBAH1 = at("berubah", 1, 1645), T_CARA = at("cara", 0, 1680), T_KEREN = at("keren", 0, 1713);
+const T_NANTI = at("nanti", 0, 1774), T_LIHAT = at("lihat", 0, 1805);
 
-const TITLES = [[T_HIJAU0 - 2, T_DI - 2, "Kenapa Hijau?", "#5cb85c"], [T_KLOROFIL - 2, T_BANYAK - 2, "Klorofil", "#3f9b4f"],
-  [T_BANYAK - 2, T_DIPANTULKAN - 2, "Banyak Warna", "#ff9f1c"], [T_DIPANTULKAN - 2, T_MAKANYA - 2, "Dipantulkan!", "#3a7bd5"]];
+const TITLES = [[T_BENTUK - 2, T_ITU - 2, "Bulan Berubah?", "#ffb703"], [T_MEMANTUL - 2, T_COBA - 2, "Memantul", "#ff9f1c"],
+  [T_MENGELILINGI - 2, T_KALAU0 - 2, "Keliling Bumi", "#3a7bd5"], [T_PURNAMA - 2, TOTAL + 1, "Purnama!", "#9b6ad6"]];
 
 // world regions (left -> right; the camera pans between them)
-const A = [640, 900], B = [2100, 880], CC = [3500, 880], D = [4900, 900], E = [6300, 900], F = [7700, 900];
-const R_LENS = 330;
-const LEAF = "#5cb85c", LEAF_D = "#3f9b4f", LEAF_L = "#c9eeb5";
-const GRAINS = [[0, 0], [-170, -90], [150, -120], [-120, 150], [170, 110], [10, -220], [-10, 230]];
-const CHEF_C = [CC[0] + 130, CC[1] + 300];
-const EYE = [E[0] + 250, E[1] - 330], HIT = [E[0] - 90, E[1] + 200];
-const FAN = [["#ef4b3f", T_MERAH2], ["#ffd23f", T_KUNING], ["#5cb85c", T_HIJAU3], ["#3a7bd5", T_BIRU2]];
-const PRISM = [CC[0] - 30, CC[1] - 120];
-const fanEnd = (k) => [CC[0] + 330, CC[1] - 270 + k * 95];
+const A = [640, 880], B = [2100, 880], CC = [3500, 880], D = [4900, 880], E = [6300, 880], F = [7700, 880], G = [9100, 880];
+const NIGHT = "#2b3a67", MOON_D = "#59607a", MOON_L = "#ffe27a";
+const MA = [A[0] + 60, A[1] - 90];
+const MB = [B[0] + 170, B[1] - 40], SB = [B[0] - 260, B[1] - 300], EB = [B[0] + 120, B[1] + 230];
+const MC = [CC[0] + 90, CC[1] - 60];
+const LAMP = [D[0] - 300, D[1] - 120], BALL = [D[0] + 190, D[1] + 40];
+const EARTH = [E[0] + 90, E[1] - 30], ORB = 255;
+const PH3 = [[F[0] - 175, T_SABIT, 0.18], [F[0] + 40, T_SEPARUH1, 0.5], [F[0] + 255, T_PURNAMA, 1]];
+const MG = [G[0] + 70, G[1] - 120];
 
 // camera key helper: put world point (x, y) at screen x ~640 (right of Lala)
 const K = (f, x, y, zoom = 1, rot = 0) => [f, { x: x - 100 / zoom, y, zoom, rot }];
 
+// moon angle on its orbit (top-down view); starts on the right, travels counter-clockwise
+const orbitAngle = (f) => -0.15 - 2.2 * Math.PI * Math.max(0, f - T_BULAN4 + 6) / Math.max(1, T_KALAU0 + 30 - T_BULAN4);
+
 export function frame(g, f, { C, words }) {
   const b = C.boil(f), { COL } = C;
   const cam = C.Camera2D.keys(f, [
-    K(0, A[0], A[1], 1), K(T_HIJAU0 - 3, A[0], A[1] - 20, 1.08), K(T_BUKAN - 3, A[0], A[1] - 120, 1.04), K(T_HIJAU1, A[0] + 20, A[1] - 140, 1.12, -1),
-    K(T_YUK - 3, A[0], A[1] - 40, 1.08), K(T_INTIP + 22, A[0] - 20, A[1] - 20, 1.55, 1),
-    K(T_DI + 8, B[0], B[1], 1.0), K(T_KLOROFIL - 3, B[0], B[1], 1.08), K(T_KOKI - 3, B[0], B[1], 1.12, -1),
-    K(T_KOKI + 14, B[0], B[1] + 10, 1.75, 2), K(T_TUGAS - 3, B[0], B[1] + 10, 1.8, 2), K(T_MENANGKAP + 8, B[0] + 60, B[1] - 110, 1.0), K(T_CAHAYA - 14, B[0] + 60, B[1] - 130, 1.06),
-    K(T_CAHAYA + 8, CC[0], CC[1] - 80, 1.0), K(T_PUTIH - 3, CC[0] - 70, CC[1] - 130, 1.12), K(T_BANYAK - 3, CC[0] + 20, CC[1] - 60, 1.04),
-    K(T_BIRU2 + 10, CC[0] + 80, CC[1] - 60, 1.14, -1), K(T_SUKA - 3, CC[0] + 60, CC[1] + 110, 1.08), K(T_MERAH3 - 3, CHEF_C[0] - 20, CHEF_C[1] - 230, 1.14, 1),
-    K(T_WARNA_ITU - 8, CHEF_C[0] - 20, CHEF_C[1] - 220, 1.2, 1),
-    K(T_WARNA_ITU + 8, D[0], D[1], 1.0), K(T_MEMASAK - 3, D[0], D[1] - 30, 1.08), K(T_MAKANAN + 12, D[0], D[1] - 110, 1.22, -1),
-    K(T_AIR - 3, D[0], D[1] + 40, 1.0), K(T_UDARA, D[0] + 30, D[1], 1.08), K(T_TAPI2 - 12, D[0] + 30, D[1] - 10, 1.12),
-    K(T_TAPI2 + 6, E[0], E[1], 1.0), K(T_DIPANTULKAN - 3, E[0] - 60, E[1], 1.12), K(T_BOLA - 3, E[0] + 80, E[1] + 80, 1.05),
-    K(T_TEMBOK, E[0] + 200, E[1] + 160, 1.3, 1), K(T_CAHAYA3 - 3, E[0] + 60, E[1] - 60, 1.0), K(T_MATA, EYE[0] - 30, EYE[1] + 40, 1.6, 2), K(T_MAKANYA - 8, EYE[0] - 30, EYE[1] + 40, 1.65, 2),
-    K(T_MAKANYA + 10, F[0], F[1], 1.0), K(T_KEREN, F[0], F[1] - 30, 1.06), K(TOTAL, F[0], F[1] - 30, 1.12, 1)]);
+    K(0, A[0], A[1], 1), K(T_BENTUK - 3, A[0], A[1] - 30, 1.06), K(T_BULAT - 3, MA[0] - 40, MA[1] + 40, 1.14, -1), K(T_TIPIS - 3, MA[0] - 20, MA[1] + 60, 1.1),
+    K(T_PISANG + 8, MA[0] + 30, MA[1] + 50, 1.18, 1), K(T_YUK - 3, MA[0] + 10, MA[1] + 40, 1.12), K(T_TAHU + 22, MA[0] - 10, MA[1] + 20, 1.6, 2),
+    K(T_ITU + 4, B[0], B[1], 1.0), K(T_SENDIRI, B[0] + 40, B[1] - 20, 1.08, -1), K(T_TERANG0 - 3, B[0] + 20, B[1], 1.04), K(T_MEMANTUL + 10, B[0], B[1] - 30, 1.12),
+    K(T_MATAHARI0 + 20, B[0] + 30, B[1] + 20, 1.08, 1),
+    K(T_MATAHARI1 + 12, CC[0], CC[1], 1.0), K(T_SEPARUH0 - 3, CC[0] + 10, CC[1] - 30, 1.06), K(T_SEPARUH0 + 20, MC[0] - 60, MC[1] + 30, 1.45, -1), K(T_GELAP - 3, MC[0] - 20, MC[1] + 30, 1.5, -1),
+    K(T_GELAP + 22, MC[0] + 30, MC[1] + 30, 1.6, 1),
+    K(T_BOLA - 3, D[0], D[1], 1.0), K(T_LAMPU0 + 6, D[0] - 40, D[1] - 20, 1.08), K(T_SISI - 3, D[0], D[1], 1.04), K(T_TERANG1 + 4, BALL[0] - 120, BALL[1] + 20, 1.5, 1),
+    K(T_BULAN4 - 3, E[0], E[1], 0.96), K(T_MENGELILINGI, E[0], E[1] - 10, 1.0), K(T_SATU - 3, E[0] + 10, E[1] - 20, 1.04, -1), K(T_EMPAT + 10, E[0] + 30, E[1] - 120, 1.1),
+    K(T_SAMBIL - 3, E[0], E[1], 1.0), K(T_ARAH + 6, EARTH[0] - 20, EARTH[1], 1.3, 1), K(T_KALAU0 - 6, EARTH[0] - 10, EARTH[1], 1.34, 1),
+    K(T_KALAU0 + 16, F[0], F[1], 1.0), K(T_SABIT + 4, F[0] - 20, F[1] - 40, 1.08), K(T_SEPARUH1 + 4, F[0], F[1] - 60, 1.1, -1), K(T_MENGHADAP1, F[0] + 20, F[1] - 50, 1.04),
+    K(T_PURNAMA + 14, PH3[2][0] - 20, F[1] - 190, 1.7, 2), K(T_JADI - 4, PH3[2][0] - 20, F[1] - 190, 1.75, 2),
+    K(T_JADI + 18, G[0], G[1], 1.0), K(T_CARA, G[0] + 10, G[1] - 30, 1.08), K(T_KEREN, G[0], G[1] - 20, 1.04), K(T_NANTI + 4, G[0], G[1] - 40, 1.1, -1), K(TOTAL, MG[0] - 30, MG[1] + 40, 1.3, 1)]);
   cam.apply(g);
-  C.drawGraphPaper(g, { x0: -1200, y0: -800, x1: 9000, y1: 2800 });
+  C.drawGraphPaper(g, { x0: -1200, y0: -800, x1: 10600, y1: 2800 });
 
-  // ================= A: the hook leaf =================
-  if (f < T_DI + 12) {
-    const [ax, ay] = A, p = C.clamp(f / 28), sw = Math.sin(f * 0.06) * 0.04;
-    C.crayonStroke(g, [[ax + 40, ay + 340], [ax + 30, ay + 250], [ax + 10, ay + 200]], "#6b3e26", p, b + 1, { width: 22 });
-    g.save(); g.translate(ax + 10, ay + 220); g.rotate(sw); g.translate(-ax - 10, -ay - 220);
-    leaf(g, C, ax + 10, ay + 220, ax - 40, ay - 240, 260, LEAF, C.clamp(f / 30), b + 2);
-    g.restore();
-    // red X, blue X, green check
-    const sws = [[COL.red, T_MERAH1, -1], ["#3a7bd5", T_BIRU1, -1], [LEAF, T_HIJAU1, 1]];
-    sws.forEach(([col, t0, ok], k) => {
-      if (f < t0 - 3 || f > T_INTIP + 16) return;
-      const x = ax - 240 + k * 240, y = ay - 360, q = C.clamp((f - t0 + 3) / 12) * (1 - C.clamp((f - T_INTIP - 2) / 12)), wob = Math.sin(f * 0.1 + k) * 0.08;
-      g.save(); g.translate(x, y + 70); g.rotate(wob); g.translate(-x, -y - 70);
-      leaf(g, C, x, y + 70, x, y - 90, 80, col, q, b + 10 + k);
-      g.restore();
-      const r = C.clamp((f - t0 - 6) / 10) * (q >= 0.99 ? 1 : 0);
-      if (ok < 0) {
-        C.crayonStroke(g, [[x - 70, y - 70], [x + 70, y + 70]], C.CHARCOAL, r, b + 15 + k, { width: 16 });
-        C.crayonStroke(g, [[x + 70, y - 70], [x - 70, y + 70]], C.CHARCOAL, C.clamp(r * 2 - 1), b + 18 + k, { width: 16 });
-      } else {
-        C.crayonStroke(g, [[x - 60, y + 10], [x - 15, y + 60], [x + 75, y - 70]], COL.yellow, r, b + 20, { width: 22 });
-        if (r >= 1) C.drawSparkle(g, x + 90, y - 90, (f - t0 - 16) % 34, { boilSeed: b + 21 });
-      }
-    });
-    // magnifying glass on "yuk, kita intip"
-    if (f >= T_YUK - 2) {
-      const q = C.clamp((f - T_YUK + 2) / 20), cx = ax - 20, cy = ay - 20;
-      C.crayonFill(g, C.ell(cx, cy, 150, 150, 40), "#e9f8e2", { progress: q, boilSeed: b + 25, outline: null, gap: 18, width: 6 });
-      C.crayonStroke(g, [[cx + 110, cy + 110], [cx + 220, cy + 230]], "#8a5a3b", q, b + 26, { width: 36 });
-      C.crayonStroke(g, C.ell(cx, cy, 150, 150, 40), C.CHARCOAL, q, b + 27, { width: 20, close: true });
-      if (q >= 1) for (const [dx, dy] of [[-40, -30], [50, 20], [-10, 60]]) C.crayonFill(g, C.ell(cx + dx, cy + dy, 22, 22, 14), LEAF_D, { boilSeed: b + 28 + dx, width: 5, gap: 6 });
+  // ================= A: the hook — the moon keeps changing shape =================
+  if (f < T_ITU + 16) {
+    const [ax, ay] = A;
+    nightPanel(g, C, ax, ay, 430, C.clamp(f / 24), f, b + 1);
+    // the moon morphs: crescent-ish while asking, full on "bulat penuh", thin on "tipis"
+    const illum = f < T_BULAT - 3 ? 0.35 + 0.25 * Math.sin(f * 0.12)
+      : f < T_TIPIS - 3 ? 0.6 + 0.4 * C.smooth((f - T_BULAT + 3) / 12)
+      : 1 - 0.85 * C.smooth((f - T_TIPIS + 3) / 14);
+    const mp = C.clamp((f - 6) / 22);
+    moon(g, C, MA[0], MA[1] + Math.sin(f * 0.07) * 6, 150, illum, 1, b + 10, mp);
+    // "?" floats next to the moon while asking
+    if (f >= T_KENAPA - 2 && f < T_BULAT) {
+      const q = C.pop(f - T_KENAPA + 2, 12) * (1 - C.clamp((f - T_BULAT + 8) / 8));
+      question(g, C, MA[0] + 240, MA[1] - 170 + Math.sin(f * 0.15) * 10, q, b + 20);
+    }
+    if (f >= T_BULAT && f < T_BULAT + 24) C.drawSparkle(g, MA[0] + 170, MA[1] - 140, f - T_BULAT, { boilSeed: b + 21 });
+    // a banana appears on "pisang"
+    if (f >= T_PISANG - 3) {
+      const q = C.clamp((f - T_PISANG + 3) / 14), bx = MA[0] + 200, by = MA[1] + 230 + Math.sin(f * 0.1) * 8;
+      banana(g, C, bx, by, 1.05, Math.sin(f * 0.08) * 0.1, q, b + 30);
+      if (q >= 1 && f < T_PISANG + 34) C.drawSparkle(g, bx + 110, by - 80, f - T_PISANG - 10, { s: 0.7, boilSeed: b + 34 });
     }
   }
 
-  // ================= B: inside the leaf, the klorofil chefs =================
-  if (f >= T_YUK + 10 && f < T_CAHAYA + 30) {
-    const [bx, by] = B, ring = C.clamp((f - T_YUK - 10) / 26);
-    C.crayonFill(g, C.ell(bx, by, R_LENS, R_LENS, 48), LEAF_L, { progress: ring, boilSeed: b + 50, outline: null, gap: 16, width: 8 });
-    // leaf veins inside the lens
-    if (ring >= 1) {
-      C.crayonStroke(g, [[bx - 300, by + 120], [bx + 300, by - 120]], "#9fd88a", 1, b + 51, { width: 14, passes: 2 });
-      for (const t of [-0.5, 0, 0.5]) { const x0 = bx + t * 300, y0 = by - t * 120; C.crayonStroke(g, [[x0, y0], [x0 + 70, y0 + 150]], "#9fd88a", 1, b + 52 + t * 4, { width: 9, passes: 2 }); C.crayonStroke(g, [[x0, y0], [x0 - 60, y0 - 160]], "#9fd88a", 1, b + 56 + t * 4, { width: 9, passes: 2 }); }
-    }
-    C.crayonStroke(g, [[bx + R_LENS * 0.72, by + R_LENS * 0.72], [bx + R_LENS * 1.05, by + R_LENS * 1.05]], "#8a5a3b", ring, b + 60, { width: 40 });
-    C.crayonStroke(g, C.ell(bx, by, R_LENS, R_LENS, 48), C.CHARCOAL, ring, b + 61, { width: 22, close: true });
-    // sun + rays caught by the chefs
-    if (f >= T_MENANGKAP - 8) {
-      const q = C.clamp((f - T_MENANGKAP + 8) / 14), sx = bx + 300, sy = by - 470;
-      g.save(); g.translate(sx, sy); g.scale(q, q); g.translate(-sx, -sy);
-      C.drawSun(g, sx, sy, { r: 70, frame: f, boilSeed: b + 62 });
-      g.restore();
-      GRAINS.forEach(([gx, gy], i) => {
-        const r = C.clamp((f - T_MENANGKAP - 2 - i * 2) / 14), tx = bx + gx, ty = by + gy - 50;
-        if (r > 0) C.dottedPath(g, [[sx - 40, sy + 50], [tx, ty]], r, COL.orange, b + 63 + i, { gap: 22, r: 6 });
-      });
-    }
-    // grains -> faces -> chef hats
-    GRAINS.forEach(([gx, gy], i) => {
-      const p = C.clamp((f - T_ZAT + 2 - i * 3) / 10);
-      if (p <= 0) return;
-      const x = bx + gx + Math.sin(f * 0.07 + i) * 5, y = by + gy + Math.cos(f * 0.06 + i * 2) * 5;
-      const face = C.clamp((f - T_KLOROFIL + 2 - i) / 6), hat = C.clamp((f - T_KOKI + 2 - i * 2) / 10);
-      const happy = f >= T_MENANGKAP && f < T_CAHAYA + 30;
-      chef(g, C, x, y, i === 0 ? 1.15 : 0.85, f, i, b + 70 + i * 3, { p, face, hat, mouth: happy ? 0.5 + 0.5 * Math.abs(Math.sin(f * 0.3 + i)) : 0 });
-    });
-    // a tiny frying pan for "dapur"
-    if (f >= T_DAPUR - 3) {
-      const q = C.clamp((f - T_DAPUR + 3) / 12), px = bx + 95, py = by + 30, s = C.pop((f - T_DAPUR + 3), 12);
-      g.save(); g.translate(px, py); g.rotate(-0.3 + Math.sin(f * 0.2) * 0.1); g.scale(s, s);
-      C.crayonStroke(g, [[30, 0], [95, 0]], "#6b3e26", q, b + 95, { width: 16 });
-      C.crayonFill(g, C.ell(0, 0, 40, 18, 18), "#8b8f99", { progress: q, boilSeed: b + 96, width: 6 });
+  // ================= B: no light of its own — it reflects sunlight =================
+  if (f >= T_ITU - 20 && f < T_MATAHARI1 + 30) {
+    const [bx, by] = B;
+    nightPanel(g, C, bx, by, 430, C.clamp((f - T_ITU + 20) / 20), f, b + 40);
+    const lit = C.smooth((f - T_TERANG0 - 14) / 18);
+    // sun slides in on "terang"
+    if (f >= T_TERANG0 - 6) {
+      const q = C.pop(f - T_TERANG0 + 6, 14);
+      g.save(); g.translate(SB[0], SB[1]); g.scale(q, q); g.translate(-SB[0], -SB[1]);
+      C.drawSun(g, SB[0], SB[1], { r: 80, frame: f, boilSeed: b + 41 });
       g.restore();
     }
-    if (f >= T_KOKI + 10 && f < T_MENANGKAP) C.drawSparkle(g, bx + 90, by - 110, (f - T_KOKI - 10) % 32, { s: 0.6, boilSeed: b + 97 });
+    // a light bulb with an X: "nggak punya cahaya sendiri"
+    if (f >= T_ITU + 6 && f < T_TERANG0 + 4) {
+      const q = C.clamp((f - T_ITU - 6) / 14) * (1 - C.clamp((f - T_TERANG0 + 6) / 10)), x = MB[0] - 230, y = MB[1] - 260;
+      bulb(g, C, x, y, q, b + 45);
+      const r = C.clamp((f - T_SENDIRI) / 10) * (q > 0.95 ? 1 : 0);
+      C.crayonStroke(g, [[x - 60, y - 70], [x + 60, y + 70]], COL.red, r, b + 46, { width: 16 });
+      C.crayonStroke(g, [[x + 60, y - 70], [x - 60, y + 70]], COL.red, C.clamp(r * 2 - 1), b + 47, { width: 16 });
+    }
+    // sun rays travel to the moon, then bounce down to the earth
+    if (f >= T_MEMANTUL - 14) for (let k = 0; k < 3; k++) {
+      const t = ((f - T_MEMANTUL + 14 + k * 16) % 48) / 48;
+      const path = [[SB[0] + 70, SB[1] + 50], [MB[0] - 110, MB[1] - 40 + k * 30], [EB[0] - 20, EB[1] - 70]];
+      const u = C.clamp((f - T_MEMANTUL + 14) / 30);
+      C.dottedPath(g, path, u, COL.orange, b + 50 + k, { gap: 26, r: 5 });
+      if (u >= 1) { const [x, y] = C.along(path, t); lightDot(g, C, x, y, 1, b + 55 + k); }
+    }
+    moon(g, C, MB[0], MB[1] + Math.sin(f * 0.06) * 6, 135, 0.82 * lit, -1, b + 60, C.clamp((f - T_ITU + 10) / 20), lit > 0.9);
+    if (f >= T_MEMANTUL - 14) earth(g, C, EB[0], EB[1], 70, C.clamp((f - T_MEMANTUL + 14) / 16), f, b + 70);
+    if (f >= T_MATAHARI0 && f < T_MATAHARI0 + 24) C.drawSparkle(g, MB[0] + 150, MB[1] - 140, f - T_MATAHARI0, { boilSeed: b + 75 });
   }
 
-  // ================= C: white sunlight holds many colours =================
-  if (f >= T_CAHAYA - 30 && f < T_WARNA_ITU + 30) {
-    const [cx, cy] = CC, [px, py] = PRISM, sx = cx - 290, sy = cy - 390;
-    const p = C.clamp((f - T_CAHAYA + 30) / 20);
-    g.save(); g.translate(sx, sy); g.scale(p, p); g.translate(-sx, -sy);
-    C.drawSun(g, sx, sy, { r: 85, frame: f, boilSeed: b + 100 });
-    g.restore();
-    // white beam
-    const q = C.clamp((f - T_CAHAYA + 2) / 22);
-    if (q > 0) {
-      const ux = px - sx, uy = py - sy, L = Math.hypot(ux, uy), nx = -uy / L, ny = ux / L, ex = sx + ux * q, ey = sy + uy * q;
-      C.crayonFill(g, [[sx + nx * 40, sy + ny * 40], [ex + nx * 34, ey + ny * 34], [ex - nx * 34, ey - ny * 34], [sx - nx * 40, sy - ny * 40]], COL.white, { boilSeed: b + 101, width: 8, gap: 9 });
-      if (f >= T_PUTIH - 2) C.drawSparkle(g, px - 120, py - 150, (f - T_PUTIH + 2) % 34, { s: 0.8, color: COL.white, boilSeed: b + 102 });
+  // ================= C: the sun always lights half of the moon =================
+  if (f >= T_MATAHARI1 - 10 && f < T_GELAP + 50) {
+    const [cx, cy] = CC;
+    nightPanel(g, C, cx, cy, 430, C.clamp((f - T_MATAHARI1 + 10) / 20), f, b + 80);
+    const sx = cx - 330, sy = cy - 330;
+    C.drawSun(g, sx, sy, { r: 75, frame: f, boilSeed: b + 81 });
+    // rays from the left
+    if (f >= T_MENYINARI - 6) for (let k = 0; k < 4; k++) {
+      const y = MC[1] - 180 + k * 120, q = C.clamp((f - T_MENYINARI + 6 - k * 3) / 14), wob = Math.sin(f * 0.2 + k) * 8;
+      C.crayonStroke(g, [[cx - 400, y + wob * 0.3], [MC[0] - 300, y]], COL.orange, q, b + 82 + k, { width: 12, passes: 2 });
+      C.crayonStroke(g, [[MC[0] - 330, y - 18], [MC[0] - 300, y], [MC[0] - 330, y + 18]], COL.orange, q, b + 86 + k, { width: 10, passes: 2 });
     }
-    // "banyak warna": dotted hint lines, then each coloured stripe on its word
-    if (f >= T_BANYAK - 3) FAN.forEach(([col, t0], k) => {
-      const [ex, ey] = fanEnd(k), hint = C.clamp((f - T_BANYAK + 3 - k * 3) / 12);
-      if (f < t0 - 2) C.dottedPath(g, [[px, py], [ex, ey]], hint, col, b + 105 + k, { gap: 20, r: 5 });
+    const half = 0.5 * C.smooth((f - T_SEPARUH0 + 3) / 16);
+    moon(g, C, MC[0], MC[1] + Math.sin(f * 0.05) * 5, 230, half, -1, b + 90, C.clamp((f - T_MATAHARI1 + 6) / 18), false);
+    if (f >= T_SEPARUH0 + 12 && f < T_SEPARUHNYA) C.drawSparkle(g, MC[0] - 200, MC[1] - 200, (f - T_SEPARUH0 - 12) % 30, { boilSeed: b + 95 });
+    // "gelap": sleepy zzz on the dark side
+    if (f >= T_GELAP - 3) for (let k = 0; k < 3; k++) {
+      const t = ((f - T_GELAP + 3 + k * 12) % 36) / 36, x = MC[0] + 140 + t * 90 + k * 10, y = MC[1] - 120 - t * 150;
+      zed(g, C, x, y, (0.6 + 0.3 * k) * Math.sin(Math.PI * t), b + 96 + k);
+    }
+  }
+
+  // ================= D: a ball next to a lamp =================
+  if (f >= T_GELAP + 20 && f < T_NAH + 60) {
+    const [dx, dy] = D, p = C.clamp((f - T_COBA + 8) / 20);
+    // table
+    C.crayonFill(g, C.rrect(dx - 460, dy + 200, dx + 460, dy + 250, 12), "#c98b55", { progress: p, boilSeed: b + 100, width: 8 });
+    for (const s of [-1, 1]) C.crayonStroke(g, [[dx + s * 400, dy + 250], [dx + s * 400, dy + 330]], "#8a5a3b", p, b + 101 + s, { width: 22 });
+    // lamp draws on "lampu"
+    const lp = C.clamp((f - T_LAMPU0 + 10) / 18), on = C.smooth((f - T_LAMPU0 + 2) / 10);
+    if (lp > 0) lamp(g, C, LAMP[0], LAMP[1], lp, on, f, b + 105);
+    // ball draws on "bola"; the side facing the lamp lights up
+    const bp = C.clamp((f - T_BOLA + 3) / 14), bl = C.smooth((f - T_TERANG1 + 30) / 18);
+    if (bp > 0) {
+      const bob = f < T_TERANG1 ? Math.abs(Math.sin((f - T_BOLA) * 0.18)) * -22 : 0;
+      moon(g, C, BALL[0], BALL[1] + bob, 130, 0.5 * bl, -1, b + 120, bp, false, "#e45a8f", "#ffd6e5");
+      C.crayonFill(g, C.ell(BALL[0], dy + 196, 110, 12, 18), "#a36a3d", { boilSeed: b + 125, outline: null, gap: 6, width: 5 });
+    }
+    if (f >= T_TERANG1 - 2 && f < T_TERANG1 + 26) C.drawSparkle(g, BALL[0] - 150, BALL[1] - 130, f - T_TERANG1 + 2, { boilSeed: b + 126 });
+  }
+
+  // ================= E: the moon travels around the earth =================
+  if (f >= T_NAH + 20 && f < T_KALAU0 + 50) {
+    const [ex, ey] = E;
+    nightPanel(g, C, ex, ey, 440, C.clamp((f - T_NAH - 20) / 20), f, b + 140);
+    // sunlight from the left
+    for (let k = 0; k < 3; k++) {
+      const y = ey - 330 + k * 100, q = C.clamp((f - T_NAH - 26 - k * 3) / 14), x0 = ex - 330, w = Math.sin(f * 0.15 + k) * 10;
+      C.crayonStroke(g, [[x0, y], [x0 + 110 + w, y]], COL.yellow, q, b + 141 + k, { width: 12, passes: 2 });
+      C.crayonStroke(g, [[x0 + 85 + w, y - 16], [x0 + 110 + w, y], [x0 + 85 + w, y + 16]], COL.yellow, q, b + 144 + k, { width: 10, passes: 2 });
+    }
+    // dotted orbit on "mengelilingi"
+    const orbit = C.ell(EARTH[0], EARTH[1], ORB, ORB, 64).concat([[EARTH[0] + ORB, EARTH[1]]]);
+    C.dottedPath(g, orbit, C.clamp((f - T_MENGELILINGI + 3) / 30), "#c9d3ff", b + 150, { gap: 30, r: 5 });
+    earth(g, C, EARTH[0], EARTH[1], 85, C.clamp((f - T_NAH - 20) / 16), f, b + 155);
+    // four little calendar pages on "empat minggu"
+    if (f >= T_EMPAT - 3) for (let k = 0; k < 4; k++) {
+      const q = C.pop(f - T_EMPAT + 3 - k * 4, 12), x = ex - 60 + k * 100, y = ey - 410 + Math.sin(f * 0.1 + k) * 4;
+      calendar(g, C, x, y, q, b + 160 + k);
+    }
+    // the moon on its orbit, lit half always toward the sun
+    const a = orbitAngle(f), mx = EARTH[0] + Math.cos(a) * ORB, my = EARTH[1] + Math.sin(a) * ORB;
+    // line of sight from the earth on "melihat"
+    if (f >= T_MELIHAT - 3) {
+      const ux = Math.cos(a), uy = Math.sin(a), q = C.clamp((f - T_MELIHAT + 3) / 12);
+      C.dottedPath(g, [[EARTH[0] + ux * 95, EARTH[1] + uy * 95], [mx - ux * 65, my - uy * 65]], q, COL.white, b + 170, { gap: 22, r: 4 });
+    }
+    moon(g, C, mx, my, 58, 0.5, -1, b + 175, C.clamp((f - T_BULAN4 + 6) / 14), false);
+    if (f >= T_ARAH - 2 && f < T_ARAH + 24) C.drawSparkle(g, mx + 70, my - 70, f - T_ARAH + 2, { s: 0.7, boilSeed: b + 180 });
+  }
+
+  // ================= F: what we see — sabit, separuh, purnama =================
+  if (f >= T_KALAU0 - 6 && f < T_JADI + 40) {
+    const [fx, fy] = F;
+    nightPanel(g, C, fx, fy, 440, C.clamp((f - T_KALAU0 + 6) / 18), f, b + 200);
+    PH3.forEach(([x, t0, il], k) => {
+      const y = fy - 190 + Math.sin(f * 0.06 + k) * 6;
+      // dotted hint of the whole ball first
+      const hint = C.clamp((f - T_KALAU0 - k * 4) / 16);
+      if (f < t0 - 3) C.dottedPath(g, C.ell(x, y, 95, 95, 40).concat([[x + 95, y]]), hint, "#dfe4ff", b + 205 + k, { gap: 22, r: 4 });
       else {
-        const r = C.clamp((f - t0 + 2) / 12), ux = ex - px, uy = ey - py, L = Math.hypot(ux, uy), nx = -uy / L, ny = ux / L;
-        const wv = Math.sin(f * 0.15 + k) * 3, w1 = 34 + wv, tx = px + ux * r, ty = py + uy * r;
-        C.crayonFill(g, [[px + nx * 6, py + ny * 6], [tx + nx * w1 * r, ty + ny * w1 * r], [tx - nx * w1 * r, ty - ny * w1 * r], [px - nx * 6, py - ny * 6]], col, { boilSeed: b + 110 + k, width: 7, gap: 9 });
-        if (r >= 1 && f < t0 + 30) C.drawSparkle(g, ex + 50, ey, f - t0 - 10, { s: 0.6, color: col, boilSeed: b + 115 + k });
+        moon(g, C, x, y, 95, il * C.smooth((f - t0 + 3) / 12), 1, b + 210 + k * 3, C.clamp((f - t0 + 3) / 10), il > 0.9 && f >= t0 + 12);
+        if (f < t0 + 26) C.drawSparkle(g, x + 110, y - 110, f - t0, { s: 0.7, boilSeed: b + 220 + k });
       }
     });
-    if (f >= T_BANYAK - 3) C.crayonFill(g, C.ell(px, py, 26, 26, 16), COL.white, { boilSeed: b + 119, width: 6 });
-    // the klorofil chef loves red + blue
-    if (f >= T_KLOROFIL3 - 3) {
-      const cp = C.clamp((f - T_KLOROFIL3 + 3) / 10);
-      const eatR = f >= T_MERAH3 + 14 && f < T_MERAH3 + 24, eatB = f >= T_BIRU3 + 14 && f < T_BIRU3 + 24;
-      const mouth = eatR || eatB ? 1 : (f >= T_MERAH3 + 2 && f < T_BIRU3 + 24 ? 0.6 : 0);
-      chef(g, C, CHEF_C[0], CHEF_C[1] + Math.sin(f * 0.12) * 6, 1.7, f, 0, b + 120, { p: cp, face: 1, hat: cp, mouth });
-      if (f >= T_SUKA - 2) for (const [dx, d] of [[-120, 0], [120, 12]]) {
-        const t = (f - T_SUKA + 2 + d) % 40, k = C.clamp(t / 10) * (1 - C.clamp((t - 28) / 12));
-        heart(g, C, CHEF_C[0] + dx, CHEF_C[1] - 130 - t * 2, 0.7 * k, b + 125 + d);
-      }
-      for (const [k, t0] of [[0, T_MERAH3], [3, T_BIRU3]]) {
-        const t = C.clamp((f - t0 + 4) / 20);
-        if (t <= 0 || t >= 1) continue;
-        const [ex, ey] = fanEnd(k), path = C.bezier([ex, ey], [ex + 60, ey + 120], [CHEF_C[0] + 80, CHEF_C[1] - 220], [CHEF_C[0], CHEF_C[1] + 30]);
-        C.dottedPath(g, path, t, FAN[k][0], b + 130 + k, { gap: 22, r: 5 });
-        const [x, y] = C.along(path, C.smooth(t));
-        lightBall(g, C, x, y, 1.1, FAN[k][0], b + 135 + k);
-      }
-      if (f >= T_MERAH3 + 16) C.drawSparkle(g, CHEF_C[0] + 110, CHEF_C[1] - 40, f - T_MERAH3 - 16, { s: 0.7, color: COL.red, boilSeed: b + 140 });
-      if (f >= T_BIRU3 + 16) C.drawSparkle(g, CHEF_C[0] - 110, CHEF_C[1] - 40, f - T_BIRU3 - 16, { s: 0.7, color: "#3a7bd5", boilSeed: b + 141 });
-    }
+    // a little kid on the ground looking up
+    const gp = C.clamp((f - T_KALAU0) / 20);
+    C.crayonStroke(g, [[fx - 420, fy + 220], [fx - 100, fy + 205], [fx + 200, fy + 225], [fx + 420, fy + 212]], COL.green, gp, b + 230, { width: 20 });
+    if (f >= T_PURNAMA) for (const [sx, sy, d] of [[160, -260, 0], [330, -40, 9], [120, 40, 18], [360, -250, 27]]) C.drawSparkle(g, fx + sx, fy + sy, (f - T_PURNAMA - d + 36) % 36, { s: 0.6, boilSeed: b + 235 + d });
   }
 
-  // ================= D: cooking the leaf's food =================
-  if (f >= T_WARNA_ITU - 20 && f < T_TAPI2 + 30) {
-    const [dx, dy] = D, p = C.clamp((f - T_WARNA_ITU + 20) / 24);
-    // stem + roots under the pot (drawn on "air dari akar")
-    if (f >= T_AIR - 6) {
-      const q = C.clamp((f - T_AIR + 6) / 16);
-      C.crayonStroke(g, [[dx, dy + 150], [dx + 8, dy + 230], [dx, dy + 300]], LEAF_D, q, b + 200, { width: 20 });
-      for (const [rx, ry, k] of [[-110, 370, 0], [-30, 390, 1], [60, 385, 2], [120, 350, 3]]) C.crayonStroke(g, [[dx, dy + 300], [dx + rx * 0.5, dy + ry - 30], [dx + rx, dy + ry]], "#9a6a3f", C.clamp(q * 1.6 - 0.4 - k * 0.1), b + 201 + k, { width: 12 });
-      C.crayonStroke(g, [[dx - 230, dy + 300], [dx + 230, dy + 300]], "#9a6a3f", q, b + 206, { width: 10, passes: 2 });
-      const t = C.clamp((f - T_AIR - 2) / 46);
-      if (t > 0 && t < 1) {
-        const path = [[dx - 60, dy + 380], [dx - 5, dy + 330], [dx + 4, dy + 240], [dx, dy + 120]];
-        C.dottedPath(g, path, t, "#3a7bd5", b + 207, { gap: 18, r: 4 });
-        const [x, y] = C.along(path, C.smooth(t));
-        drop(g, C, x, y, 0.55, b + 208);
-      }
-      if (f >= T_AKAR) C.drawSparkle(g, dx - 120, dy + 380, f - T_AKAR, { s: 0.6, boilSeed: b + 209 });
+  // ================= G: the moon never changes — only how we see it =================
+  if (f >= T_JADI + 4) {
+    const [gx, gy] = G, p = C.clamp((f - T_JADI - 4) / 18);
+    nightPanel(g, C, gx, gy, 440, p, f, b + 300);
+    // window frame on "nanti malam"
+    if (f >= T_NANTI - 3) {
+      const q = C.clamp((f - T_NANTI + 3) / 18), x0 = gx - 330, x1 = gx + 470, y0 = gy - 430, y1 = gy + 220;
+      C.crayonStroke(g, [[x0, y0], [x1, y0], [x1, y1], [x0, y1], [x0, y0]], "#a36a3d", q, b + 301, { width: 26 });
+      C.crayonStroke(g, [[(x0 + x1) / 2, y0], [(x0 + x1) / 2, y1]], "#a36a3d", C.clamp(q * 2 - 1), b + 302, { width: 18 });
+      C.crayonStroke(g, [[x0, (y0 + y1) / 2], [x1, (y0 + y1) / 2]], "#a36a3d", C.clamp(q * 2 - 1), b + 303, { width: 18 });
     }
-    // air swirls drift in from the right
-    if (f >= T_UDARA - 4) for (let k = 0; k < 3; k++) {
-      const t = C.clamp((f - T_UDARA + 4 - k * 6) / 34);
-      if (t <= 0 || t >= 1) continue;
-      const path = C.bezier([dx + 420, dy - 200 + k * 80], [dx + 300, dy - 300], [dx + 150, dy - 160], [dx + 40, dy - 40]);
-      const [x, y] = C.along(path, C.smooth(t));
-      swirl(g, C, x, y, 0.9, f * 0.2 + k, b + 215 + k);
-    }
-    // pot
-    C.crayonFill(g, C.rrect(dx - 170, dy - 40, dx + 170, dy + 150, 40), "#8b8f99", { progress: p, boilSeed: b + 220 });
-    C.crayonFill(g, C.rrect(dx - 195, dy - 70, dx + 195, dy - 30, 18), "#6f737c", { progress: p, boilSeed: b + 221, width: 7 });
-    for (const s of [-1, 1]) C.crayonStroke(g, [[dx + s * 195, dy - 10], [dx + s * 240, dy - 10], [dx + s * 240, dy + 30]], C.CHARCOAL, p, b + 222 + s, { width: 14 });
-    C.crayonFill(g, C.ell(dx, dy - 52, 175, 16, 24), "#9be27c", { progress: C.clamp(p * 2 - 1), boilSeed: b + 225, outline: null, gap: 6, width: 5 });
-    // red + blue light dropped in
-    for (const [k, col, d] of [[0, "#ef4b3f", 0], [1, "#3a7bd5", 8]]) {
-      const t = C.clamp((f - T_DIPAKAI + 3 - d) / 16);
-      if (t <= 0 || t >= 1) continue;
-      lightBall(g, C, dx - 40 + k * 80, dy - 420 + 370 * t * t, 1, col, b + 230 + k);
-    }
-    // the chef stirring
-    const stir = Math.sin(f * 0.25) * 30;
-    C.crayonStroke(g, [[dx - 210, dy - 170], [dx - 20 + stir, dy - 40]], "#8a5a3b", p, b + 235, { width: 14 });
-    chef(g, C, dx - 230, dy - 190 + Math.sin(f * 0.2) * 5, 1.15, f, 2, b + 240, { p, face: 1, hat: 1, mouth: f >= T_MEMASAK && f < T_MAKANAN + 20 ? 0.8 : 0 });
-    // steam + food
-    if (f >= T_MEMASAK - 3) for (let k = 0; k < 3; k++) {
-      const q = C.clamp((f - T_MEMASAK + 3 - k * 4) / 14), x = dx - 70 + k * 70, w = Math.sin(f * 0.15 + k) * 12;
-      C.crayonStroke(g, [[x, dy - 90], [x + 18 + w, dy - 130], [x - 10 - w, dy - 170], [x + 12 + w, dy - 210]], "#c9ccd2", q, b + 250 + k, { width: 12, passes: 2 });
-    }
-    if (f >= T_MAKANAN - 2) {
-      const s = C.pop(f - T_MAKANAN + 2, 14), x = dx + 10, y = dy - 330 + Math.sin(f * 0.1) * 8;
-      g.save(); g.translate(x, y); g.rotate(Math.sin(f * 0.08) * 0.1); g.scale(s, s);
-      C.crayonFill(g, C.rrect(-70, -55, 70, 55, 26), COL.yellow, { boilSeed: b + 260 });
-      C.crayonStroke(g, [[-40, -10], [-15, 15], [40, -25]], COL.orange, 1, b + 261, { width: 10, passes: 2 });
-      g.restore();
-      C.drawSparkle(g, x + 100, y - 50, (f - T_MAKANAN) % 36, { s: 0.7, boilSeed: b + 262 });
-      C.drawSparkle(g, x - 100, y + 30, (f - T_MAKANAN - 16) % 36, { s: 0.5, color: COL.pink, boilSeed: b + 263 });
-    }
-  }
-
-  // ================= E: green bounces off, like a ball off a wall, into our eyes =================
-  if (f >= T_UDARA + 10 && f < T_MAKANYA + 30) {
-    const [ex, ey] = E, p = C.clamp((f - T_UDARA - 10) / 24), sx = ex - 330, sy = ey - 400;
-    g.save(); g.translate(sx, sy); g.scale(p, p); g.translate(-sx, -sy);
-    C.drawSun(g, sx, sy, { r: 65, frame: f, boilSeed: b + 300 });
-    g.restore();
-    const out = 1 - C.clamp((f - T_CAHAYA3 - 6) / 12);
-    g.save(); g.translate(ex + 100, ey + 300); g.rotate(Math.sin(f * 0.05) * 0.04); g.scale(out, out); g.translate(-ex - 100, -ey - 300);
-    if (out > 0) leaf(g, C, ex + 100, ey + 300, ex - 260, ey + 120, 180, LEAF, p, b + 301);
-    g.restore();
-    // red + blue get swallowed by the leaf, green waits on top
-    for (const [col, t0, keep] of [["#ef4b3f", T_TAPI2 - 6, 0], ["#3a7bd5", T_TAPI2 + 4, 0], ["#5cb85c", T_HIJAU4 - 4, 1]]) {
-      const t = C.clamp((f - t0) / 22);
-      if (t <= 0) continue;
-      const path = [[sx + 50, sy + 60], [HIT[0], HIT[1] - 40]];
-      if (!keep) {
-        if (t < 1) { const [x, y] = C.along(path, C.smooth(t)); lightBall(g, C, x, y, 1, col, b + 305); }
-        else if (f - t0 - 22 < 12) { lightBall(g, C, HIT[0], HIT[1] - 30, 1 - (f - t0 - 22) / 12, col, b + 306); C.drawSparkle(g, HIT[0], HIT[1] - 50, f - t0 - 22, { s: 0.6, color: col, boilSeed: b + 307 }); }
-        continue;
-      }
-      // the green one: arrives, then bounces off toward the eye
-      const bounce = path.concat([]);
-      if (f < T_DIPANTULKAN - 2) {
-        const [x, y] = t < 1 ? C.along(path, C.smooth(t)) : [HIT[0], HIT[1] - 40 - Math.abs(Math.sin((f - t0) * 0.25)) * 18];
-        lightBall(g, C, x, y, 1.2, col, b + 308);
-      } else {
-        const out = C.bezier([HIT[0], HIT[1] - 40], [HIT[0] + 80, HIT[1] - 360], [EYE[0] - 260, EYE[1] - 40], [EYE[0], EYE[1]]);
-        const u = f < T_CAHAYA3 - 3 ? 0.45 * C.smooth(C.clamp((f - T_DIPANTULKAN + 2) / 28)) : 0.45 + 0.55 * C.smooth(C.clamp((f - T_CAHAYA3 + 3) / 38));
-        if (f < T_MATA - 2) C.dottedPath(g, out, u, LEAF_D, b + 309, { gap: 24, r: 6 });
-        const [x, y] = C.along(out, u), hov = u > 0.44 && u < 0.46 ? Math.sin(f * 0.2) * 8 : 0;
-        if (u < 0.99) lightBall(g, C, x, y + hov, 1.2, col, b + 310);
-        if (f >= T_DIPANTULKAN - 2 && f < T_DIPANTULKAN + 14) C.drawSparkle(g, HIT[0] + 40, HIT[1] - 60, f - T_DIPANTULKAN + 2, { s: 0.8, color: LEAF, boilSeed: b + 311 });
-        void bounce;
-      }
-    }
-    // the wall + bouncing ball analogy
-    if (f >= T_BOLA - 10 && f < T_CAHAYA3 + 18) {
-      const q = C.clamp((f - T_BOLA + 10) / 16) * (1 - C.clamp((f - T_CAHAYA3 - 6) / 12)), wx = ex + 380, wy = ey + 40;
-      C.crayonFill(g, C.rrect(wx, wy, wx + 110, wy + 260, 8), "#d9714a", { progress: q, boilSeed: b + 320, width: 8 });
-      if (q >= 1) for (let r = 1; r < 5; r++) { C.crayonStroke(g, [[wx, wy + r * 52], [wx + 110, wy + r * 52]], "#8a3b22", 1, b + 321 + r, { width: 6, passes: 1 }); C.crayonStroke(g, [[wx + 55 + (r % 2 ? 0 : -28), wy + r * 52 - 52], [wx + 55 + (r % 2 ? 0 : -28), wy + r * 52]], "#8a3b22", 1, b + 326 + r, { width: 6, passes: 1 }); }
-      const t = C.clamp((f - T_BOLA) / 44);
-      const path = [[ex + 60, ey + 120], ...C.bezier([ex + 60, ey + 120], [ex + 160, ey + 20], [ex + 280, ey + 80], [wx - 30, ey + 170], 16).slice(1), ...C.bezier([wx - 30, ey + 170], [ex + 300, ey + 40], [ex + 200, ey - 40], [ex + 90, ey - 10], 16).slice(1)];
-      if (t > 0 && q > 0.5) {
-        C.dottedPath(g, path, t, C.CHARCOAL, b + 331, { gap: 22, r: 4 });
-        const [x, y] = C.along(path, t);
-        ball(g, C, x, y, f, b + 332);
-        if (f >= T_TEMBOK - 6 && f < T_TEMBOK + 14) C.drawSparkle(g, wx - 20, ey + 170, f - T_TEMBOK + 6, { s: 0.7, boilSeed: b + 333 });
-      }
-    }
-    // the eye that sees the green light
-    if (f >= T_CAHAYA3 - 3) eye(g, C, EYE[0], EYE[1], C.clamp((f - T_CAHAYA3 + 3) / 14), f, b + 340, f >= T_MATA + 4);
-  }
-
-  // ================= F: the whole green tree =================
-  if (f >= T_MAKANYA - 20) {
-    const [fx, fy] = F, p = C.clamp((f - T_MAKANYA + 20) / 26);
-    C.drawSun(g, fx + 320, fy - 470, { r: 70, frame: f, boilSeed: b + 400 });
-    C.crayonStroke(g, [[fx - 380, fy + 300], [fx + 380, fy + 300]], LEAF_D, p, b + 401, { width: 20 });
-    C.crayonFill(g, [[fx - 45, fy + 300], [fx - 32, fy + 20], [fx + 32, fy + 20], [fx + 45, fy + 300]], "#9a6a3f", { progress: p, boilSeed: b + 402 });
-    const crown = [[0, -120, 230, 190], [-170, -40, 150, 130], [170, -40, 150, 130], [-100, -260, 150, 130], [110, -260, 150, 130]];
-    crown.forEach(([cx, cy, rx, ry], k) => C.crayonFill(g, C.ell(fx + cx + Math.sin(f * 0.05 + k) * 5, fy + cy, rx, ry, 28), k % 2 ? LEAF : LEAF_D, { progress: C.clamp(p * 1.5 - k * 0.1), boilSeed: b + 405 + k, width: 9 }));
-    if (p >= 1) for (const [lx, ly, k] of [[-180, -150, 0], [60, -330, 1], [190, -150, 2], [-60, 40, 3], [130, 60, 4]]) {
-      const a = Math.sin(f * 0.08 + k) * 0.15;
-      g.save(); g.translate(fx + lx, fy + ly); g.rotate(a);
-      leaf(g, C, 0, 30, 0, -50, 60, "#7ed36a", 1, b + 410 + k, false);
-      g.restore();
-    }
-    // little green light-balls bouncing off the tree
-    if (f >= T_HIJAU6 - 3) for (let k = 0; k < 3; k++) {
-      const t = ((f - T_HIJAU6 + 3 + k * 14) % 42) / 42, a = -0.9 + k * 0.6;
-      lightBall(g, C, fx + Math.cos(a) * (220 + t * 240), fy - 120 + Math.sin(a) * (200 + t * 200), 0.8 * (1 - t * 0.5), LEAF, b + 420 + k);
-    }
-    if (f >= T_KEREN - 2) for (const [sx, sy, d] of [[-300, -350, 0], [300, -200, 11], [-320, 120, 21], [280, 160, 30]]) C.drawSparkle(g, fx + sx, fy + sy, (f - T_KEREN - d + 40) % 40, { boilSeed: b + 430 + d });
+    // dashed outline = the whole ball is always there
+    const ring = C.clamp((f - T_BERUBAH1 + 3) / 20);
+    // the lit part cycles through phases ("cuma cara kita melihatnya"), then settles on a smiling crescent
+    const cyc = f < T_CARA - 3 ? 1 : f < T_KEREN - 2 ? 0.5 + 0.5 * Math.cos((f - T_CARA + 3) * 0.12) : 0.3 + 0.7 * C.smooth((T_KEREN + 10 - f) / 12);
+    moon(g, C, MG[0], MG[1] + Math.sin(f * 0.06) * 8, 190, cyc, 1, b + 310, p, f >= T_KEREN - 2);
+    if (ring > 0) C.dottedPath(g, C.ell(MG[0], MG[1] + Math.sin(f * 0.06) * 8, 206, 206, 48).concat([[MG[0] + 206, MG[1]]]), ring, COL.white, b + 315, { gap: 24, r: 5 });
+    if (f >= T_KEREN - 2) for (const [sx, sy, d] of [[-260, -250, 0], [280, -280, 10], [-280, 140, 20], [300, 160, 30]]) C.drawSparkle(g, MG[0] + sx, MG[1] + sy, (f - T_KEREN - d + 40) % 40, { boilSeed: b + 320 + d });
   }
 
   // ================= screen space: Lala + keyword titles =================
   g.setTransform(1, 0, 0, 1, 0, 0);
   C.crayonFill(g, C.ell(200, 1338, 120, 14, 18), "#d8cdb8", { boilSeed: b + 500, outline: null, gap: 6 });
-  const pose = f < T_BUKAN - 3 ? "wave" : f >= T_KEREN - 2 ? "cheer" : "point";
+  const pose = f < T_KADANG - 3 ? "wave" : f >= T_KEREN - 2 ? "cheer" : "point";
   const expr = f >= T_KEREN - 2 ? "laugh"
-    : (f >= T_BOLA - 2 && f < T_CAHAYA3) || (f >= T_SUKA - 2 && f < T_MERAH3) ? "laugh"
-    : (f >= T_KOKI - 2 && f < T_TUGAS) || (f >= T_BANYAK - 2 && f < T_ADA()) || (f >= T_DIPANTULKAN - 2 && f < T_BOLA - 2) || (f >= T_MAKANYA - 2 && f < T_KEREN - 2) ? "wow"
-    : (f >= T_KENAPA - 2 && f < T_BUKAN) || (f >= T_DISUKAI - 2 && f < T_DIPANTULKAN - 2) ? "think" : "happy";
+    : (f >= T_PISANG - 2 && f < T_YUK) || (f >= T_GELAP - 2 && f < T_COBA) ? "laugh"
+    : (f >= T_BULAT - 2 && f < T_TIPIS) || (f >= T_TERANG0 + 10 && f < T_MATAHARI0 + 20) || (f >= T_TERANG1 - 2 && f < T_NAH + 20) || (f >= T_PURNAMA - 2 && f < T_JADI) ? "wow"
+    : (f >= T_KENAPA - 2 && f < T_KADANG) || (f >= T_ITU && f < T_SENDIRI + 20) || (f >= T_KALAU0 - 2 && f < T_SEDIKIT + 10) ? "think" : "happy";
   C.drawKidHost(g, 200, 1335, { s: 0.72, pose, expr, talk: C.talkAt(f, words), blink: C.blink(f, 7), breathe: C.breathe(f, 7), frame: f });
-  for (const [t0, t1, text, color] of TITLES) if (f >= t0 && f < t1) C.drawKeywordTitle(g, text, 560, 300, f - t0, { color, boilSeed: b, size: 100 });
+  for (const [t0, t1, text, color] of TITLES) if (f >= t0 && f < t1) C.drawKeywordTitle(g, text, 560, 300, f - t0, { color, boilSeed: b, size: 96 });
 }
-function T_ADA() { return at("ada", 1, 751); }
 
-// leaf shape from base (bx, by) to tip (tx, ty), `wid` = bulge
-function leaf(g, C, bx, by, tx, ty, wid, col, p, b, vein = true) {
+// dark-blue crayon night sky with twinkling stars; (x, y) = centre, w = half width
+function nightPanel(g, C, x, y, w, p, f, b) {
   if (p <= 0) return;
-  const dx = tx - bx, dy = ty - by, L = Math.hypot(dx, dy), ux = dx / L, uy = dy / L, nx = -uy, ny = ux;
-  const P = (a, s) => [bx + ux * L * a + nx * wid * s, by + uy * L * a + ny * wid * s];
-  const s1 = C.bezier([bx, by], P(0.2, 0.75), P(0.7, 0.7), [tx, ty], 20), s2 = C.bezier([tx, ty], P(0.7, -0.7), P(0.2, -0.75), [bx, by], 20);
-  C.crayonFill(g, s1.concat(s2.slice(1, -1)), col, { progress: p, boilSeed: b, width: 8 });
-  if (vein && p > 0.5) {
-    const q = C.clamp(p * 2 - 1), dk = C.shade(col, 0.72);
-    C.crayonStroke(g, [[bx, by], P(0.5, 0.03), [tx - ux * L * 0.08, ty - uy * L * 0.08]], dk, q, b + 1, { width: Math.max(5, wid * 0.05), passes: 2 });
-    for (const a of [0.3, 0.5, 0.7]) for (const s of [-1, 1]) C.crayonStroke(g, [P(a, 0), P(a + 0.12, s * 0.38)], dk, q, b + 2 + a * 10 + s, { width: Math.max(4, wid * 0.035), passes: 1 });
+  C.crayonFill(g, C.rrect(x - w, y - 480, x + w, y + 300, 46), "#2b3a67", { progress: p, boilSeed: b, gap: 13, width: 10 });
+  if (p < 1) return;
+  const stars = [[-330, -420], [-150, -330], [260, -430], [360, -230], [-370, -120], [330, 120], [-250, 200], [120, 250], [-60, -440], [390, 250]];
+  stars.forEach(([sx, sy], k) => {
+    const tw = 0.6 + 0.4 * Math.sin(f * 0.12 + k * 1.7), r = 7 * tw;
+    C.crayonFill(g, C.ell(x + sx, y + sy, r, r, 10), "#fff3b0", { boilSeed: b + 1 + k, outline: null, gap: 4, width: 4 });
+  });
+}
+
+// moon (or ball) seen with fraction `illum` lit; side = +1 lit on the right, -1 lit on the left
+function moon(g, C, x, y, r, illum, side, b, p = 1, face = false, dark = "#59607a", light = "#ffe27a") {
+  if (p <= 0) return;
+  C.crayonFill(g, C.ell(x, y, r, r, 40), dark, { progress: p, boilSeed: b, width: 9 });
+  if (p < 1) return;
+  const il = C.clamp(illum);
+  if (il > 0.02) {
+    const k = 1 - 2 * il, pts = [];
+    for (let i = 0; i <= 24; i++) { const a = -Math.PI / 2 + (i / 24) * Math.PI; pts.push([x + side * r * Math.cos(a), y + r * Math.sin(a)]); }
+    for (let i = 23; i >= 1; i--) { const a = -Math.PI / 2 + (i / 24) * Math.PI; pts.push([x + side * k * r * Math.cos(a), y + r * Math.sin(a)]); }
+    C.crayonFill(g, pts, light, { boilSeed: b + 1, width: 8, outline: null, gap: 9 });
+    C.crayonStroke(g, C.ell(x, y, r, r, 40), C.CHARCOAL, 1, b + 2, { width: 9, close: true, passes: 2 });
+  }
+  // craters
+  if (light === "#ffe27a") for (const [cx, cy, cr] of [[-0.35, -0.3, 0.16], [0.3, 0.25, 0.2], [0.05, 0.55, 0.11]]) C.crayonStroke(g, C.ell(x + cx * r, y + cy * r, cr * r, cr * r, 14), "rgba(120,110,90,0.55)", 1, b + 3 + cx * 10, { width: Math.max(4, r * 0.04), close: true, passes: 1 });
+  if (face) {
+    const s = r / 100;
+    for (const sx of [-1, 1]) { g.fillStyle = C.CHARCOAL; g.beginPath(); g.ellipse(x + sx * 32 * s, y - 10 * s, 7 * s, 10 * s, 0, 0, 7); g.fill(); }
+    C.crayonStroke(g, [[x - 30 * s, y + 25 * s], [x, y + 45 * s], [x + 30 * s, y + 25 * s]], C.CHARCOAL, 1, b + 8, { width: 7 * s, passes: 2 });
+    for (const sx of [-1, 1]) C.crayonFill(g, C.ell(x + sx * 58 * s, y + 18 * s, 14 * s, 9 * s, 10), C.COL.pink, { boilSeed: b + 9, outline: null, gap: 4, width: 4 });
   }
 }
 
-// a klorofil grain: green blob, optional face, chef hat, open mouth
-function chef(g, C, x, y, s, f, i, b, { p = 1, face = 0, hat = 0, mouth = 0 } = {}) {
+function earth(g, C, x, y, r, p, f, b) {
   if (p <= 0) return;
   const k = C.pop(p * 12, 12);
-  g.save(); g.translate(x, y); g.scale(s * k, s * k);
-  C.crayonFill(g, C.ell(0, 0, 48, 42, 22), "#3f9b4f", { boilSeed: b, width: 7, gap: 8 });
-  if (face > 0) {
-    const bl = C.blink(f, i + 3);
-    for (const sx of [-1, 1]) { g.fillStyle = C.CHARCOAL; g.beginPath(); g.ellipse(sx * 15, -6, 5, 7 * Math.max(0.15, 1 - bl), 0, 0, 7); g.fill(); g.fillStyle = "#fff"; g.beginPath(); g.arc(sx * 15 + 2, -9, 2, 0, 7); g.fill(); }
-    if (mouth > 0.05) C.crayonFill(g, C.ell(0, 16, 9 + 3 * mouth, 4 + 9 * mouth, 12), "#b8323f", { boilSeed: b + 1, width: 4, gap: 4, outline: null });
-    else C.crayonStroke(g, [[-12, 12], [0, 20], [12, 12]], C.CHARCOAL, 1, b + 1, { width: 5, passes: 2 });
-    for (const sx of [-1, 1]) C.crayonFill(g, C.ell(sx * 30, 10, 8, 5, 10), C.COL.pink, { boilSeed: b + 2, outline: null, gap: 4, width: 4 });
-  }
-  if (hat > 0) {
-    const h = C.pop(hat * 12, 12);
-    g.save(); g.translate(0, -38); g.scale(h, h);
-    C.crayonFill(g, [[-26, 0], [26, 0], [26, -20], [-26, -20]], C.COL.white, { boilSeed: b + 3, width: 5, gap: 6 });
-    for (const [cx, cy, r] of [[-18, -32, 18], [18, -32, 18], [0, -44, 20]]) C.crayonFill(g, C.ell(cx, cy, r, r, 14), C.COL.white, { boilSeed: b + 4 + cx, width: 5, gap: 6 });
-    g.restore();
-  }
+  g.save(); g.translate(x, y); g.scale(k, k); g.rotate(f * 0.01);
+  C.crayonFill(g, C.ell(0, 0, r, r, 30), "#3a7bd5", { boilSeed: b, width: 8 });
+  for (const [cx, cy, rx, ry] of [[-0.3, -0.25, 0.35, 0.25], [0.35, 0.2, 0.3, 0.35], [-0.2, 0.45, 0.22, 0.15]]) C.crayonFill(g, C.ell(cx * r, cy * r, rx * r, ry * r, 16), "#5cb85c", { boilSeed: b + 1 + cx * 10, outline: null, gap: 6, width: 5 });
   g.restore();
 }
 
-function lightBall(g, C, x, y, s, col, b) {
-  if (s <= 0) return;
-  C.crayonFill(g, C.ell(x, y, 26 * s, 26 * s, 16), col, { boilSeed: b, width: 6, gap: 6 });
-  g.fillStyle = "rgba(255,255,255,0.85)"; g.beginPath(); g.arc(x - 8 * s, y - 9 * s, 6 * s, 0, 7); g.fill();
-}
-
-function heart(g, C, x, y, s, b) {
-  if (s <= 0) return;
-  const pts = [[x, y + 30 * s], ...C.bezier([x, y + 30 * s], [x - 50 * s, y - 5 * s], [x - 30 * s, y - 40 * s], [x, y - 15 * s], 10).slice(1), ...C.bezier([x, y - 15 * s], [x + 30 * s, y - 40 * s], [x + 50 * s, y - 5 * s], [x, y + 30 * s], 10).slice(1, -1)];
-  C.crayonFill(g, pts, C.COL.pink, { boilSeed: b, width: 5, gap: 6 });
-}
-
-function drop(g, C, x, y, s, b) {
-  const pts = [[x, y - 60 * s], ...C.bezier([x, y - 60 * s], [x + 45 * s, y - 10 * s], [x + 50 * s, y + 40 * s], [x, y + 40 * s]).slice(1), ...C.bezier([x, y + 40 * s], [x - 50 * s, y + 40 * s], [x - 45 * s, y - 10 * s], [x, y - 60 * s]).slice(1, -1)];
-  C.crayonFill(g, pts, "#5aa9e6", { boilSeed: b, width: 6 });
-}
-
-function swirl(g, C, x, y, s, rot, b) {
-  const pts = [];
-  for (let k = 0; k <= 22; k++) { const a = rot + k * 0.55, r = (6 + k * 1.9) * s; pts.push([x + Math.cos(a) * r, y + Math.sin(a) * r]); }
-  C.crayonStroke(g, pts, "#9fd3f5", 1, b, { width: 10, passes: 2 });
-}
-
-function ball(g, C, x, y, f, b) {
-  g.save(); g.translate(x, y); g.rotate(f * 0.3);
-  C.crayonFill(g, C.ell(0, 0, 36, 36, 20), C.COL.orange, { boilSeed: b, width: 7 });
-  C.crayonStroke(g, [[-36, 0], [36, 0]], C.CHARCOAL, 1, b + 1, { width: 5, passes: 1 });
-  C.crayonStroke(g, [[0, -36], [0, 36]], C.CHARCOAL, 1, b + 2, { width: 5, passes: 1 });
-  g.restore();
-}
-
-function eye(g, C, x, y, p, f, b, glow) {
+function banana(g, C, x, y, s, rot, p, b) {
   if (p <= 0) return;
-  const s = C.pop(p * 14, 14), bl = C.blink(f, 5);
+  g.save(); g.translate(x, y); g.rotate(rot - 0.3); g.scale(s, s);
+  const outer = C.bezier([-110, -30], [-70, 70], [70, 70], [110, -30], 18), inner = C.bezier([110, -30], [50, 25], [-50, 25], [-110, -30], 18);
+  C.crayonFill(g, outer.concat(inner.slice(1, -1)), "#ffd23f", { progress: p, boilSeed: b, width: 7 });
+  C.crayonStroke(g, [[-110, -30], [-125, -45]], "#6b3e26", p, b + 1, { width: 12 });
+  g.restore();
+}
+
+function question(g, C, x, y, s, b) {
+  if (s <= 0) return;
   g.save(); g.translate(x, y); g.scale(s, s);
-  const almond = [...C.bezier([-150, 0], [-80, -95], [80, -95], [150, 0], 16), ...C.bezier([150, 0], [80, 95], [-80, 95], [-150, 0], 16).slice(1, -1)];
-  g.save(); g.scale(1, Math.max(0.12, 1 - bl));
-  C.crayonFill(g, almond, C.COL.white, { boilSeed: b, width: 8 });
-  C.crayonFill(g, C.ell(0, 0, 50, 50, 22), "#6b3e26", { boilSeed: b + 1, width: 6, gap: 7 });
-  C.crayonFill(g, C.ell(0, 0, 22, 22, 14), C.CHARCOAL, { boilSeed: b + 2, outline: null, gap: 4 });
-  g.fillStyle = "#fff"; g.beginPath(); g.arc(14, -16, 9, 0, 7); g.fill();
+  C.crayonStroke(g, [[-40, -40], [-30, -80], [10, -95], [45, -70], [40, -30], [5, -5], [0, 30]], C.COL.white, 1, b, { width: 22 });
+  C.crayonFill(g, C.ell(0, 75, 14, 14, 12), C.COL.white, { boilSeed: b + 1, outline: null, gap: 5 });
   g.restore();
-  for (let k = 0; k < 5; k++) { const a = -2.4 + k * 0.4; C.crayonStroke(g, [[Math.cos(a) * 150, Math.sin(a) * 75], [Math.cos(a) * 185, Math.sin(a) * 105]], C.CHARCOAL, 1, b + 3 + k, { width: 8, passes: 2 }); }
+}
+
+function bulb(g, C, x, y, s, b) {
+  if (s <= 0) return;
+  g.save(); g.translate(x, y); g.scale(s, s);
+  C.crayonFill(g, C.ell(0, -15, 50, 55, 22), "#fff3b0", { boilSeed: b, width: 7 });
+  C.crayonFill(g, C.rrect(-24, 38, 24, 75, 6), "#9aa0ad", { boilSeed: b + 1, width: 6 });
   g.restore();
-  if (glow) {
-    C.drawSparkle(g, x + 170, y - 90, (f % 34), { s: 0.8, color: "#5cb85c", boilSeed: b + 9 });
-    C.drawSparkle(g, x - 170, y + 80, ((f + 17) % 34), { s: 0.6, color: "#5cb85c", boilSeed: b + 10 });
+}
+
+function lightDot(g, C, x, y, s, b) {
+  C.crayonFill(g, C.ell(x, y, 15 * s, 15 * s, 12), "#ffd23f", { boilSeed: b, width: 5, gap: 5 });
+}
+
+function zed(g, C, x, y, s, b) {
+  if (s <= 0.05) return;
+  g.save(); g.translate(x, y); g.scale(s, s);
+  C.crayonStroke(g, [[-20, -20], [20, -20], [-20, 20], [20, 20]], "#c9d3ff", 1, b, { width: 9, passes: 2 });
+  g.restore();
+}
+
+// desk lamp at (x, y) = shade centre, pointing right; `on` 0..1 lights the cone
+function lamp(g, C, x, y, p, on, f, b) {
+  const base = [x - 60, y + 320];
+  C.crayonFill(g, C.rrect(base[0] - 90, base[1] - 10, base[0] + 90, base[1] + 30, 14), "#3a7bd5", { progress: p, boilSeed: b, width: 8 });
+  C.crayonStroke(g, [[base[0], base[1] - 10], [x - 120, y + 120], [x - 30, y + 10]], C.CHARCOAL, p, b + 1, { width: 18 });
+  if (on > 0) {
+    const g0 = 0.25 + 0.75 * on, w = Math.sin(f * 0.1) * 6;
+    C.crayonFill(g, [[x + 70, y - 50], [x + 600, y - 230 - w], [x + 600, y + 330 + w], [x + 70, y + 80]], "#fff3b0", { boilSeed: b + 2, outline: null, gap: 16 - 6 * g0, width: 7 });
   }
+  g.save(); g.translate(x, y); g.rotate(0.12);
+  C.crayonFill(g, [[-70, -70], [30, -80], [100, -10], [100, 50], [30, 110], [-70, 70]], "#ef4b3f", { progress: p, boilSeed: b + 3 });
+  if (on > 0) C.crayonFill(g, C.ell(100, 20, 22, 40, 16), "#ffd23f", { boilSeed: b + 4, width: 6, gap: 6 });
+  g.restore();
+}
+
+function calendar(g, C, x, y, s, b) {
+  if (s <= 0) return;
+  g.save(); g.translate(x, y); g.scale(s, s);
+  C.crayonFill(g, C.rrect(-40, -35, 40, 40, 8), C.COL.white, { boilSeed: b, width: 6, gap: 7 });
+  C.crayonFill(g, C.rrect(-40, -35, 40, -12, 6), C.COL.red, { boilSeed: b + 1, width: 5, gap: 5 });
+  for (let i = 0; i < 3; i++) for (let j = 0; j < 2; j++) C.crayonFill(g, C.ell(-22 + i * 22, 4 + j * 18, 4, 4, 8), "#9aa0ad", { boilSeed: b + 2 + i + j, outline: null, gap: 3, width: 3 });
+  g.restore();
 }

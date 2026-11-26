@@ -1,856 +1,912 @@
 {
  "source": "faster-whisper base (id, word timestamps) matched to script.txt",
  "match": 1.0,
- "duration": 53.7,
- "total_frames": 1635,
+ "duration": 60.9,
+ "total_frames": 1851,
  "words": [
   {
    "i": 0,
    "text": "Pernah",
    "start": 0.0,
-   "end": 0.28,
+   "end": 0.58,
    "f0": 0,
-   "f1": 8
+   "f1": 17
   },
   {
    "i": 1,
    "text": "nggak",
-   "start": 0.28,
-   "end": 0.44,
-   "f0": 8,
-   "f1": 13
+   "start": 0.58,
+   "end": 0.8,
+   "f0": 17,
+   "f1": 24
   },
   {
    "i": 2,
    "text": "sih",
-   "start": 0.44,
-   "end": 0.7,
-   "f0": 13,
-   "f1": 21
+   "start": 0.8,
+   "end": 1.1,
+   "f0": 24,
+   "f1": 33
   },
   {
    "i": 3,
    "text": "kamu",
-   "start": 0.7,
-   "end": 1.24,
-   "f0": 21,
-   "f1": 37
+   "start": 1.1,
+   "end": 1.44,
+   "f0": 33,
+   "f1": 43
   },
   {
    "i": 4,
    "text": "mikir,",
-   "start": 1.24,
-   "end": 1.96,
-   "f0": 37,
-   "f1": 59
+   "start": 1.44,
+   "end": 2.02,
+   "f0": 43,
+   "f1": 61
   },
   {
    "i": 5,
    "text": "kenapa",
-   "start": 1.96,
-   "end": 2.9,
-   "f0": 59,
-   "f1": 87
+   "start": 2.02,
+   "end": 3.38,
+   "f0": 61,
+   "f1": 101
   },
   {
    "i": 6,
-   "text": "daun",
-   "start": 2.9,
-   "end": 3.42,
-   "f0": 87,
-   "f1": 103
+   "text": "bentuk",
+   "start": 3.38,
+   "end": 3.92,
+   "f0": 101,
+   "f1": 118
   },
   {
    "i": 7,
-   "text": "warnanya",
-   "start": 3.42,
-   "end": 3.88,
-   "f0": 103,
-   "f1": 116
+   "text": "bulan",
+   "start": 3.92,
+   "end": 4.24,
+   "f0": 118,
+   "f1": 127
   },
   {
    "i": 8,
-   "text": "hijau?",
-   "start": 3.88,
-   "end": 4.38,
-   "f0": 116,
-   "f1": 131
+   "text": "suka",
+   "start": 4.24,
+   "end": 4.5,
+   "f0": 127,
+   "f1": 135
   },
   {
    "i": 9,
-   "text": "Bukan",
-   "start": 4.78,
-   "end": 5.12,
-   "f0": 143,
-   "f1": 154
+   "text": "berubah?",
+   "start": 4.5,
+   "end": 4.96,
+   "f0": 135,
+   "f1": 149
   },
   {
    "i": 10,
-   "text": "merah,",
-   "start": 5.12,
-   "end": 5.72,
-   "f0": 154,
-   "f1": 172
+   "text": "Kadang",
+   "start": 5.46,
+   "end": 6.24,
+   "f0": 164,
+   "f1": 187
   },
   {
    "i": 11,
-   "text": "bukan",
-   "start": 6.06,
-   "end": 6.26,
-   "f0": 182,
-   "f1": 188
+   "text": "bulat",
+   "start": 6.24,
+   "end": 6.7,
+   "f0": 187,
+   "f1": 201
   },
   {
    "i": 12,
-   "text": "biru,",
-   "start": 6.26,
-   "end": 6.78,
-   "f0": 188,
-   "f1": 203
+   "text": "penuh,",
+   "start": 6.7,
+   "end": 7.2,
+   "f0": 201,
+   "f1": 216
   },
   {
    "i": 13,
-   "text": "tapi",
-   "start": 7.04,
-   "end": 7.4,
-   "f0": 211,
-   "f1": 222
+   "text": "kadang",
+   "start": 7.62,
+   "end": 8.12,
+   "f0": 229,
+   "f1": 244
   },
   {
    "i": 14,
-   "text": "hijau!",
-   "start": 7.4,
-   "end": 7.92,
-   "f0": 222,
-   "f1": 238
+   "text": "tipis",
+   "start": 8.12,
+   "end": 8.8,
+   "f0": 244,
+   "f1": 264
   },
   {
    "i": 15,
-   "text": "Yuk,",
-   "start": 8.4,
-   "end": 8.7,
-   "f0": 252,
-   "f1": 261
+   "text": "seperti",
+   "start": 8.8,
+   "end": 9.12,
+   "f0": 264,
+   "f1": 274
   },
   {
    "i": 16,
-   "text": "kita",
-   "start": 8.84,
-   "end": 8.94,
-   "f0": 265,
-   "f1": 268
+   "text": "pisang!",
+   "start": 9.12,
+   "end": 9.62,
+   "f0": 274,
+   "f1": 289
   },
   {
    "i": 17,
-   "text": "intip!",
-   "start": 8.94,
-   "end": 9.28,
-   "f0": 268,
-   "f1": 278
+   "text": "Yuk,",
+   "start": 10.4,
+   "end": 10.52,
+   "f0": 312,
+   "f1": 316
   },
   {
    "i": 18,
-   "text": "Di",
-   "start": 10.14,
-   "end": 10.22,
-   "f0": 304,
-   "f1": 307
+   "text": "kita",
+   "start": 10.68,
+   "end": 10.8,
+   "f0": 320,
+   "f1": 324
   },
   {
    "i": 19,
-   "text": "dalam",
-   "start": 10.22,
-   "end": 10.46,
-   "f0": 307,
-   "f1": 314
+   "text": "cari",
+   "start": 10.8,
+   "end": 11.08,
+   "f0": 324,
+   "f1": 332
   },
   {
    "i": 20,
-   "text": "daun",
-   "start": 10.46,
-   "end": 10.96,
-   "f0": 314,
-   "f1": 329
+   "text": "tahu!",
+   "start": 11.08,
+   "end": 11.32,
+   "f0": 332,
+   "f1": 340
   },
   {
    "i": 21,
-   "text": "ada",
-   "start": 10.96,
-   "end": 11.54,
-   "f0": 329,
-   "f1": 346
+   "text": "Bulan",
+   "start": 12.24,
+   "end": 12.54,
+   "f0": 367,
+   "f1": 376
   },
   {
    "i": 22,
-   "text": "zat",
-   "start": 11.54,
-   "end": 11.88,
-   "f0": 346,
-   "f1": 356
+   "text": "itu",
+   "start": 12.54,
+   "end": 13.02,
+   "f0": 376,
+   "f1": 391
   },
   {
    "i": 23,
-   "text": "hijau",
-   "start": 11.88,
-   "end": 12.32,
-   "f0": 356,
-   "f1": 370
+   "text": "nggak",
+   "start": 13.02,
+   "end": 13.26,
+   "f0": 391,
+   "f1": 398
   },
   {
    "i": 24,
-   "text": "bernama",
-   "start": 12.32,
-   "end": 12.78,
-   "f0": 370,
-   "f1": 383
+   "text": "punya",
+   "start": 13.26,
+   "end": 13.56,
+   "f0": 398,
+   "f1": 407
   },
   {
    "i": 25,
-   "text": "klorofil.",
-   "start": 12.78,
-   "end": 13.6,
-   "f0": 383,
-   "f1": 408
+   "text": "cahaya",
+   "start": 13.56,
+   "end": 13.96,
+   "f0": 407,
+   "f1": 419
   },
   {
    "i": 26,
-   "text": "Klorofil",
-   "start": 14.08,
-   "end": 14.66,
-   "f0": 422,
-   "f1": 440
+   "text": "sendiri.",
+   "start": 13.96,
+   "end": 14.58,
+   "f0": 419,
+   "f1": 437
   },
   {
    "i": 27,
-   "text": "itu",
-   "start": 14.66,
-   "end": 15.16,
-   "f0": 440,
-   "f1": 455
+   "text": "Bulan",
+   "start": 15.48,
+   "end": 16.2,
+   "f0": 464,
+   "f1": 486
   },
   {
    "i": 28,
-   "text": "seperti",
-   "start": 15.16,
-   "end": 15.6,
-   "f0": 455,
-   "f1": 468
+   "text": "terang",
+   "start": 16.2,
+   "end": 16.74,
+   "f0": 486,
+   "f1": 502
   },
   {
    "i": 29,
-   "text": "koki",
-   "start": 15.6,
-   "end": 16.02,
-   "f0": 468,
-   "f1": 481
+   "text": "karena",
+   "start": 16.74,
+   "end": 17.1,
+   "f0": 502,
+   "f1": 513
   },
   {
    "i": 30,
-   "text": "kecil",
-   "start": 16.02,
-   "end": 16.4,
-   "f0": 481,
-   "f1": 492
+   "text": "memantulkan",
+   "start": 17.1,
+   "end": 17.86,
+   "f0": 513,
+   "f1": 536
   },
   {
    "i": 31,
-   "text": "di",
-   "start": 16.4,
-   "end": 16.6,
-   "f0": 492,
-   "f1": 498
+   "text": "cahaya",
+   "start": 17.86,
+   "end": 18.28,
+   "f0": 536,
+   "f1": 548
   },
   {
    "i": 32,
-   "text": "dapur",
-   "start": 16.6,
-   "end": 16.82,
-   "f0": 498,
-   "f1": 505
+   "text": "matahari.",
+   "start": 18.28,
+   "end": 19.04,
+   "f0": 548,
+   "f1": 571
   },
   {
    "i": 33,
-   "text": "daun.",
-   "start": 16.82,
-   "end": 17.18,
-   "f0": 505,
-   "f1": 515
+   "text": "Matahari",
+   "start": 19.9,
+   "end": 20.74,
+   "f0": 597,
+   "f1": 622
   },
   {
    "i": 34,
-   "text": "Tugasnya",
-   "start": 17.72,
-   "end": 18.22,
-   "f0": 532,
-   "f1": 547
+   "text": "selalu",
+   "start": 20.74,
+   "end": 21.32,
+   "f0": 622,
+   "f1": 640
   },
   {
    "i": 35,
-   "text": "menangkap",
-   "start": 18.22,
-   "end": 18.56,
-   "f0": 547,
-   "f1": 557
+   "text": "menyinari",
+   "start": 21.32,
+   "end": 21.88,
+   "f0": 640,
+   "f1": 656
   },
   {
    "i": 36,
-   "text": "cahaya",
-   "start": 18.56,
-   "end": 18.92,
-   "f0": 557,
-   "f1": 568
+   "text": "separuh",
+   "start": 21.88,
+   "end": 22.42,
+   "f0": 656,
+   "f1": 673
   },
   {
    "i": 37,
-   "text": "matahari.",
-   "start": 18.92,
-   "end": 19.48,
-   "f0": 568,
-   "f1": 584
+   "text": "bulan.",
+   "start": 22.42,
+   "end": 22.72,
+   "f0": 673,
+   "f1": 682
   },
   {
    "i": 38,
-   "text": "Cahaya",
-   "start": 19.98,
-   "end": 20.62,
-   "f0": 599,
-   "f1": 619
+   "text": "Separuhnya",
+   "start": 23.28,
+   "end": 23.72,
+   "f0": 698,
+   "f1": 712
   },
   {
    "i": 39,
-   "text": "matahari",
-   "start": 20.62,
-   "end": 21.24,
-   "f0": 619,
-   "f1": 637
+   "text": "lagi",
+   "start": 23.72,
+   "end": 23.94,
+   "f0": 712,
+   "f1": 718
   },
   {
    "i": 40,
-   "text": "kelihatan",
-   "start": 21.24,
-   "end": 21.84,
-   "f0": 637,
-   "f1": 655
+   "text": "gelap.",
+   "start": 23.94,
+   "end": 24.34,
+   "f0": 718,
+   "f1": 730
   },
   {
    "i": 41,
-   "text": "putih,",
-   "start": 21.84,
-   "end": 22.34,
-   "f0": 655,
-   "f1": 670
+   "text": "Coba",
+   "start": 25.12,
+   "end": 25.4,
+   "f0": 754,
+   "f1": 762
   },
   {
    "i": 42,
-   "text": "padahal",
-   "start": 22.9,
-   "end": 23.32,
-   "f0": 687,
-   "f1": 700
+   "text": "bayangkan",
+   "start": 25.4,
+   "end": 26.02,
+   "f0": 762,
+   "f1": 781
   },
   {
    "i": 43,
-   "text": "isinya",
-   "start": 23.32,
-   "end": 23.66,
-   "f0": 700,
-   "f1": 710
+   "text": "bola",
+   "start": 26.02,
+   "end": 26.36,
+   "f0": 781,
+   "f1": 791
   },
   {
    "i": 44,
-   "text": "banyak",
-   "start": 23.66,
-   "end": 23.9,
-   "f0": 710,
-   "f1": 717
+   "text": "di",
+   "start": 26.36,
+   "end": 26.58,
+   "f0": 791,
+   "f1": 797
   },
   {
    "i": 45,
-   "text": "warna.",
-   "start": 23.9,
-   "end": 24.38,
-   "f0": 717,
-   "f1": 731
+   "text": "dekat",
+   "start": 26.58,
+   "end": 26.78,
+   "f0": 797,
+   "f1": 803
   },
   {
    "i": 46,
-   "text": "Ada",
-   "start": 25.02,
-   "end": 25.32,
-   "f0": 751,
-   "f1": 760
+   "text": "lampu.",
+   "start": 26.78,
+   "end": 27.2,
+   "f0": 803,
+   "f1": 816
   },
   {
    "i": 47,
-   "text": "merah,",
-   "start": 25.32,
-   "end": 25.9,
-   "f0": 760,
-   "f1": 777
+   "text": "Sisi",
+   "start": 27.74,
+   "end": 28.0,
+   "f0": 832,
+   "f1": 840
   },
   {
    "i": 48,
-   "text": "kuning,",
-   "start": 26.34,
-   "end": 26.74,
-   "f0": 790,
-   "f1": 802
+   "text": "yang",
+   "start": 28.0,
+   "end": 28.24,
+   "f0": 840,
+   "f1": 847
   },
   {
    "i": 49,
-   "text": "hijau,",
-   "start": 27.32,
-   "end": 27.78,
-   "f0": 820,
-   "f1": 833
+   "text": "menghadap",
+   "start": 28.24,
+   "end": 28.64,
+   "f0": 847,
+   "f1": 859
   },
   {
    "i": 50,
-   "text": "sampai",
-   "start": 28.2,
-   "end": 28.38,
-   "f0": 846,
-   "f1": 851
+   "text": "lampu",
+   "start": 28.64,
+   "end": 28.98,
+   "f0": 859,
+   "f1": 869
   },
   {
    "i": 51,
-   "text": "biru.",
-   "start": 28.38,
-   "end": 28.84,
-   "f0": 851,
-   "f1": 865
+   "text": "jadi",
+   "start": 28.98,
+   "end": 29.16,
+   "f0": 869,
+   "f1": 875
   },
   {
    "i": 52,
-   "text": "Klorofil",
-   "start": 28.84,
-   "end": 30.22,
-   "f0": 865,
-   "f1": 907
+   "text": "terang.",
+   "start": 29.16,
+   "end": 29.46,
+   "f0": 875,
+   "f1": 884
   },
   {
    "i": 53,
-   "text": "suka",
-   "start": 30.22,
-   "end": 30.54,
-   "f0": 907,
-   "f1": 916
+   "text": "Nah,",
+   "start": 29.46,
+   "end": 30.46,
+   "f0": 884,
+   "f1": 914
   },
   {
    "i": 54,
-   "text": "sekali",
-   "start": 30.54,
-   "end": 30.98,
-   "f0": 916,
-   "f1": 929
+   "text": "bulan",
+   "start": 31.02,
+   "end": 31.4,
+   "f0": 931,
+   "f1": 942
   },
   {
    "i": 55,
-   "text": "warna",
-   "start": 30.98,
-   "end": 31.3,
-   "f0": 929,
-   "f1": 939
+   "text": "terus",
+   "start": 31.4,
+   "end": 31.8,
+   "f0": 942,
+   "f1": 954
   },
   {
    "i": 56,
-   "text": "merah",
-   "start": 31.3,
-   "end": 31.58,
-   "f0": 939,
-   "f1": 947
+   "text": "berjalan",
+   "start": 31.8,
+   "end": 32.32,
+   "f0": 954,
+   "f1": 970
   },
   {
    "i": 57,
-   "text": "dan",
-   "start": 31.58,
-   "end": 31.76,
-   "f0": 947,
-   "f1": 953
+   "text": "mengelilingi",
+   "start": 32.32,
+   "end": 32.96,
+   "f0": 970,
+   "f1": 989
   },
   {
    "i": 58,
-   "text": "biru.",
-   "start": 31.76,
-   "end": 32.12,
-   "f0": 953,
-   "f1": 964
+   "text": "bumi.",
+   "start": 32.96,
+   "end": 33.3,
+   "f0": 989,
+   "f1": 999
   },
   {
    "i": 59,
-   "text": "Warna",
-   "start": 32.78,
-   "end": 33.0,
-   "f0": 983,
-   "f1": 990
+   "text": "Satu",
+   "start": 33.7,
+   "end": 34.04,
+   "f0": 1011,
+   "f1": 1021
   },
   {
    "i": 60,
-   "text": "itu",
-   "start": 33.0,
-   "end": 33.62,
-   "f0": 990,
-   "f1": 1009
+   "text": "putaran",
+   "start": 34.04,
+   "end": 34.58,
+   "f0": 1021,
+   "f1": 1037
   },
   {
    "i": 61,
-   "text": "dipakai",
-   "start": 33.62,
-   "end": 34.4,
-   "f0": 1009,
-   "f1": 1032
-  },
-  {
-   "i": 62,
-   "text": "untuk",
-   "start": 34.4,
-   "end": 34.62,
-   "f0": 1032,
-   "f1": 1039
-  },
-  {
-   "i": 63,
-   "text": "memasak",
-   "start": 34.62,
+   "text": "butuh",
+   "start": 34.58,
    "end": 35.0,
-   "f0": 1039,
+   "f0": 1037,
    "f1": 1050
   },
   {
-   "i": 64,
-   "text": "makanan",
+   "i": 62,
+   "text": "kira-kira",
    "start": 35.0,
-   "end": 35.34,
+   "end": 35.44,
    "f0": 1050,
-   "f1": 1060
+   "f1": 1063
+  },
+  {
+   "i": 63,
+   "text": "empat",
+   "start": 35.44,
+   "end": 35.86,
+   "f0": 1063,
+   "f1": 1076
+  },
+  {
+   "i": 64,
+   "text": "minggu.",
+   "start": 35.86,
+   "end": 36.24,
+   "f0": 1076,
+   "f1": 1087
   },
   {
    "i": 65,
-   "text": "daun.",
-   "start": 35.34,
-   "end": 35.72,
-   "f0": 1060,
-   "f1": 1072
+   "text": "Sambil",
+   "start": 36.76,
+   "end": 37.26,
+   "f0": 1103,
+   "f1": 1118
   },
   {
    "i": 66,
-   "text": "Bahannya",
-   "start": 36.36,
-   "end": 36.82,
-   "f0": 1091,
-   "f1": 1105
+   "text": "berjalan,",
+   "start": 37.26,
+   "end": 37.92,
+   "f0": 1118,
+   "f1": 1138
   },
   {
    "i": 67,
-   "text": "air",
-   "start": 36.82,
-   "end": 37.36,
-   "f0": 1105,
-   "f1": 1121
+   "text": "kita",
+   "start": 38.42,
+   "end": 38.56,
+   "f0": 1153,
+   "f1": 1157
   },
   {
    "i": 68,
-   "text": "dari",
-   "start": 37.36,
-   "end": 37.74,
-   "f0": 1121,
-   "f1": 1132
+   "text": "melihat",
+   "start": 38.56,
+   "end": 38.88,
+   "f0": 1157,
+   "f1": 1166
   },
   {
    "i": 69,
-   "text": "akar",
-   "start": 37.74,
-   "end": 38.34,
-   "f0": 1132,
-   "f1": 1150
+   "text": "bagian",
+   "start": 38.88,
+   "end": 39.28,
+   "f0": 1166,
+   "f1": 1178
   },
   {
    "i": 70,
-   "text": "dan",
-   "start": 38.34,
-   "end": 38.74,
-   "f0": 1150,
-   "f1": 1162
+   "text": "terangnya",
+   "start": 39.28,
+   "end": 39.66,
+   "f0": 1178,
+   "f1": 1190
   },
   {
    "i": 71,
-   "text": "udara.",
-   "start": 38.74,
-   "end": 39.16,
-   "f0": 1162,
-   "f1": 1175
+   "text": "dari",
+   "start": 39.66,
+   "end": 39.82,
+   "f0": 1190,
+   "f1": 1195
   },
   {
    "i": 72,
-   "text": "Tapi",
+   "text": "arah",
    "start": 39.82,
-   "end": 40.28,
+   "end": 40.14,
    "f0": 1195,
-   "f1": 1208
+   "f1": 1204
   },
   {
    "i": 73,
-   "text": "warna",
-   "start": 40.28,
-   "end": 40.6,
-   "f0": 1208,
-   "f1": 1218
+   "text": "berbeda.",
+   "start": 40.14,
+   "end": 40.7,
+   "f0": 1204,
+   "f1": 1221
   },
   {
    "i": 74,
-   "text": "hijau",
-   "start": 40.6,
-   "end": 40.86,
-   "f0": 1218,
-   "f1": 1226
+   "text": "Kalau",
+   "start": 41.22,
+   "end": 41.54,
+   "f0": 1237,
+   "f1": 1246
   },
   {
    "i": 75,
-   "text": "nggak",
-   "start": 40.86,
-   "end": 41.04,
-   "f0": 1226,
-   "f1": 1231
+   "text": "terlihat",
+   "start": 41.54,
+   "end": 41.94,
+   "f0": 1246,
+   "f1": 1258
   },
   {
    "i": 76,
-   "text": "terlalu",
-   "start": 41.04,
-   "end": 41.36,
-   "f0": 1231,
-   "f1": 1241
+   "text": "sedikit,",
+   "start": 41.94,
+   "end": 42.54,
+   "f0": 1258,
+   "f1": 1276
   },
   {
    "i": 77,
-   "text": "disukai.",
-   "start": 41.36,
-   "end": 41.96,
-   "f0": 1241,
-   "f1": 1259
+   "text": "bulan",
+   "start": 43.1,
+   "end": 43.34,
+   "f0": 1293,
+   "f1": 1300
   },
   {
    "i": 78,
-   "text": "Hijaunya",
-   "start": 42.56,
-   "end": 42.92,
-   "f0": 1277,
-   "f1": 1288
+   "text": "tampak",
+   "start": 43.34,
+   "end": 43.66,
+   "f0": 1300,
+   "f1": 1310
   },
   {
    "i": 79,
-   "text": "dipantulkan,",
-   "start": 42.92,
-   "end": 43.62,
-   "f0": 1288,
-   "f1": 1309
+   "text": "seperti",
+   "start": 43.66,
+   "end": 43.96,
+   "f0": 1310,
+   "f1": 1319
   },
   {
    "i": 80,
-   "text": "seperti",
-   "start": 44.06,
-   "end": 44.34,
-   "f0": 1322,
-   "f1": 1330
+   "text": "sabit.",
+   "start": 43.96,
+   "end": 44.62,
+   "f0": 1319,
+   "f1": 1339
   },
   {
    "i": 81,
-   "text": "bola",
-   "start": 44.34,
-   "end": 44.78,
-   "f0": 1330,
-   "f1": 1343
+   "text": "Kalau",
+   "start": 45.06,
+   "end": 45.36,
+   "f0": 1352,
+   "f1": 1361
   },
   {
    "i": 82,
-   "text": "memantul",
-   "start": 44.78,
-   "end": 45.24,
-   "f0": 1343,
-   "f1": 1357
+   "text": "terlihat",
+   "start": 45.36,
+   "end": 45.78,
+   "f0": 1361,
+   "f1": 1373
   },
   {
    "i": 83,
-   "text": "dari",
-   "start": 45.24,
-   "end": 45.48,
-   "f0": 1357,
-   "f1": 1364
+   "text": "setengah,",
+   "start": 45.78,
+   "end": 46.38,
+   "f0": 1373,
+   "f1": 1391
   },
   {
    "i": 84,
-   "text": "tembok.",
-   "start": 45.48,
-   "end": 45.8,
-   "f0": 1364,
-   "f1": 1374
+   "text": "jadi",
+   "start": 46.76,
+   "end": 47.02,
+   "f0": 1403,
+   "f1": 1411
   },
   {
    "i": 85,
-   "text": "Cahaya",
-   "start": 46.5,
-   "end": 46.94,
-   "f0": 1395,
-   "f1": 1408
-  },
-  {
-   "i": 86,
-   "text": "hijau",
-   "start": 46.94,
-   "end": 47.28,
-   "f0": 1408,
-   "f1": 1418
-  },
-  {
-   "i": 87,
-   "text": "itu",
-   "start": 47.28,
-   "end": 47.48,
-   "f0": 1418,
+   "text": "bulan",
+   "start": 47.02,
+   "end": 47.46,
+   "f0": 1411,
    "f1": 1424
   },
   {
-   "i": 88,
-   "text": "masuk",
-   "start": 47.48,
-   "end": 47.68,
+   "i": 86,
+   "text": "separuh.",
+   "start": 47.46,
+   "end": 48.02,
    "f0": 1424,
-   "f1": 1430
+   "f1": 1441
+  },
+  {
+   "i": 87,
+   "text": "Kalau",
+   "start": 48.56,
+   "end": 48.94,
+   "f0": 1457,
+   "f1": 1468
+  },
+  {
+   "i": 88,
+   "text": "semua",
+   "start": 48.94,
+   "end": 49.18,
+   "f0": 1468,
+   "f1": 1475
   },
   {
    "i": 89,
-   "text": "ke",
-   "start": 47.68,
-   "end": 47.84,
-   "f0": 1430,
-   "f1": 1435
+   "text": "bagian",
+   "start": 49.18,
+   "end": 49.72,
+   "f0": 1475,
+   "f1": 1492
   },
   {
    "i": 90,
-   "text": "mata",
-   "start": 47.84,
-   "end": 48.0,
-   "f0": 1435,
-   "f1": 1440
+   "text": "terangnya",
+   "start": 49.72,
+   "end": 50.18,
+   "f0": 1492,
+   "f1": 1505
   },
   {
    "i": 91,
-   "text": "kita.",
-   "start": 48.0,
-   "end": 48.3,
-   "f0": 1440,
-   "f1": 1449
+   "text": "menghadap",
+   "start": 50.18,
+   "end": 50.62,
+   "f0": 1505,
+   "f1": 1519
   },
   {
    "i": 92,
-   "text": "Makanya",
-   "start": 48.92,
-   "end": 49.22,
-   "f0": 1468,
-   "f1": 1477
+   "text": "kita,",
+   "start": 50.62,
+   "end": 50.98,
+   "f0": 1519,
+   "f1": 1529
   },
   {
    "i": 93,
-   "text": "daun",
-   "start": 49.22,
-   "end": 49.48,
-   "f0": 1477,
-   "f1": 1484
+   "text": "jadilah",
+   "start": 51.5,
+   "end": 52.04,
+   "f0": 1545,
+   "f1": 1561
   },
   {
    "i": 94,
-   "text": "terlihat",
-   "start": 49.48,
-   "end": 49.84,
-   "f0": 1484,
-   "f1": 1495
+   "text": "bulan",
+   "start": 52.04,
+   "end": 52.36,
+   "f0": 1561,
+   "f1": 1571
   },
   {
    "i": 95,
-   "text": "hijau!",
-   "start": 49.84,
-   "end": 50.24,
-   "f0": 1495,
-   "f1": 1507
-  },
-  {
-   "i": 96,
-   "text": "Keren",
-   "start": 50.84,
-   "end": 50.94,
-   "f0": 1525,
-   "f1": 1528
-  },
-  {
-   "i": 97,
-   "text": "banget",
-   "start": 50.94,
-   "end": 51.26,
-   "f0": 1528,
-   "f1": 1538
-  },
-  {
-   "i": 98,
-   "text": "kan?",
-   "start": 51.26,
-   "end": 51.42,
-   "f0": 1538,
-   "f1": 1543
-  },
-  {
-   "i": 99,
-   "text": "Coba",
-   "start": 52.14,
-   "end": 52.26,
-   "f0": 1564,
-   "f1": 1568
-  },
-  {
-   "i": 100,
-   "text": "lihat",
-   "start": 52.26,
-   "end": 52.52,
-   "f0": 1568,
-   "f1": 1576
-  },
-  {
-   "i": 101,
-   "text": "daun",
-   "start": 52.52,
+   "text": "purnama!",
+   "start": 52.36,
    "end": 52.8,
-   "f0": 1576,
+   "f0": 1571,
    "f1": 1584
   },
   {
+   "i": 96,
+   "text": "Jadi",
+   "start": 53.62,
+   "end": 53.98,
+   "f0": 1609,
+   "f1": 1619
+  },
+  {
+   "i": 97,
+   "text": "bulannya",
+   "start": 53.98,
+   "end": 54.66,
+   "f0": 1619,
+   "f1": 1640
+  },
+  {
+   "i": 98,
+   "text": "nggak",
+   "start": 54.66,
+   "end": 54.82,
+   "f0": 1640,
+   "f1": 1645
+  },
+  {
+   "i": 99,
+   "text": "berubah,",
+   "start": 54.82,
+   "end": 55.4,
+   "f0": 1645,
+   "f1": 1662
+  },
+  {
+   "i": 100,
+   "text": "cuma",
+   "start": 55.82,
+   "end": 56.0,
+   "f0": 1675,
+   "f1": 1680
+  },
+  {
+   "i": 101,
+   "text": "cara",
+   "start": 56.0,
+   "end": 56.2,
+   "f0": 1680,
+   "f1": 1686
+  },
+  {
    "i": 102,
-   "text": "di",
-   "start": 52.8,
-   "end": 52.88,
-   "f0": 1584,
-   "f1": 1586
+   "text": "kita",
+   "start": 56.2,
+   "end": 56.48,
+   "f0": 1686,
+   "f1": 1694
   },
   {
    "i": 103,
-   "text": "dekat",
-   "start": 52.88,
-   "end": 53.08,
-   "f0": 1586,
-   "f1": 1592
+   "text": "melihatnya.",
+   "start": 56.48,
+   "end": 57.1,
+   "f0": 1694,
+   "f1": 1713
   },
   {
    "i": 104,
-   "text": "rumahmu,",
-   "start": 53.08,
-   "end": 53.7,
-   "f0": 1592,
-   "f1": 1611
+   "text": "Keren",
+   "start": 57.1,
+   "end": 57.94,
+   "f0": 1713,
+   "f1": 1738
   },
   {
    "i": 105,
+   "text": "banget",
+   "start": 57.94,
+   "end": 58.28,
+   "f0": 1738,
+   "f1": 1748
+  },
+  {
+   "i": 106,
+   "text": "kan?",
+   "start": 58.28,
+   "end": 58.54,
+   "f0": 1748,
+   "f1": 1756
+  },
+  {
+   "i": 107,
+   "text": "Nanti",
+   "start": 59.12,
+   "end": 59.28,
+   "f0": 1774,
+   "f1": 1778
+  },
+  {
+   "i": 108,
+   "text": "malam,",
+   "start": 59.28,
+   "end": 59.72,
+   "f0": 1778,
+   "f1": 1792
+  },
+  {
+   "i": 109,
+   "text": "coba",
+   "start": 59.96,
+   "end": 60.16,
+   "f0": 1799,
+   "f1": 1805
+  },
+  {
+   "i": 110,
+   "text": "lihat",
+   "start": 60.16,
+   "end": 60.38,
+   "f0": 1805,
+   "f1": 1811
+  },
+  {
+   "i": 111,
+   "text": "bulan,",
+   "start": 60.38,
+   "end": 60.64,
+   "f0": 1811,
+   "f1": 1819
+  },
+  {
+   "i": 112,
    "text": "yuk!",
-   "start": 53.28,
-   "end": 53.7,
-   "f0": 1598,
-   "f1": 1611
+   "start": 60.64,
+   "end": 60.9,
+   "f0": 1819,
+   "f1": 1827
   }
  ],
  "phrases": [
@@ -860,215 +916,231 @@
    "w0": 0,
    "w1": 4,
    "f0": 0,
-   "f1": 59
+   "f1": 61
   },
   {
    "i": 1,
-   "text": "kenapa daun warnanya hijau?",
+   "text": "kenapa bentuk bulan suka berubah?",
    "w0": 5,
-   "w1": 8,
-   "f0": 59,
-   "f1": 131
+   "w1": 9,
+   "f0": 61,
+   "f1": 149
   },
   {
    "i": 2,
-   "text": "Bukan merah,",
-   "w0": 9,
-   "w1": 10,
-   "f0": 143,
-   "f1": 172
+   "text": "Kadang bulat penuh,",
+   "w0": 10,
+   "w1": 12,
+   "f0": 164,
+   "f1": 216
   },
   {
    "i": 3,
-   "text": "bukan biru,",
-   "w0": 11,
-   "w1": 12,
-   "f0": 182,
-   "f1": 203
+   "text": "kadang tipis seperti pisang!",
+   "w0": 13,
+   "w1": 16,
+   "f0": 229,
+   "f1": 289
   },
   {
    "i": 4,
-   "text": "tapi hijau!",
-   "w0": 13,
-   "w1": 14,
-   "f0": 211,
-   "f1": 238
+   "text": "Yuk,",
+   "w0": 17,
+   "w1": 17,
+   "f0": 312,
+   "f1": 316
   },
   {
    "i": 5,
-   "text": "Yuk,",
-   "w0": 15,
-   "w1": 15,
-   "f0": 252,
-   "f1": 261
+   "text": "kita cari tahu!",
+   "w0": 18,
+   "w1": 20,
+   "f0": 320,
+   "f1": 340
   },
   {
    "i": 6,
-   "text": "kita intip!",
-   "w0": 16,
-   "w1": 17,
-   "f0": 265,
-   "f1": 278
+   "text": "Bulan itu nggak punya cahaya sendiri.",
+   "w0": 21,
+   "w1": 26,
+   "f0": 367,
+   "f1": 437
   },
   {
    "i": 7,
-   "text": "Di dalam daun ada zat hijau bernama klorofil.",
-   "w0": 18,
-   "w1": 25,
-   "f0": 304,
-   "f1": 408
+   "text": "Bulan terang karena memantulkan cahaya matahari.",
+   "w0": 27,
+   "w1": 32,
+   "f0": 464,
+   "f1": 571
   },
   {
    "i": 8,
-   "text": "Klorofil itu seperti koki kecil di dapur daun.",
-   "w0": 26,
-   "w1": 33,
-   "f0": 422,
-   "f1": 515
+   "text": "Matahari selalu menyinari separuh bulan.",
+   "w0": 33,
+   "w1": 37,
+   "f0": 597,
+   "f1": 682
   },
   {
    "i": 9,
-   "text": "Tugasnya menangkap cahaya matahari.",
-   "w0": 34,
-   "w1": 37,
-   "f0": 532,
-   "f1": 584
+   "text": "Separuhnya lagi gelap.",
+   "w0": 38,
+   "w1": 40,
+   "f0": 698,
+   "f1": 730
   },
   {
    "i": 10,
-   "text": "Cahaya matahari kelihatan putih,",
-   "w0": 38,
-   "w1": 41,
-   "f0": 599,
-   "f1": 670
+   "text": "Coba bayangkan bola di dekat lampu.",
+   "w0": 41,
+   "w1": 46,
+   "f0": 754,
+   "f1": 816
   },
   {
    "i": 11,
-   "text": "padahal isinya banyak warna.",
-   "w0": 42,
-   "w1": 45,
-   "f0": 687,
-   "f1": 731
+   "text": "Sisi yang menghadap lampu jadi terang.",
+   "w0": 47,
+   "w1": 52,
+   "f0": 832,
+   "f1": 884
   },
   {
    "i": 12,
-   "text": "Ada merah,",
-   "w0": 46,
-   "w1": 47,
-   "f0": 751,
-   "f1": 777
+   "text": "Nah,",
+   "w0": 53,
+   "w1": 53,
+   "f0": 884,
+   "f1": 914
   },
   {
    "i": 13,
-   "text": "kuning,",
-   "w0": 48,
-   "w1": 48,
-   "f0": 790,
-   "f1": 802
+   "text": "bulan terus berjalan mengelilingi bumi.",
+   "w0": 54,
+   "w1": 58,
+   "f0": 931,
+   "f1": 999
   },
   {
    "i": 14,
-   "text": "hijau,",
-   "w0": 49,
-   "w1": 49,
-   "f0": 820,
-   "f1": 833
+   "text": "Satu putaran butuh kira-kira empat minggu.",
+   "w0": 59,
+   "w1": 64,
+   "f0": 1011,
+   "f1": 1087
   },
   {
    "i": 15,
-   "text": "sampai biru.",
-   "w0": 50,
-   "w1": 51,
-   "f0": 846,
-   "f1": 865
+   "text": "Sambil berjalan,",
+   "w0": 65,
+   "w1": 66,
+   "f0": 1103,
+   "f1": 1138
   },
   {
    "i": 16,
-   "text": "Klorofil suka sekali warna merah dan biru.",
-   "w0": 52,
-   "w1": 58,
-   "f0": 865,
-   "f1": 964
+   "text": "kita melihat bagian terangnya dari arah berbeda.",
+   "w0": 67,
+   "w1": 73,
+   "f0": 1153,
+   "f1": 1221
   },
   {
    "i": 17,
-   "text": "Warna itu dipakai untuk memasak makanan daun.",
-   "w0": 59,
-   "w1": 65,
-   "f0": 983,
-   "f1": 1072
+   "text": "Kalau terlihat sedikit,",
+   "w0": 74,
+   "w1": 76,
+   "f0": 1237,
+   "f1": 1276
   },
   {
    "i": 18,
-   "text": "Bahannya air dari akar dan udara.",
-   "w0": 66,
-   "w1": 71,
-   "f0": 1091,
-   "f1": 1175
+   "text": "bulan tampak seperti sabit.",
+   "w0": 77,
+   "w1": 80,
+   "f0": 1293,
+   "f1": 1339
   },
   {
    "i": 19,
-   "text": "Tapi warna hijau nggak terlalu disukai.",
-   "w0": 72,
-   "w1": 77,
-   "f0": 1195,
-   "f1": 1259
+   "text": "Kalau terlihat setengah,",
+   "w0": 81,
+   "w1": 83,
+   "f0": 1352,
+   "f1": 1391
   },
   {
    "i": 20,
-   "text": "Hijaunya dipantulkan,",
-   "w0": 78,
-   "w1": 79,
-   "f0": 1277,
-   "f1": 1309
+   "text": "jadi bulan separuh.",
+   "w0": 84,
+   "w1": 86,
+   "f0": 1403,
+   "f1": 1441
   },
   {
    "i": 21,
-   "text": "seperti bola memantul dari tembok.",
-   "w0": 80,
-   "w1": 84,
-   "f0": 1322,
-   "f1": 1374
+   "text": "Kalau semua bagian terangnya menghadap kita,",
+   "w0": 87,
+   "w1": 92,
+   "f0": 1457,
+   "f1": 1529
   },
   {
    "i": 22,
-   "text": "Cahaya hijau itu masuk ke mata kita.",
-   "w0": 85,
-   "w1": 91,
-   "f0": 1395,
-   "f1": 1449
+   "text": "jadilah bulan purnama!",
+   "w0": 93,
+   "w1": 95,
+   "f0": 1545,
+   "f1": 1584
   },
   {
    "i": 23,
-   "text": "Makanya daun terlihat hijau!",
-   "w0": 92,
-   "w1": 95,
-   "f0": 1468,
-   "f1": 1507
+   "text": "Jadi bulannya nggak berubah,",
+   "w0": 96,
+   "w1": 99,
+   "f0": 1609,
+   "f1": 1662
   },
   {
    "i": 24,
-   "text": "Keren banget kan?",
-   "w0": 96,
-   "w1": 98,
-   "f0": 1525,
-   "f1": 1543
+   "text": "cuma cara kita melihatnya.",
+   "w0": 100,
+   "w1": 103,
+   "f0": 1675,
+   "f1": 1713
   },
   {
    "i": 25,
-   "text": "Coba lihat daun di dekat rumahmu,",
-   "w0": 99,
-   "w1": 104,
-   "f0": 1564,
-   "f1": 1611
+   "text": "Keren banget kan?",
+   "w0": 104,
+   "w1": 106,
+   "f0": 1713,
+   "f1": 1756
   },
   {
    "i": 26,
+   "text": "Nanti malam,",
+   "w0": 107,
+   "w1": 108,
+   "f0": 1774,
+   "f1": 1792
+  },
+  {
+   "i": 27,
+   "text": "coba lihat bulan,",
+   "w0": 109,
+   "w1": 111,
+   "f0": 1799,
+   "f1": 1819
+  },
+  {
+   "i": 28,
    "text": "yuk!",
-   "w0": 105,
-   "w1": 105,
-   "f0": 1598,
-   "f1": 1611
+   "w0": 112,
+   "w1": 112,
+   "f0": 1819,
+   "f1": 1827
   }
  ],
  "chunks": [
@@ -1077,423 +1149,405 @@
    "w0": 0,
    "w1": 2,
    "start": 0.0,
-   "end": 0.7,
+   "end": 1.1,
    "f0": 0,
-   "f1": 21
+   "f1": 33
   },
   {
    "text": "kamu mikir",
    "w0": 3,
    "w1": 4,
-   "start": 0.7,
-   "end": 1.96,
-   "f0": 21,
-   "f1": 59
+   "start": 1.1,
+   "end": 2.02,
+   "f0": 33,
+   "f1": 61
   },
   {
-   "text": "kenapa daun",
+   "text": "kenapa bentuk bulan",
    "w0": 5,
-   "w1": 6,
-   "start": 1.96,
-   "end": 3.42,
-   "f0": 59,
-   "f1": 103
+   "w1": 7,
+   "start": 2.02,
+   "end": 4.24,
+   "f0": 61,
+   "f1": 127
   },
   {
-   "text": "warnanya hijau?",
-   "w0": 7,
-   "w1": 8,
-   "start": 3.42,
-   "end": 4.58,
-   "f0": 103,
-   "f1": 137
+   "text": "suka berubah?",
+   "w0": 8,
+   "w1": 9,
+   "start": 4.24,
+   "end": 5.16,
+   "f0": 127,
+   "f1": 155
   },
   {
-   "text": "Bukan merah",
-   "w0": 9,
-   "w1": 10,
-   "start": 4.78,
-   "end": 6.06,
-   "f0": 143,
-   "f1": 182
-  },
-  {
-   "text": "bukan biru",
-   "w0": 11,
+   "text": "Kadang bulat penuh",
+   "w0": 10,
    "w1": 12,
-   "start": 6.06,
-   "end": 7.04,
-   "f0": 182,
-   "f1": 211
+   "start": 5.46,
+   "end": 7.4,
+   "f0": 164,
+   "f1": 222
   },
   {
-   "text": "tapi hijau!",
+   "text": "kadang tipis",
    "w0": 13,
    "w1": 14,
-   "start": 7.04,
-   "end": 8.12,
-   "f0": 211,
-   "f1": 244
+   "start": 7.62,
+   "end": 8.8,
+   "f0": 229,
+   "f1": 264
+  },
+  {
+   "text": "seperti pisang!",
+   "w0": 15,
+   "w1": 16,
+   "start": 8.8,
+   "end": 9.82,
+   "f0": 264,
+   "f1": 295
   },
   {
    "text": "Yuk",
-   "w0": 15,
-   "w1": 15,
-   "start": 8.4,
-   "end": 8.84,
-   "f0": 252,
-   "f1": 265
-  },
-  {
-   "text": "kita intip!",
-   "w0": 16,
+   "w0": 17,
    "w1": 17,
-   "start": 8.84,
-   "end": 9.48,
-   "f0": 265,
-   "f1": 284
+   "start": 10.4,
+   "end": 10.68,
+   "f0": 312,
+   "f1": 320
   },
   {
-   "text": "Di dalam daun",
+   "text": "kita cari tahu!",
    "w0": 18,
    "w1": 20,
-   "start": 10.14,
-   "end": 10.96,
-   "f0": 304,
-   "f1": 329
+   "start": 10.68,
+   "end": 11.52,
+   "f0": 320,
+   "f1": 346
   },
   {
-   "text": "ada zat hijau",
+   "text": "Bulan itu nggak",
    "w0": 21,
    "w1": 23,
-   "start": 10.96,
-   "end": 12.32,
-   "f0": 329,
-   "f1": 370
+   "start": 12.24,
+   "end": 13.26,
+   "f0": 367,
+   "f1": 398
   },
   {
-   "text": "bernama klorofil",
+   "text": "punya cahaya sendiri",
    "w0": 24,
-   "w1": 25,
-   "start": 12.32,
-   "end": 13.8,
-   "f0": 370,
-   "f1": 414
+   "w1": 26,
+   "start": 13.26,
+   "end": 14.78,
+   "f0": 398,
+   "f1": 443
   },
   {
-   "text": "Klorofil itu seperti",
-   "w0": 26,
-   "w1": 28,
-   "start": 14.08,
-   "end": 15.6,
-   "f0": 422,
-   "f1": 468
+   "text": "Bulan terang karena",
+   "w0": 27,
+   "w1": 29,
+   "start": 15.48,
+   "end": 17.1,
+   "f0": 464,
+   "f1": 513
   },
   {
-   "text": "koki kecil di",
-   "w0": 29,
-   "w1": 31,
-   "start": 15.6,
-   "end": 16.6,
-   "f0": 468,
-   "f1": 498
+   "text": "memantulkan cahaya matahari",
+   "w0": 30,
+   "w1": 32,
+   "start": 17.1,
+   "end": 19.24,
+   "f0": 513,
+   "f1": 577
   },
   {
-   "text": "dapur daun",
-   "w0": 32,
-   "w1": 33,
-   "start": 16.6,
-   "end": 17.38,
-   "f0": 498,
-   "f1": 521
-  },
-  {
-   "text": "Tugasnya menangkap",
-   "w0": 34,
+   "text": "Matahari selalu menyinari",
+   "w0": 33,
    "w1": 35,
-   "start": 17.72,
-   "end": 18.56,
-   "f0": 532,
-   "f1": 557
+   "start": 19.9,
+   "end": 21.88,
+   "f0": 597,
+   "f1": 656
   },
   {
-   "text": "cahaya matahari",
+   "text": "separuh bulan",
    "w0": 36,
    "w1": 37,
-   "start": 18.56,
-   "end": 19.68,
-   "f0": 557,
-   "f1": 590
+   "start": 21.88,
+   "end": 22.92,
+   "f0": 656,
+   "f1": 688
   },
   {
-   "text": "Cahaya matahari",
+   "text": "Separuhnya lagi gelap",
    "w0": 38,
-   "w1": 39,
-   "start": 19.98,
-   "end": 21.24,
-   "f0": 599,
-   "f1": 637
+   "w1": 40,
+   "start": 23.28,
+   "end": 24.54,
+   "f0": 698,
+   "f1": 736
   },
   {
-   "text": "kelihatan putih",
-   "w0": 40,
-   "w1": 41,
-   "start": 21.24,
-   "end": 22.54,
-   "f0": 637,
-   "f1": 676
-  },
-  {
-   "text": "padahal isinya",
-   "w0": 42,
+   "text": "Coba bayangkan bola",
+   "w0": 41,
    "w1": 43,
-   "start": 22.9,
-   "end": 23.66,
-   "f0": 687,
-   "f1": 710
+   "start": 25.12,
+   "end": 26.36,
+   "f0": 754,
+   "f1": 791
   },
   {
-   "text": "banyak warna",
+   "text": "di dekat lampu",
    "w0": 44,
-   "w1": 45,
-   "start": 23.66,
-   "end": 24.58,
-   "f0": 710,
-   "f1": 737
+   "w1": 46,
+   "start": 26.36,
+   "end": 27.4,
+   "f0": 791,
+   "f1": 822
   },
   {
-   "text": "Ada merah",
-   "w0": 46,
-   "w1": 47,
-   "start": 25.02,
-   "end": 26.1,
-   "f0": 751,
-   "f1": 783
-  },
-  {
-   "text": "kuning",
-   "w0": 48,
-   "w1": 48,
-   "start": 26.34,
-   "end": 26.94,
-   "f0": 790,
-   "f1": 808
-  },
-  {
-   "text": "hijau",
-   "w0": 49,
+   "text": "Sisi yang menghadap",
+   "w0": 47,
    "w1": 49,
-   "start": 27.32,
-   "end": 27.98,
-   "f0": 820,
-   "f1": 839
+   "start": 27.74,
+   "end": 28.64,
+   "f0": 832,
+   "f1": 859
   },
   {
-   "text": "sampai biru",
+   "text": "lampu jadi terang",
    "w0": 50,
-   "w1": 51,
-   "start": 28.2,
-   "end": 28.84,
-   "f0": 846,
-   "f1": 865
+   "w1": 52,
+   "start": 28.64,
+   "end": 29.46,
+   "f0": 859,
+   "f1": 884
   },
   {
-   "text": "Klorofil suka sekali",
-   "w0": 52,
-   "w1": 54,
-   "start": 28.84,
-   "end": 30.98,
-   "f0": 865,
-   "f1": 929
+   "text": "Nah",
+   "w0": 53,
+   "w1": 53,
+   "start": 29.46,
+   "end": 30.66,
+   "f0": 884,
+   "f1": 920
   },
   {
-   "text": "warna merah",
-   "w0": 55,
+   "text": "bulan terus berjalan",
+   "w0": 54,
    "w1": 56,
-   "start": 30.98,
-   "end": 31.58,
-   "f0": 929,
-   "f1": 947
-  },
-  {
-   "text": "dan biru",
-   "w0": 57,
-   "w1": 58,
-   "start": 31.58,
+   "start": 31.02,
    "end": 32.32,
-   "f0": 947,
+   "f0": 931,
    "f1": 970
   },
   {
-   "text": "Warna itu dipakai",
-   "w0": 59,
-   "w1": 61,
-   "start": 32.78,
-   "end": 34.4,
-   "f0": 983,
-   "f1": 1032
+   "text": "mengelilingi bumi",
+   "w0": 57,
+   "w1": 58,
+   "start": 32.32,
+   "end": 33.5,
+   "f0": 970,
+   "f1": 1005
   },
   {
-   "text": "untuk memasak",
-   "w0": 62,
-   "w1": 63,
-   "start": 34.4,
+   "text": "Satu putaran butuh",
+   "w0": 59,
+   "w1": 61,
+   "start": 33.7,
    "end": 35.0,
-   "f0": 1032,
+   "f0": 1011,
    "f1": 1050
   },
   {
-   "text": "makanan daun",
-   "w0": 64,
-   "w1": 65,
+   "text": "kira-kira empat minggu",
+   "w0": 62,
+   "w1": 64,
    "start": 35.0,
-   "end": 35.92,
+   "end": 36.44,
    "f0": 1050,
-   "f1": 1078
+   "f1": 1093
   },
   {
-   "text": "Bahannya air dari",
-   "w0": 66,
-   "w1": 68,
-   "start": 36.36,
-   "end": 37.74,
-   "f0": 1091,
-   "f1": 1132
+   "text": "Sambil berjalan",
+   "w0": 65,
+   "w1": 66,
+   "start": 36.76,
+   "end": 38.12,
+   "f0": 1103,
+   "f1": 1144
   },
   {
-   "text": "akar dan udara",
-   "w0": 69,
+   "text": "kita melihat bagian",
+   "w0": 67,
+   "w1": 69,
+   "start": 38.42,
+   "end": 39.28,
+   "f0": 1153,
+   "f1": 1178
+  },
+  {
+   "text": "terangnya dari",
+   "w0": 70,
    "w1": 71,
-   "start": 37.74,
-   "end": 39.36,
-   "f0": 1132,
-   "f1": 1181
+   "start": 39.28,
+   "end": 39.82,
+   "f0": 1178,
+   "f1": 1195
   },
   {
-   "text": "Tapi warna hijau",
+   "text": "arah berbeda",
    "w0": 72,
-   "w1": 74,
+   "w1": 73,
    "start": 39.82,
-   "end": 40.86,
+   "end": 40.9,
    "f0": 1195,
-   "f1": 1226
+   "f1": 1227
   },
   {
-   "text": "nggak terlalu disukai",
-   "w0": 75,
-   "w1": 77,
-   "start": 40.86,
-   "end": 42.16,
-   "f0": 1226,
-   "f1": 1265
+   "text": "Kalau terlihat sedikit",
+   "w0": 74,
+   "w1": 76,
+   "start": 41.22,
+   "end": 42.74,
+   "f0": 1237,
+   "f1": 1282
   },
   {
-   "text": "Hijaunya dipantulkan",
-   "w0": 78,
-   "w1": 79,
-   "start": 42.56,
-   "end": 43.82,
-   "f0": 1277,
-   "f1": 1315
+   "text": "bulan tampak",
+   "w0": 77,
+   "w1": 78,
+   "start": 43.1,
+   "end": 43.66,
+   "f0": 1293,
+   "f1": 1310
   },
   {
-   "text": "seperti bola memantul",
-   "w0": 80,
-   "w1": 82,
-   "start": 44.06,
-   "end": 45.24,
-   "f0": 1322,
-   "f1": 1357
+   "text": "seperti sabit",
+   "w0": 79,
+   "w1": 80,
+   "start": 43.66,
+   "end": 44.82,
+   "f0": 1310,
+   "f1": 1345
   },
   {
-   "text": "dari tembok",
-   "w0": 83,
-   "w1": 84,
-   "start": 45.24,
-   "end": 46.0,
-   "f0": 1357,
-   "f1": 1380
+   "text": "Kalau terlihat setengah",
+   "w0": 81,
+   "w1": 83,
+   "start": 45.06,
+   "end": 46.58,
+   "f0": 1352,
+   "f1": 1397
   },
   {
-   "text": "Cahaya hijau itu",
-   "w0": 85,
-   "w1": 87,
-   "start": 46.5,
-   "end": 47.48,
-   "f0": 1395,
-   "f1": 1424
+   "text": "jadi bulan separuh",
+   "w0": 84,
+   "w1": 86,
+   "start": 46.76,
+   "end": 48.22,
+   "f0": 1403,
+   "f1": 1447
   },
   {
-   "text": "masuk ke",
-   "w0": 88,
+   "text": "Kalau semua bagian",
+   "w0": 87,
    "w1": 89,
-   "start": 47.48,
-   "end": 47.84,
-   "f0": 1424,
-   "f1": 1435
+   "start": 48.56,
+   "end": 49.72,
+   "f0": 1457,
+   "f1": 1492
   },
   {
-   "text": "mata kita",
+   "text": "terangnya menghadap kita",
    "w0": 90,
-   "w1": 91,
-   "start": 47.84,
-   "end": 48.5,
-   "f0": 1435,
-   "f1": 1455
+   "w1": 92,
+   "start": 49.72,
+   "end": 51.18,
+   "f0": 1492,
+   "f1": 1535
   },
   {
-   "text": "Makanya daun",
-   "w0": 92,
-   "w1": 93,
-   "start": 48.92,
-   "end": 49.48,
-   "f0": 1468,
-   "f1": 1484
-  },
-  {
-   "text": "terlihat hijau!",
-   "w0": 94,
+   "text": "jadilah bulan purnama!",
+   "w0": 93,
    "w1": 95,
-   "start": 49.48,
-   "end": 50.44,
-   "f0": 1484,
-   "f1": 1513
+   "start": 51.5,
+   "end": 53.0,
+   "f0": 1545,
+   "f1": 1590
+  },
+  {
+   "text": "Jadi bulannya",
+   "w0": 96,
+   "w1": 97,
+   "start": 53.62,
+   "end": 54.66,
+   "f0": 1609,
+   "f1": 1640
+  },
+  {
+   "text": "nggak berubah",
+   "w0": 98,
+   "w1": 99,
+   "start": 54.66,
+   "end": 55.6,
+   "f0": 1640,
+   "f1": 1668
+  },
+  {
+   "text": "cuma cara",
+   "w0": 100,
+   "w1": 101,
+   "start": 55.82,
+   "end": 56.2,
+   "f0": 1675,
+   "f1": 1686
+  },
+  {
+   "text": "kita melihatnya",
+   "w0": 102,
+   "w1": 103,
+   "start": 56.2,
+   "end": 57.1,
+   "f0": 1686,
+   "f1": 1713
   },
   {
    "text": "Keren banget kan?",
-   "w0": 96,
-   "w1": 98,
-   "start": 50.84,
-   "end": 51.62,
-   "f0": 1525,
-   "f1": 1549
+   "w0": 104,
+   "w1": 106,
+   "start": 57.1,
+   "end": 58.74,
+   "f0": 1713,
+   "f1": 1762
   },
   {
-   "text": "Coba lihat daun",
-   "w0": 99,
-   "w1": 101,
-   "start": 52.14,
-   "end": 52.8,
-   "f0": 1564,
-   "f1": 1584
+   "text": "Nanti malam",
+   "w0": 107,
+   "w1": 108,
+   "start": 59.12,
+   "end": 59.96,
+   "f0": 1774,
+   "f1": 1799
   },
   {
-   "text": "di dekat rumahmu",
-   "w0": 102,
-   "w1": 104,
-   "start": 52.8,
-   "end": 53.28,
-   "f0": 1584,
-   "f1": 1598
+   "text": "coba lihat bulan",
+   "w0": 109,
+   "w1": 111,
+   "start": 59.96,
+   "end": 60.64,
+   "f0": 1799,
+   "f1": 1819
   },
   {
    "text": "yuk!",
-   "w0": 105,
-   "w1": 105,
-   "start": 53.28,
-   "end": 53.9,
-   "f0": 1598,
-   "f1": 1617
+   "w0": 112,
+   "w1": 112,
+   "start": 60.64,
+   "end": 61.1,
+   "f0": 1819,
+   "f1": 1833
   }
  ]
 }
